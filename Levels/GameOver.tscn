@@ -1,0 +1,145 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" type="Texture" id=1]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Big Clouds.png" type="Texture" id=2]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 04.png" type="Texture" id=3]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Medium 04.png" type="Texture" id=4]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 03.png" type="Texture" id=5]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Small 02.png" type="Texture" id=6]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Medium 03.png" type="Texture" id=7]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Small 04.png" type="Texture" id=8]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Medium 02.png" type="Texture" id=9]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 2.png" type="Texture" id=10]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 01.png" type="Texture" id=11]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 02.png" type="Texture" id=12]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 1.png" type="Texture" id=13]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Small 01.png" type="Texture" id=14]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Medium 01.png" type="Texture" id=15]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Small 03.png" type="Texture" id=16]
+[ext_resource path="res://Levels/GameOver.gd" type="Script" id=17]
+[ext_resource path="res://Treasure Hunters/Wood and Paper UI/Sprites/Big Text/7.png" type="Texture" id=18]
+[ext_resource path="res://Treasure Hunters/Wood and Paper UI/Sprites/Big Text/1.png" type="Texture" id=19]
+[ext_resource path="res://Treasure Hunters/Wood and Paper UI/Sprites/Big Text/18.png" type="Texture" id=20]
+[ext_resource path="res://Treasure Hunters/Wood and Paper UI/Sprites/Big Text/13.png" type="Texture" id=21]
+[ext_resource path="res://Treasure Hunters/Wood and Paper UI/Sprites/Big Text/5.png" type="Texture" id=22]
+[ext_resource path="res://Treasure Hunters/Wood and Paper UI/Sprites/Big Text/15.png" type="Texture" id=23]
+[ext_resource path="res://Treasure Hunters/Wood and Paper UI/Sprites/Big Text/22.png" type="Texture" id=24]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 5 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 15 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 6 ), ExtResource( 16 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="GameOverScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 369.751, 445.836 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 1 )
+frame = 2
+playing = true
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+position = Vector2( 861.739, 468.682 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 2 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="."]
+position = Vector2( 542.728, 520.075 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 564.783, 251.88 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 378.228, 156.801 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 13 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 671.7, 56.1516 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 10 )
+
+[node name="GameOverText" type="Node" parent="."]
+
+[node name="7" type="Sprite" parent="GameOverText"]
+position = Vector2( 373.018, 215 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 18 )
+
+[node name="1" type="Sprite" parent="GameOverText"]
+position = Vector2( 405.224, 215 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 19 )
+
+[node name="13" type="Sprite" parent="GameOverText"]
+position = Vector2( 437.43, 215 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 21 )
+
+[node name="5" type="Sprite" parent="GameOverText"]
+position = Vector2( 469.506, 215 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 22 )
+
+[node name="15" type="Sprite" parent="GameOverText"]
+position = Vector2( 525.998, 215 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 23 )
+
+[node name="22" type="Sprite" parent="GameOverText"]
+position = Vector2( 556.945, 215 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 24 )
+
+[node name="6" type="Sprite" parent="GameOverText"]
+position = Vector2( 589.021, 215 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 22 )
+
+[node name="18" type="Sprite" parent="GameOverText"]
+position = Vector2( 621.972, 215 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 20 )

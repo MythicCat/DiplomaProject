@@ -1,0 +1,229 @@
+[gd_scene load_steps=55 format=2]
+
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 04.png" type="Texture" id=1]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/11-Jump Sword/Jump Sword 03.png" type="Texture" id=2]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/11-Jump Sword/Jump Sword 01.png" type="Texture" id=3]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 05.png" type="Texture" id=4]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/11-Jump Sword/Jump Sword 02.png" type="Texture" id=5]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/12-Fall Sword/Fall Sword 01.png" type="Texture" id=6]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 01.png" type="Texture" id=7]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 02.png" type="Texture" id=8]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 03.png" type="Texture" id=9]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 04.png" type="Texture" id=10]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 05.png" type="Texture" id=11]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 06.png" type="Texture" id=12]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 01.png" type="Texture" id=13]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 02.png" type="Texture" id=14]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 03.png" type="Texture" id=15]
+[ext_resource path="res://Entity/Player.gd" type="Script" id=16]
+[ext_resource path="res://GameLogic/Attack.gd" type="Script" id=17]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/14-Hit Sword/Hit Sword 02.png" type="Texture" id=18]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/14-Hit Sword/Hit Sword 03.png" type="Texture" id=19]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/14-Hit Sword/Hit Sword 01.png" type="Texture" id=20]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/14-Hit Sword/Hit Sword 04.png" type="Texture" id=21]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/15-Attack 1/Attack 1 01.png" type="Texture" id=22]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/15-Attack 1/Attack 1 03.png" type="Texture" id=23]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/17-Attack 3/Attack 3 02.png" type="Texture" id=24]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/16-Attack 2/Attack 2 01.png" type="Texture" id=25]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/17-Attack 3/Attack 3 03.png" type="Texture" id=26]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/15-Attack 1/Attack 1 02.png" type="Texture" id=27]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/16-Attack 2/Attack 2 03.png" type="Texture" id=28]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/16-Attack 2/Attack 2 02.png" type="Texture" id=29]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/17-Attack 3/Attack 3 01.png" type="Texture" id=30]
+[ext_resource path="res://Treasure Hunters/Wood and Paper UI/Sprites/Mobile Buttons/Mobile Buttons/2.png" type="Texture" id=31]
+[ext_resource path="res://Treasure Hunters/Wood and Paper UI/Sprites/Mobile Buttons/Mobile Buttons/5.png" type="Texture" id=32]
+[ext_resource path="res://Treasure Hunters/Wood and Paper UI/Sprites/Mobile Buttons/Mobile Buttons/3.png" type="Texture" id=33]
+[ext_resource path="res://Treasure Hunters/Wood and Paper UI/Sprites/Mobile Buttons/Mobile Buttons/4.png" type="Texture" id=34]
+[ext_resource path="res://Treasure Hunters/Wood and Paper UI/Sprites/Mobile Buttons/Mobile Buttons/3pressed.png" type="Texture" id=35]
+[ext_resource path="res://Treasure Hunters/Wood and Paper UI/Sprites/Mobile Buttons/Mobile Buttons/4pressed.png" type="Texture" id=36]
+[ext_resource path="res://Treasure Hunters/Wood and Paper UI/Sprites/Mobile Buttons/Mobile Buttons/2pressed.png" type="Texture" id=37]
+[ext_resource path="res://Treasure Hunters/Wood and Paper UI/Sprites/Mobile Buttons/Mobile Buttons/5pressed.png" type="Texture" id=38]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/13-Ground Sword/Ground Sword 01.png" type="Texture" id=39]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/13-Ground Sword/Ground Sword 02.png" type="Texture" id=40]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 01.png" type="Texture" id=41]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 02.png" type="Texture" id=42]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/07-Dead Hit/Dead Hit 04.png" type="Texture" id=43]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/07-Dead Hit/Dead Hit 03.png" type="Texture" id=44]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/07-Dead Hit/Dead Hit 02.png" type="Texture" id=45]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 04.png" type="Texture" id=46]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/07-Dead Hit/Dead Hit 01.png" type="Texture" id=47]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 03.png" type="Texture" id=48]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 30 ), ExtResource( 24 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "attack3",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "jump_sword",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 27 ), ExtResource( 23 ) ],
+"loop": false,
+"name": "attack1",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 41 ), ExtResource( 42 ), ExtResource( 48 ), ExtResource( 46 ) ],
+"loop": false,
+"name": "dead",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "fall_sword",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "hurt_sword",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 29 ), ExtResource( 28 ) ],
+"loop": false,
+"name": "attack2",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 39 ), ExtResource( 40 ) ],
+"loop": false,
+"name": "land_sword",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "run_sword",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 47 ), ExtResource( 45 ), ExtResource( 44 ), ExtResource( 43 ) ],
+"loop": false,
+"name": "hurt_dead",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 1 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "idle_sword",
+"speed": 10.0
+} ]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends AnimatedSprite
+
+func _on_Player_animate(motion, on_floor, isDead):
+	if !on_floor:
+		if motion.y < 0:
+			play(\"jump\" + PlayerVariables.animation_affix)
+		elif motion.y > 0:
+			play(\"fall\" + PlayerVariables.animation_affix)
+	elif abs(motion.x) > 0.1:
+		play(\"run\" + PlayerVariables.animation_affix)
+	else:
+		play(\"idle\" + PlayerVariables.animation_affix)
+		
+	if isDead:
+		play(\"dead\")
+"
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 10.3806
+height = 7.43553
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 11.6983, 3.96999 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 11.6184, 12.1326 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 11.7019, 16.3874 )
+
+[node name="Player" type="KinematicBody2D"]
+collision_mask = 95
+script = ExtResource( 16 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "idle_sword"
+script = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.166855, -2.00226 )
+shape = SubResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0, -16 )
+current = true
+zoom = Vector2( 0.45, 0.45 )
+smoothing_enabled = true
+smoothing_speed = 3.0
+
+[node name="AttackArea1" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 16
+script = ExtResource( 17 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea1"]
+position = Vector2( 24.0306, 4.04617 )
+shape = SubResource( 4 )
+disabled = true
+
+[node name="AttackArea2" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 16
+script = ExtResource( 17 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea2"]
+position = Vector2( 24.1105, 6.59077 )
+shape = SubResource( 5 )
+disabled = true
+
+[node name="AttackArea3" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 16
+script = ExtResource( 17 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea3"]
+position = Vector2( 24.1105, -2.16911 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Left" type="TouchScreenButton" parent="UI"]
+position = Vector2( 64, 480 )
+scale = Vector2( 3, 3 )
+normal = ExtResource( 33 )
+pressed = ExtResource( 35 )
+action = "left"
+visibility_mode = 1
+
+[node name="Right" type="TouchScreenButton" parent="UI"]
+position = Vector2( 192, 480 )
+scale = Vector2( 3, 3 )
+normal = ExtResource( 34 )
+pressed = ExtResource( 36 )
+action = "right"
+visibility_mode = 1
+
+[node name="Jump" type="TouchScreenButton" parent="UI"]
+position = Vector2( 880, 480 )
+scale = Vector2( 3, 3 )
+normal = ExtResource( 31 )
+pressed = ExtResource( 37 )
+action = "jump"
+visibility_mode = 1
+
+[node name="Attack" type="TouchScreenButton" parent="UI"]
+position = Vector2( 880, 352 )
+scale = Vector2( 3, 3 )
+normal = ExtResource( 32 )
+pressed = ExtResource( 38 )
+action = "attack"
+visibility_mode = 1
+
+[connection signal="animate" from="." to="AnimatedSprite" method="_on_Player_animate"]
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="body_entered" from="AttackArea1" to="AttackArea1" method="_on_AttackArea_body_entered"]
+[connection signal="body_entered" from="AttackArea2" to="AttackArea2" method="_on_AttackArea_body_entered"]
+[connection signal="body_entered" from="AttackArea3" to="AttackArea3" method="_on_AttackArea_body_entered"]

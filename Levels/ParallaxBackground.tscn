@@ -1,0 +1,125 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" type="Texture" id=1]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Medium 03.png" type="Texture" id=2]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Medium 04.png" type="Texture" id=3]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Small 02.png" type="Texture" id=4]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Small 03.png" type="Texture" id=5]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Small 01.png" type="Texture" id=6]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Small 04.png" type="Texture" id=7]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 04.png" type="Texture" id=8]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Medium 02.png" type="Texture" id=9]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 01.png" type="Texture" id=10]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 02.png" type="Texture" id=11]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Medium 01.png" type="Texture" id=12]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 03.png" type="Texture" id=13]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 2.png" type="Texture" id=14]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 1.png" type="Texture" id=15]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 3.png" type="Texture" id=16]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Big Clouds.png" type="Texture" id=17]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=4]
+resource_name = "CloudDrift"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="Sky" type="ParallaxLayer" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Sky"]
+texture = ExtResource( 1 )
+
+[node name="Water" type="ParallaxLayer" parent="."]
+
+[node name="BigReflection" type="AnimatedSprite" parent="Water"]
+position = Vector2( -78.5724, 32.832 )
+frames = SubResource( 1 )
+frame = 3
+playing = true
+
+[node name="BigReflection2" type="AnimatedSprite" parent="Water"]
+position = Vector2( 91.4806, 47.424 )
+frames = SubResource( 1 )
+frame = 3
+playing = true
+
+[node name="MediumReflection" type="AnimatedSprite" parent="Water"]
+position = Vector2( -129.364, 53.0363 )
+frames = SubResource( 2 )
+frame = 1
+playing = true
+
+[node name="MediumReflection2" type="AnimatedSprite" parent="Water"]
+position = Vector2( 136.66, 27.2197 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="SmallReflection" type="AnimatedSprite" parent="Water"]
+position = Vector2( -28.0615, 48.2659 )
+frames = SubResource( 3 )
+frame = 2
+playing = true
+
+[node name="SmallReflection2" type="AnimatedSprite" parent="Water"]
+position = Vector2( 44.8985, 31.4289 )
+frames = SubResource( 3 )
+frame = 2
+playing = true
+
+[node name="Clouds" type="ParallaxLayer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Clouds"]
+anims/CloudDrift = SubResource( 4 )
+
+[node name="Sprite4" type="Sprite" parent="Clouds"]
+visible = false
+position = Vector2( 4.08266, -13.3937 )
+scale = Vector2( 1, 0.7 )
+texture = ExtResource( 17 )
+
+[node name="Sprite" type="Sprite" parent="Clouds"]
+position = Vector2( 100.971, -46.1624 )
+texture = ExtResource( 15 )
+
+[node name="Sprite2" type="Sprite" parent="Clouds"]
+position = Vector2( -114.459, -28.2718 )
+texture = ExtResource( 14 )
+
+[node name="Sprite3" type="Sprite" parent="Clouds"]
+position = Vector2( 53.0078, -2.18247 )
+texture = ExtResource( 16 )
