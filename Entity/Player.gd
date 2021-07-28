@@ -1,3 +1,4 @@
+class_name Player
 extends KinematicBody2D
 
 
@@ -15,10 +16,11 @@ var motion = Vector2(0,0)
 var attackNum = 1
 var isAttacking = false
 var isHurt = false
-var hasSword = true
+var animAffix = "_sword"
 var isDead = false
 
 onready var animated_sprite = $AnimatedSprite
+onready var SwordThrow = $AnimatedSprite/ThrowPoint
 
 signal animate
 
@@ -28,6 +30,7 @@ func _physics_process(delta): # delta is the time difference between frames, mul
 	move(delta)
 	jump(delta)
 	attack()
+	throwSword()
 	apply_gravity(delta)
 	move_and_slide(motion, UP)
 	animate()
@@ -54,7 +57,7 @@ func jump(delta):
 
 
 func attack():
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") and animAffix == "_sword":
 		isAttacking = true
 		
 		#get correct attack Area2D box and enable it
@@ -93,13 +96,12 @@ func move(delta):
 		motion.x = 0	
 
 
-func animate():
-	
+func animate():	
 	
 	if isAttacking or isHurt:
 		return
 		
-	emit_signal("animate", motion, is_on_floor(), isDead)
+	emit_signal("animate", motion, is_on_floor(), isDead, animAffix)
 	
 	
 func hurt(enemyPosition : Vector2):
@@ -117,7 +119,7 @@ func hurt(enemyPosition : Vector2):
 		isDead = true
 	
 	if not isDead:
-		animated_sprite.play("hurt" + PlayerVariables.animation_affix)
+		animated_sprite.play("hurt" + animAffix)
 	else:
 		animated_sprite.play("hurt_dead")
 		
@@ -127,6 +129,15 @@ func hurt(enemyPosition : Vector2):
 		motion = Vector2( KNOCKBACK, -JUMP_SPEED)
 
 	#$HurtSFX.play()
+	
+func heal(heal_type):
+	if heal_type == "sword":
+		animAffix = "_sword"
+
+func throwSword():
+	if Input.is_action_just_pressed("throw") and animAffix == "_sword":
+		SwordThrow.throw(animated_sprite.flip_h)
+		animAffix = ""
 
 
 func _on_AnimatedSprite_animation_finished():

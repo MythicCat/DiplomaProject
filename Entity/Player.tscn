@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=75 format=2]
 
 [ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 04.png" type="Texture" id=1]
 [ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/11-Jump Sword/Jump Sword 03.png" type="Texture" id=2]
@@ -48,17 +48,47 @@
 [ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 04.png" type="Texture" id=46]
 [ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/07-Dead Hit/Dead Hit 01.png" type="Texture" id=47]
 [ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 03.png" type="Texture" id=48]
+[ext_resource path="res://Entity/ThrowPoint.gd" type="Script" id=49]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" type="Texture" id=50]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 02.png" type="Texture" id=51]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 04.png" type="Texture" id=52]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 05.png" type="Texture" id=53]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 03.png" type="Texture" id=54]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 06.png" type="Texture" id=55]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/03-Jump/Jump 02.png" type="Texture" id=56]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 02.png" type="Texture" id=57]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/03-Jump/Jump 03.png" type="Texture" id=58]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 01.png" type="Texture" id=59]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 01.png" type="Texture" id=60]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 02.png" type="Texture" id=61]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 04.png" type="Texture" id=62]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/04-Fall/Fall 01.png" type="Texture" id=63]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 05.png" type="Texture" id=64]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 04.png" type="Texture" id=65]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 03.png" type="Texture" id=66]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/03-Jump/Jump 01.png" type="Texture" id=67]
+[ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 03.png" type="Texture" id=68]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 50 ), ExtResource( 51 ), ExtResource( 54 ), ExtResource( 52 ), ExtResource( 53 ) ],
+"loop": true,
+"name": "idle",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 59 ), ExtResource( 61 ), ExtResource( 66 ), ExtResource( 62 ) ],
+"loop": false,
+"name": "hurt",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 67 ), ExtResource( 56 ), ExtResource( 58 ) ],
+"loop": false,
+"name": "jump",
+"speed": 10.0
+}, {
 "frames": [ ExtResource( 30 ), ExtResource( 24 ), ExtResource( 26 ) ],
 "loop": false,
 "name": "attack3",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 2 ) ],
-"loop": false,
-"name": "jump_sword",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 22 ), ExtResource( 27 ), ExtResource( 23 ) ],
@@ -66,14 +96,9 @@ animations = [ {
 "name": "attack1",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 41 ), ExtResource( 42 ), ExtResource( 48 ), ExtResource( 46 ) ],
-"loop": false,
-"name": "dead",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
 "loop": true,
-"name": "fall_sword",
+"name": "run_sword",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 20 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 21 ) ],
@@ -86,14 +111,9 @@ animations = [ {
 "name": "attack2",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 39 ), ExtResource( 40 ) ],
-"loop": false,
-"name": "land_sword",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 1 ), ExtResource( 4 ) ],
 "loop": true,
-"name": "run_sword",
+"name": "idle_sword",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 47 ), ExtResource( 45 ), ExtResource( 44 ), ExtResource( 43 ) ],
@@ -101,25 +121,51 @@ animations = [ {
 "name": "hurt_dead",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 1 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "idle_sword",
+"frames": [ ExtResource( 41 ), ExtResource( 42 ), ExtResource( 48 ), ExtResource( 46 ) ],
+"loop": false,
+"name": "dead",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "jump_sword",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 39 ), ExtResource( 40 ) ],
+"loop": false,
+"name": "land_sword",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "fall_sword",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 60 ), ExtResource( 57 ), ExtResource( 68 ), ExtResource( 65 ), ExtResource( 64 ), ExtResource( 55 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 63 ) ],
+"loop": true,
+"name": "fall",
+"speed": 3.0
 } ]
 
 [sub_resource type="GDScript" id=2]
 script/source = "extends AnimatedSprite
 
-func _on_Player_animate(motion, on_floor, isDead):
+
+func _on_Player_animate(motion, on_floor, isDead, animAffix):
 	if !on_floor:
 		if motion.y < 0:
-			play(\"jump\" + PlayerVariables.animation_affix)
+			play(\"jump\" + animAffix)
 		elif motion.y > 0:
-			play(\"fall\" + PlayerVariables.animation_affix)
+			play(\"fall\" + animAffix)
 	elif abs(motion.x) > 0.1:
-		play(\"run\" + PlayerVariables.animation_affix)
+		play(\"run\" + animAffix)
 	else:
-		play(\"idle\" + PlayerVariables.animation_affix)
+		play(\"idle\" + animAffix)
 		
 	if isDead:
 		play(\"dead\")
@@ -144,8 +190,14 @@ script = ExtResource( 16 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "idle_sword"
+animation = "hurt"
+frame = 3
+playing = true
 script = SubResource( 2 )
+
+[node name="ThrowPoint" type="Position2D" parent="AnimatedSprite"]
+position = Vector2( -0.0319405, -0.0136395 )
+script = ExtResource( 49 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.166855, -2.00226 )
@@ -154,7 +206,7 @@ shape = SubResource( 3 )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -16 )
 current = true
-zoom = Vector2( 0.45, 0.45 )
+zoom = Vector2( 0.5, 0.5 )
 smoothing_enabled = true
 smoothing_speed = 3.0
 

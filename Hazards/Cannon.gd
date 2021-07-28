@@ -10,7 +10,6 @@ func _process(delta):
 		$CannonSprite.play("attack")
 
 func _on_Timer_timeout():
-	print("Cannon firing")
 	$FireEffect.stop()
 	$FireEffect.frame = 0
 	fired = false
@@ -24,5 +23,4 @@ func _on_AnimatedSprite_animation_finished():
 func _on_CannonSprite_frame_changed():
 	if $CannonSprite.frame == 3:
 		$FireEffect.play("fire_effect")
-		print("Spawn cannonball")
 		$RayCast2D.add_child(load("res://Hazards/Cannonball.tscn").instance())

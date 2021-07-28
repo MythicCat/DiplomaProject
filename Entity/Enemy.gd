@@ -1,3 +1,4 @@
+class_name Enemy
 extends KinematicBody2D
 
 const GRAVITY = 800
@@ -89,6 +90,7 @@ func hurt(enemyPosition : Vector2):
 		
 func die():
 	set_collision_mask_bit(0,false) # disable collision shapes to prevent incorrect collisions
+	set_collision_layer_bit(4, false)
 	$DamageOnTouch.set_collision_mask_bit(0, false)
 
 
