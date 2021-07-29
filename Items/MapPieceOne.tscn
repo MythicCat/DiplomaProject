@@ -30,11 +30,13 @@ animations = [ {
 extents = Vector2( 7.625, 7.75 )
 
 [node name="MapPieceOne" type="Area2D"]
+collision_layer = 0
 script = ExtResource( 12 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

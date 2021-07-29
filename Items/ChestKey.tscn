@@ -1,0 +1,43 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Items/Coin.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Chest Key/Effect/2.png" type="Texture" id=2]
+[ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/8.png" type="Texture" id=3]
+[ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/6.png" type="Texture" id=4]
+[ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Chest Key/Effect/1.png" type="Texture" id=5]
+[ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/2.png" type="Texture" id=6]
+[ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Chest Key/Effect/4.png" type="Texture" id=7]
+[ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/5.png" type="Texture" id=8]
+[ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/7.png" type="Texture" id=9]
+[ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/1.png" type="Texture" id=10]
+[ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/3.png" type="Texture" id=11]
+[ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Chest Key/Effect/3.png" type="Texture" id=12]
+[ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/4.png" type="Texture" id=13]
+[ext_resource path="res://Items/ChestKey.gd" type="Script" id=14]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 9 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 12 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "die",
+"speed": 9.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4.13619, 7.62797 )
+
+[node name="ChestKey" instance=ExtResource( 1 )]
+script = ExtResource( 14 )
+
+[node name="AnimatedSprite" parent="." index="0"]
+frames = SubResource( 1 )
+frame = 1
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 1.36646, 0.525562 )
+shape = SubResource( 2 )

@@ -3,6 +3,7 @@ extends Node
 var lives = 3
 var treasure = 0
 var totalTreasure = 0
+var keys = 0
 var mapPiece = false
 var disableAnimate = false
 
