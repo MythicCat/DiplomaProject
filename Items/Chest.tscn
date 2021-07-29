@@ -9,7 +9,7 @@
 [ext_resource path="res://Items/Coin.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Items/Chest.gd" type="Script" id=8]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 6 ) ],
 "loop": false,
@@ -22,7 +22,7 @@ animations = [ {
 "speed": 7.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 14.9719, 12.4722 )
 
 [node name="Chest" instance=ExtResource( 7 )]
@@ -30,9 +30,9 @@ script = ExtResource( 8 )
 
 [node name="AnimatedSprite" parent="." index="0"]
 z_index = -1
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 frame = 0
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( 2.26659, 5.47723 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )

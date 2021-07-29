@@ -27,6 +27,7 @@ animations = [ {
 } ]
 
 [node name="MapPieceTwo" instance=ExtResource( 1 )]
+z_index = 3
 
 [node name="AnimatedSprite" parent="." index="0"]
 frames = SubResource( 1 )

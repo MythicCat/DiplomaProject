@@ -26,6 +26,7 @@ animations = [ {
 extents = Vector2( 5.71295, 5.5257 )
 
 [node name="Coin" type="Area2D"]
+z_index = 3
 collision_layer = 0
 script = ExtResource( 7 )
 
@@ -33,7 +34,7 @@ script = ExtResource( 7 )
 position = Vector2( 1.25993, 0 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

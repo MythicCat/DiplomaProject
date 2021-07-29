@@ -27,13 +27,13 @@ animations = [ {
 extents = Vector2( 6.88461, 6.03102 )
 
 [node name="Diamond" type="Area2D"]
+z_index = 3
 collision_layer = 4
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "idle"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -16,7 +16,7 @@ func _on_RigidBody2D_body_entered(body):
 	$ThrowShape.set_deferred("disable", true)
 	$PickUpShape.set_deferred("disable", false)
 	
-	#$ThrowShap.disabled = true
+	#$ThrowShape.disabled = true
 	#$PickUpShape.disabled = false
 	
 	if body is Enemy:
@@ -29,8 +29,9 @@ func _on_RigidBody2D_body_entered(body):
 		if $Animation.flip_h:
 			direction = -1
 			
-		#$Animation.rotation_degrees = collision_angle
-		$Animation.position = Vector2(7.2 * direction, -1.5)
+		$Animation.rotation_degrees = collision_angle
+		$Animation.position = Vector2(7.2 * direction, -1.5) # fix this, calculate position based on collision point 
+		$Animation.look_at(collision_pos)
 		$Animation.play("embed")
 		sleeping = true
 
@@ -40,6 +41,8 @@ func _integrate_forces(state):
 		var angle = state.get_contact_local_normal(0).angle()
 		collision_angle = angle * 180 / PI
 		print(collision_angle)
+		collision_pos = to_local(position) # this could be it
+
 
 
 func _on_ReturnTimer_timeout():

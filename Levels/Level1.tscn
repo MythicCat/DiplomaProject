@@ -249,7 +249,7 @@ format = 1
 tile_data = PoolIntArray( -327627, 0, 65537, -327626, 0, 65538, -327625, 0, 65539, -327623, 0, 65537, -327622, 0, 65539, -262092, 0, 327681, -262091, 0, 327691, -262090, 0, 196610, -262089, 0, 196611, -262087, 0, 131073, -262086, 0, 131075, -196551, 0, 131073, -196550, 0, 131075, -131015, 0, 131073, -131014, 0, 131075, -65479, 0, 131073, -65478, 0, 131075, 57, 0, 131073, 58, 0, 131075, 65570, 0, 65537, 65571, 0, 65538, 65572, 0, 65538, 65573, 0, 65538, 65574, 0, 65538, 65575, 0, 65538, 65576, 0, 65538, 65577, 0, 65538, 65578, 0, 65538, 65579, 0, 65538, 65580, 0, 65538, 65581, 0, 65538, 65582, 0, 65538, 65583, 0, 65538, 65584, 0, 65538, 65585, 0, 65538, 65586, 0, 65538, 65587, 0, 65538, 65588, 0, 65538, 65589, 0, 65538, 65590, 0, 65538, 65591, 0, 65538, 65592, 0, 65538, 65593, 0, 131080, 65594, 0, 131075, 131106, 0, 131073, 131107, 0, 131074, 131108, 0, 131074, 131109, 0, 131074, 131110, 0, 131074, 131111, 0, 131074, 131112, 0, 131074, 131113, 0, 131074, 131114, 0, 131074, 131115, 0, 131074, 131116, 0, 131074, 131117, 0, 131074, 131118, 0, 131074, 131119, 0, 131074, 131120, 0, 131074, 131121, 0, 131074, 131122, 0, 131074, 131123, 0, 131074, 131124, 0, 131074, 131125, 0, 131074, 131126, 0, 65543, 131127, 0, 196610, 131128, 0, 196610, 131129, 0, 196610, 131130, 0, 196611, 196642, 0, 196609, 196643, 0, 196610, 196644, 0, 196610, 196645, 0, 196610, 196646, 0, 196610, 196647, 0, 196610, 196648, 0, 196610, 196649, 0, 196610, 196650, 0, 65544, 196651, 0, 131074, 196652, 0, 131074, 196653, 0, 131074, 196654, 0, 131074, 196655, 0, 131074, 196656, 0, 65543, 196657, 0, 196610, 196658, 0, 131083, 196659, 0, 196610, 196660, 0, 65544, 196661, 0, 65543, 196662, 0, 196611, 262186, 0, 196609, 262187, 0, 65544, 262188, 0, 131074, 262189, 0, 131074, 262190, 0, 131074, 262191, 0, 131074, 262192, 0, 131075, 262194, 0, 131077, 262196, 0, 131073, 262197, 0, 131075, 327723, 0, 196609, 327724, 0, 196610, 327725, 0, 196610, 327726, 0, 196610, 327727, 0, 196610, 327728, 0, 196611, 327730, 0, 196613, 327732, 0, 196609, 327733, 0, 196611 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 111.487, 294.102 )
+position = Vector2( -268.86, -200.667 )
 z_index = 2
 
 [node name="Water" type="TileMap" parent="."]
@@ -298,12 +298,15 @@ position = Vector2( 2464.01, -402.663 )
 
 [node name="RedPotion" parent="Potions" instance=ExtResource( 43 )]
 position = Vector2( 40.9699, -177.349 )
+z_index = 0
 
 [node name="RedPotion2" parent="Potions" instance=ExtResource( 43 )]
 position = Vector2( 1501.85, -81.9397 )
+z_index = 0
 
 [node name="RedPotion3" parent="Potions" instance=ExtResource( 43 )]
 position = Vector2( 2565.39, -401.841 )
+z_index = 0
 
 [node name="Coins1AndChest" type="Node" parent="."]
 
@@ -324,14 +327,17 @@ position = Vector2( 621.141, 173.869 )
 
 [node name="Chest" parent="Coins1AndChest" instance=ExtResource( 39 )]
 position = Vector2( 2123.46, -465.75 )
+z_index = 0
 
 [node name="LockedChest" parent="Coins1AndChest" instance=ExtResource( 45 )]
 position = Vector2( 1850.83, 80.3612 )
 z_index = 1
+collision_layer = 0
 treasureValue = 30
 
 [node name="ChestKey" parent="Coins1AndChest" instance=ExtResource( 44 )]
 position = Vector2( -165.082, 112.48 )
+z_index = 0
 
 [node name="Diamonds1" type="Node" parent="."]
 
@@ -518,21 +524,20 @@ __meta__ = {
 position = Vector2( 369.751, 445.836 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 7 )
-frame = 2
 playing = true
 
 [node name="AnimatedWater2" type="AnimatedSprite" parent="Background"]
 position = Vector2( 861.739, 468.682 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 8 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="AnimatedWater3" type="AnimatedSprite" parent="Background"]
 position = Vector2( 542.728, 520.075 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 9 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
@@ -559,7 +564,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 3
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop"]
@@ -577,7 +582,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop2"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 3
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop2"]
@@ -595,7 +600,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop3"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 3
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop3"]
@@ -613,7 +618,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop20"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop20"]
@@ -631,7 +635,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop21"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop21"]
@@ -649,7 +652,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop4"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop4"]
@@ -667,7 +669,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop5"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 1
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop5"]
@@ -685,6 +687,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop6"]
 frames = SubResource( 10 )
 animation = "idle"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop6"]
@@ -702,6 +705,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop7"]
 frames = SubResource( 10 )
 animation = "idle"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop7"]
@@ -719,7 +723,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop8"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 3
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop8"]
@@ -737,7 +741,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop9"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 3
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop9"]
@@ -755,7 +759,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop10"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop10"]
@@ -773,7 +776,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop11"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 1
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop11"]
@@ -791,6 +794,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop12"]
 frames = SubResource( 10 )
 animation = "idle"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop12"]
@@ -808,6 +812,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop13"]
 frames = SubResource( 10 )
 animation = "idle"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop13"]
@@ -825,6 +830,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop14"]
 frames = SubResource( 10 )
 animation = "idle"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop14"]
@@ -842,7 +848,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop15"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 3
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop15"]
@@ -860,7 +866,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop16"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop16"]
@@ -878,7 +883,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop17"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop17"]
@@ -896,7 +900,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop18"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 1
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop18"]
@@ -914,7 +918,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop19"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 1
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop19"]

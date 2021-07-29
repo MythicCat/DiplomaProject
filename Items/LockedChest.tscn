@@ -29,6 +29,7 @@ animations = [ {
 extents = Vector2( 14.9719, 11.95 )
 
 [node name="LockedChest" instance=ExtResource( 1 )]
+z_index = 0
 script = ExtResource( 11 )
 treasureValue = 10
 

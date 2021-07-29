@@ -27,6 +27,7 @@ animations = [ {
 extents = Vector2( 6.34355, 6.57684 )
 
 [node name="RedDiamond" type="Area2D"]
+z_index = 3
 script = ExtResource( 9 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
