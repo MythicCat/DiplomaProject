@@ -246,7 +246,7 @@ cell_size = Vector2( 32, 32 )
 collision_layer = 2
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( -327627, 0, 65537, -327626, 0, 65538, -327625, 0, 65539, -327623, 0, 65537, -327622, 0, 65539, -262092, 0, 327681, -262091, 0, 327691, -262090, 0, 196610, -262089, 0, 196611, -262087, 0, 131073, -262086, 0, 131075, -196551, 0, 131073, -196550, 0, 131075, -131015, 0, 131073, -131014, 0, 131075, -65479, 0, 131073, -65478, 0, 131075, 57, 0, 131073, 58, 0, 131075, 65570, 0, 65537, 65571, 0, 65538, 65572, 0, 65538, 65573, 0, 65538, 65574, 0, 65538, 65575, 0, 65538, 65576, 0, 65538, 65577, 0, 65538, 65578, 0, 65538, 65579, 0, 65538, 65580, 0, 65538, 65581, 0, 65538, 65582, 0, 65538, 65583, 0, 65538, 65584, 0, 65538, 65585, 0, 65538, 65586, 0, 65538, 65587, 0, 65538, 65588, 0, 65538, 65589, 0, 65538, 65590, 0, 65538, 65591, 0, 65538, 65592, 0, 65538, 65593, 0, 131080, 65594, 0, 131075, 131106, 0, 131073, 131107, 0, 131074, 131108, 0, 131074, 131109, 0, 131074, 131110, 0, 131074, 131111, 0, 131074, 131112, 0, 131074, 131113, 0, 131074, 131114, 0, 131074, 131115, 0, 131074, 131116, 0, 131074, 131117, 0, 131074, 131118, 0, 131074, 131119, 0, 131074, 131120, 0, 131074, 131121, 0, 131074, 131122, 0, 131074, 131123, 0, 131074, 131124, 0, 131074, 131125, 0, 131074, 131126, 0, 65543, 131127, 0, 196610, 131128, 0, 196610, 131129, 0, 196610, 131130, 0, 196611, 196642, 0, 196609, 196643, 0, 196610, 196644, 0, 196610, 196645, 0, 196610, 196646, 0, 196610, 196647, 0, 196610, 196648, 0, 196610, 196649, 0, 196610, 196650, 0, 65544, 196651, 0, 131074, 196652, 0, 131074, 196653, 0, 131074, 196654, 0, 131074, 196655, 0, 131074, 196656, 0, 65543, 196657, 0, 196610, 196658, 0, 131083, 196659, 0, 196610, 196660, 0, 65544, 196661, 0, 65543, 196662, 0, 196611, 262186, 0, 196609, 262187, 0, 65544, 262188, 0, 131074, 262189, 0, 131074, 262190, 0, 131074, 262191, 0, 131074, 262192, 0, 131075, 262194, 0, 131077, 262196, 0, 131073, 262197, 0, 131075, 327723, 0, 196609, 327724, 0, 196610, 327725, 0, 196610, 327726, 0, 196610, 327727, 0, 196610, 327728, 0, 196611, 327730, 0, 196613, 327732, 0, 196609, 327733, 0, 196611 )
+tile_data = PoolIntArray( -327623, 0, 65537, -327622, 0, 65539, -262087, 0, 131073, -262086, 0, 131075, -196551, 0, 131073, -196550, 0, 131075, -131015, 0, 131073, -131014, 0, 131075, -65479, 0, 131073, -65478, 0, 131075, 57, 0, 131073, 58, 0, 131075, 65570, 0, 65537, 65571, 0, 65538, 65572, 0, 65538, 65573, 0, 65538, 65574, 0, 65538, 65575, 0, 65538, 65576, 0, 65538, 65577, 0, 65538, 65578, 0, 65538, 65579, 0, 65538, 65580, 0, 65538, 65581, 0, 65538, 65582, 0, 65538, 65583, 0, 65538, 65584, 0, 65538, 65585, 0, 65538, 65586, 0, 65538, 65587, 0, 65538, 65588, 0, 65538, 65589, 0, 65538, 65590, 0, 65538, 65591, 0, 65538, 65592, 0, 65538, 65593, 0, 131080, 65594, 0, 131075, 131106, 0, 131073, 131107, 0, 131074, 131108, 0, 131074, 131109, 0, 131074, 131110, 0, 131074, 131111, 0, 131074, 131112, 0, 131074, 131113, 0, 131074, 131114, 0, 131074, 131115, 0, 131074, 131116, 0, 131074, 131117, 0, 131074, 131118, 0, 131074, 131119, 0, 131074, 131120, 0, 131074, 131121, 0, 131074, 131122, 0, 131074, 131123, 0, 131074, 131124, 0, 131074, 131125, 0, 131074, 131126, 0, 65543, 131127, 0, 196610, 131128, 0, 196610, 131129, 0, 196610, 131130, 0, 196611, 196642, 0, 196609, 196643, 0, 196610, 196644, 0, 196610, 196645, 0, 196610, 196646, 0, 196610, 196647, 0, 196610, 196648, 0, 196610, 196649, 0, 196610, 196650, 0, 65544, 196651, 0, 131074, 196652, 0, 131074, 196653, 0, 131074, 196654, 0, 131074, 196655, 0, 131074, 196656, 0, 65543, 196657, 0, 196610, 196658, 0, 131083, 196659, 0, 196610, 196660, 0, 65544, 196661, 0, 65543, 196662, 0, 196611, 262186, 0, 196609, 262187, 0, 65544, 262188, 0, 131074, 262189, 0, 131074, 262190, 0, 131074, 262191, 0, 131074, 262192, 0, 131075, 262194, 0, 131077, 262196, 0, 131073, 262197, 0, 131075, 327723, 0, 196609, 327724, 0, 196610, 327725, 0, 196610, 327726, 0, 196610, 327727, 0, 196610, 327728, 0, 196611, 327730, 0, 196613, 327732, 0, 196609, 327733, 0, 196611 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -302.534, 106.888 )
@@ -557,6 +557,7 @@ region_rect = Rect2( 0, 0, 896, 101 )
 
 [node name="PalmTop" type="StaticBody2D" parent="TreeTops"]
 position = Vector2( 622.573, 208.19 )
+z_index = 3
 collision_layer = 2
 collision_mask = 17
 __meta__ = {
@@ -576,6 +577,7 @@ one_way_collision = true
 
 [node name="PalmTop2" type="StaticBody2D" parent="TreeTops"]
 position = Vector2( 110.419, 144.001 )
+z_index = 3
 collision_layer = 2
 __meta__ = {
 "_edit_group_": true
@@ -594,6 +596,7 @@ one_way_collision = true
 
 [node name="PalmTop3" type="StaticBody2D" parent="TreeTops"]
 position = Vector2( 1966.35, -336.014 )
+z_index = 3
 collision_layer = 2
 __meta__ = {
 "_edit_group_": true
@@ -612,6 +615,7 @@ one_way_collision = true
 
 [node name="PalmTop20" type="StaticBody2D" parent="TreeTops"]
 position = Vector2( 2062.63, -528.466 )
+z_index = 3
 collision_layer = 2
 __meta__ = {
 "_edit_group_": true
@@ -629,6 +633,7 @@ one_way_collision = true
 
 [node name="PalmTop21" type="StaticBody2D" parent="TreeTops"]
 position = Vector2( 2190.37, -560.025 )
+z_index = 3
 collision_layer = 2
 __meta__ = {
 "_edit_group_": true
@@ -646,6 +651,7 @@ one_way_collision = true
 
 [node name="PalmTop4" type="StaticBody2D" parent="TreeTops"]
 position = Vector2( 2414.51, -463.911 )
+z_index = 3
 collision_layer = 2
 __meta__ = {
 "_edit_group_": true
@@ -663,6 +669,7 @@ one_way_collision = true
 
 [node name="PalmTop5" type="StaticBody2D" parent="TreeTops"]
 position = Vector2( 462.612, -144.263 )
+z_index = 3
 collision_layer = 2
 __meta__ = {
 "_edit_group_": true
@@ -681,6 +688,7 @@ one_way_collision = true
 
 [node name="PalmTop6" type="StaticBody2D" parent="TreeTops"]
 position = Vector2( 398.354, -176.08 )
+z_index = 3
 collision_layer = 2
 __meta__ = {
 "_edit_group_": true
@@ -699,6 +707,7 @@ one_way_collision = true
 
 [node name="PalmTop7" type="StaticBody2D" parent="TreeTops"]
 position = Vector2( 302.55, -240.107 )
+z_index = 3
 collision_layer = 2
 __meta__ = {
 "_edit_group_": true
@@ -717,6 +726,7 @@ one_way_collision = true
 
 [node name="PalmTop8" type="StaticBody2D" parent="TreeTops"]
 position = Vector2( 206.712, -144.46 )
+z_index = 3
 collision_layer = 2
 __meta__ = {
 "_edit_group_": true
@@ -735,6 +745,7 @@ one_way_collision = true
 
 [node name="PalmTop9" type="StaticBody2D" parent="TreeTops"]
 position = Vector2( 110.325, -207.89 )
+z_index = 3
 collision_layer = 2
 __meta__ = {
 "_edit_group_": true
@@ -753,6 +764,7 @@ one_way_collision = true
 
 [node name="PalmTop10" type="StaticBody2D" parent="TreeTops"]
 position = Vector2( -17.4526, -240.171 )
+z_index = 3
 collision_layer = 2
 __meta__ = {
 "_edit_group_": true
@@ -770,6 +782,7 @@ one_way_collision = true
 
 [node name="PalmTop11" type="StaticBody2D" parent="TreeTops"]
 position = Vector2( -145.44, -271.099 )
+z_index = 3
 collision_layer = 2
 __meta__ = {
 "_edit_group_": true
@@ -788,6 +801,7 @@ one_way_collision = true
 
 [node name="PalmTop12" type="StaticBody2D" parent="TreeTops"]
 position = Vector2( -305.453, -239.972 )
+z_index = 3
 collision_layer = 2
 __meta__ = {
 "_edit_group_": true
@@ -806,6 +820,7 @@ one_way_collision = true
 
 [node name="PalmTop13" type="StaticBody2D" parent="TreeTops"]
 position = Vector2( -369.543, -303.939 )
+z_index = 3
 collision_layer = 2
 __meta__ = {
 "_edit_group_": true
@@ -824,6 +839,7 @@ one_way_collision = true
 
 [node name="PalmTop14" type="StaticBody2D" parent="TreeTops"]
 position = Vector2( -369.543, -303.939 )
+z_index = 3
 collision_layer = 2
 __meta__ = {
 "_edit_group_": true
@@ -842,6 +858,7 @@ one_way_collision = true
 
 [node name="PalmTop15" type="StaticBody2D" parent="TreeTops"]
 position = Vector2( -561.406, -176.259 )
+z_index = 3
 collision_layer = 2
 __meta__ = {
 "_edit_group_": true
@@ -860,6 +877,7 @@ one_way_collision = true
 
 [node name="PalmTop16" type="StaticBody2D" parent="TreeTops"]
 position = Vector2( -689.369, -143.895 )
+z_index = 3
 collision_layer = 2
 __meta__ = {
 "_edit_group_": true
@@ -877,6 +895,7 @@ one_way_collision = true
 
 [node name="PalmTop17" type="StaticBody2D" parent="TreeTops"]
 position = Vector2( -657.724, -47.788 )
+z_index = 3
 collision_layer = 2
 __meta__ = {
 "_edit_group_": true
@@ -894,6 +913,7 @@ one_way_collision = true
 
 [node name="PalmTop18" type="StaticBody2D" parent="TreeTops"]
 position = Vector2( -497.564, 16.2052 )
+z_index = 3
 collision_layer = 2
 __meta__ = {
 "_edit_group_": true
@@ -912,6 +932,7 @@ one_way_collision = true
 
 [node name="PalmTop19" type="StaticBody2D" parent="TreeTops"]
 position = Vector2( -304.593, 144.373 )
+z_index = 3
 collision_layer = 2
 __meta__ = {
 "_edit_group_": true
