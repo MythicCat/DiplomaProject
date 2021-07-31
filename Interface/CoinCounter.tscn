@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/01.png" type="Texture" id=1]
 [ext_resource path="res://Treasure Hunters/Font/Early GameBoy.ttf" type="DynamicFontData" id=2]
@@ -7,21 +7,55 @@
 [ext_resource path="res://Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/03.png" type="Texture" id=5]
 [ext_resource path="res://Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/02.png" type="Texture" id=6]
 [ext_resource path="res://Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/04.png" type="Texture" id=7]
+[ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/2.png" type="Texture" id=8]
+[ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/5.png" type="Texture" id=9]
+[ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/7.png" type="Texture" id=10]
+[ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/3.png" type="Texture" id=11]
+[ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/1.png" type="Texture" id=12]
+[ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/8.png" type="Texture" id=13]
+[ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/4.png" type="Texture" id=14]
+[ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/6.png" type="Texture" id=15]
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
+[sub_resource type="AnimatedTexture" id=4]
+frames = 4
+fps = 5.0
+frame_0/texture = ExtResource( 1 )
+frame_1/texture = ExtResource( 6 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 5 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 7 )
+frame_3/delay_sec = 0.0
 
 [sub_resource type="DynamicFont" id=2]
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
+[sub_resource type="AnimatedTexture" id=6]
+frames = 8
+fps = 5.0
+frame_0/texture = ExtResource( 12 )
+frame_1/texture = ExtResource( 8 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 11 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 14 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 9 )
+frame_4/delay_sec = 0.0
+frame_5/texture = ExtResource( 15 )
+frame_5/delay_sec = 0.0
+frame_6/texture = ExtResource( 10 )
+frame_6/delay_sec = 0.0
+frame_7/texture = ExtResource( 13 )
+frame_7/delay_sec = 0.0
+
+[sub_resource type="DynamicFont" id=5]
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
 [node name="Counter" type="MarginContainer"]
-margin_right = 60.0
+margin_right = 120.0
 margin_bottom = 17.0
 rect_min_size = Vector2( 60, 17 )
 script = ExtResource( 4 )
@@ -30,31 +64,62 @@ __meta__ = {
 }
 
 [node name="Background" type="NinePatchRect" parent="."]
-margin_right = 60.0
+margin_right = 120.0
 margin_bottom = 17.0
 rect_min_size = Vector2( 46, 17 )
 texture = ExtResource( 3 )
 patch_margin_left = 15
 patch_margin_right = 15
 
-[node name="Coins" type="AnimatedSprite" parent="Background"]
-position = Vector2( 17, 5.7 )
-scale = Vector2( 0.8, 0.8 )
-frames = SubResource( 1 )
-playing = true
-
-[node name="Label" type="Label" parent="Background"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -6.0
+[node name="CoinIcon" type="TextureRect" parent="Background"]
+margin_left = 16.0
 margin_top = -1.0
-margin_right = 26.0
+margin_right = 32.0
+margin_bottom = 15.0
+rect_scale = Vector2( 0.8, 0.8 )
+texture = SubResource( 4 )
+stretch_mode = 6
+
+[node name="CoinCount" type="Label" parent="Background"]
+margin_left = 40.0
+margin_top = -1.0
+margin_right = 56.0
 margin_bottom = 19.0
 rect_scale = Vector2( 0.7, 0.7 )
+size_flags_vertical = 0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.2, 0.196078, 0.239216, 1 )
 text = "0"
 align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyIcon" type="TextureRect" parent="Background"]
+margin_left = 64.0
+margin_top = -0.5
+margin_right = 88.0
+margin_bottom = 23.5
+rect_min_size = Vector2( 12, 12 )
+rect_scale = Vector2( 0.53, 0.53 )
+size_flags_horizontal = 5
+size_flags_vertical = 5
+texture = SubResource( 6 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyCount" type="Label" parent="Background"]
+margin_left = 88.0
+margin_top = -1.0
+margin_right = 104.0
+margin_bottom = 23.0
+rect_scale = Vector2( 0.7, 0.7 )
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.2, 0.196078, 0.239216, 1 )
+text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }

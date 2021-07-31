@@ -41,9 +41,10 @@ func move(delta):
 	if isHurt:
 		return
 	
-	if is_on_wall() or !hit_ledge.is_colliding() and not isDead:
+	if (is_on_wall() or !hit_ledge.is_colliding()) and not isDead:
+		scale.x = -scale.x
 		direction = -direction
-		hit_ledge.position.x = -hit_ledge.position.x
+		#hit_ledge.position.x = -hit_ledge.position.x
 	
 	if not isDead and not isHurt:	
 		motion.x = speed * direction
@@ -56,7 +57,7 @@ func animate():
 	if isHurt:
 		return
 	
-	if direction < 0:
+	if scale.x > 0:
 		animated_sprite.flip_h = false
 	else:
 		animated_sprite.flip_h = true

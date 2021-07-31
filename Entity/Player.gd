@@ -1,6 +1,13 @@
-class_name Player
 extends KinematicBody2D
 
+class_name Player
+
+var motion = Vector2(0,0)
+var attackNum = 1
+var isAttacking = false
+var isHurt = false
+var animAffix = "_sword"
+var isDead = false
 
 const SPEED = 145
 const GRAVITY = 800
@@ -11,14 +18,6 @@ const AIR_FRICTION = 0.1
 const WORLD_LIMIT = 500
 const KNOCKBACK = 120
 
-
-var motion = Vector2(0,0)
-var attackNum = 1
-var isAttacking = false
-var isHurt = false
-var animAffix = "_sword"
-var isDead = false
-
 onready var animated_sprite = $AnimatedSprite
 onready var SwordThrow = $AnimatedSprite/ThrowPoint
 
@@ -26,7 +25,7 @@ signal animate
 
 
 func _physics_process(delta): # delta is the time difference between frames, multiply by delta to adjust for FPS drops
-		
+	
 	move(delta)
 	jump(delta)
 	attack()
@@ -100,7 +99,6 @@ func animate():
 	
 	if isAttacking or isHurt:
 		return
-		
 	emit_signal("animate", motion, is_on_floor(), isDead, animAffix)
 	
 	
@@ -127,6 +125,7 @@ func hurt(enemyPosition : Vector2):
 		motion = Vector2(-KNOCKBACK, -JUMP_SPEED)
 	else:
 		motion = Vector2( KNOCKBACK, -JUMP_SPEED)
+
 
 	#$HurtSFX.play()
 	

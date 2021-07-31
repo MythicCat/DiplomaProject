@@ -1,4 +1,7 @@
 extends MarginContainer
 
 func update_coins():
-	$Background/Label.text = str(PlayerVariables.treasure)
+	$Background/CoinCount.text = str(PlayerVariables.treasure)
+
+func update_keys():
+	$Background/KeyCount.text = str(PlayerVariables.keys)
