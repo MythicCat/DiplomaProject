@@ -6,7 +6,7 @@
 [ext_resource path="res://Interface/GUI.gd" type="Script" id=4]
 [ext_resource path="res://Interface/TextureProgress.gd" type="Script" id=5]
 
-[sub_resource type="StreamTexture" id=2]
+[sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/FancyBannerUp.png-d67d2356d65bdb639ab038414b5d906a.stex"
 
 [node name="GUI" type="MarginContainer"]
@@ -56,7 +56,7 @@ custom_constants/margin_right = 0
 custom_constants/margin_left = 0
 
 [node name="Background" parent="HBoxContainer/Counters/ResourceCounter" index="0"]
-texture = SubResource( 2 )
+texture = SubResource( 1 )
 
 [node name="Tween" type="Tween" parent="."]
 
