@@ -107,7 +107,7 @@ func animate():
 	
 func hurt(enemyPosition : Vector2):
 	
-	if isDead or isImmune:
+	if isDead:
 		return
 	
 	isHurt = true

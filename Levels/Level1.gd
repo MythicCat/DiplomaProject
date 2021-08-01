@@ -8,6 +8,8 @@ func _ready():
 	get_tree().call_group("Gui", "update_hp_bar")
 	
 func hurt(enemyPosition : Vector2):
+	if $Player.isImmune:
+		return
 	PlayerVariables.lives -= 1
 	$Player.hurt(enemyPosition)
 	print(PlayerVariables.lives)
