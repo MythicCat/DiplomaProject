@@ -8,6 +8,7 @@ var isAttacking = false
 var isHurt = false
 var animAffix = "_sword"
 var isDead = false
+var isImmune = false
 
 const SPEED = 145
 const GRAVITY = 800
@@ -106,10 +107,11 @@ func animate():
 	
 func hurt(enemyPosition : Vector2):
 	
-	if isDead:
+	if isDead or isImmune:
 		return
 	
 	isHurt = true
+	isImmune = true
 	position.y -= 1
 	
 	get_tree().call_group("Gui", "update_hp_bar")
@@ -119,6 +121,7 @@ func hurt(enemyPosition : Vector2):
 		isDead = true
 	
 	if not isDead:
+		$AnimationPlayer.play("immunity")
 		animated_sprite.play("hurt" + animAffix)
 	else:
 		animated_sprite.play("hurt_dead")
@@ -158,3 +161,8 @@ func _on_AnimatedSprite_animation_finished():
 		
 	if "fall" in animated_sprite.animation and is_on_floor():
 		animated_sprite.play("land" + PlayerVariables.animation_affix);
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "immunity":
+		isImmune = false
