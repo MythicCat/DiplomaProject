@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Seashell/Pearl Idle/1.png" type="Texture" id=1]
+[ext_resource path="res://Hazards/Cannonball.tscn" type="PackedScene" id=2]
+
+[node name="Pearl" instance=ExtResource( 2 )]
+
+[node name="Sprite" parent="Area2D" index="0"]
+position = Vector2( -1.33786, 1.48651 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )

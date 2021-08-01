@@ -1,0 +1,56 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Idle/1.png" type="Texture" id=1]
+[ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Hit/2.png" type="Texture" id=2]
+[ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Fire/1.png" type="Texture" id=3]
+[ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Fire/3.png" type="Texture" id=4]
+[ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Fire/2.png" type="Texture" id=5]
+[ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Bite/1.png" type="Texture" id=6]
+[ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Hit/4.png" type="Texture" id=7]
+[ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Fire/5.png" type="Texture" id=8]
+[ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Bite/5.png" type="Texture" id=9]
+[ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Fire/6.png" type="Texture" id=10]
+[ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Hit/3.png" type="Texture" id=11]
+[ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Fire/4.png" type="Texture" id=12]
+[ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Bite/4.png" type="Texture" id=13]
+[ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Bite/2.png" type="Texture" id=14]
+[ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Bite/3.png" type="Texture" id=15]
+[ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Bite/6.png" type="Texture" id=16]
+[ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Hit/1.png" type="Texture" id=17]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "bite",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "shoot",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 2 ), ExtResource( 11 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "hurt",
+"speed": 10.0
+} ]
+
+[node name="Boss" type="KinematicBody2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 2, -22 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 1 )
+animation = "idle"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 3.97299, 3.1784 )
+rotation = 1.5708
+polygon = PoolVector2Array( -31.1784, 19.973, -15.1784, 41.973, -3.1784, 45.973, 16.8216, 45.973, 30.8216, 29.973, 30.8216, -22.027, 28.8216, -32.027, 16.8216, -46.027, 10.8216, -48.027, -3.1784, -48.027, -21.1784, -36.027, -31.1784, -16.027 )
