@@ -14,24 +14,27 @@ var motion = Vector2(0,0)
 var direction = -1
 var isHurt = false
 var isDead = false
+var isAttacking = false
 
 onready var animated_sprite = $AnimatedSprite
 onready var hit_ledge = $DetectLedge
 onready var touchArea = $DamageOnTouch/CollisionShape2D
+onready var attackDetect = $AttackRay
 	
 func _physics_process(delta):
 	
+
 	move(delta)
 	animate()	
 	apply_gravity(delta)
 	move_and_slide(motion, UP * delta)
-	
+
 	
 func apply_gravity(delta):
 	if is_on_floor() and motion.y > 0:
 		motion.y = GRAVITY * delta
 	elif is_on_ceiling():
-		motion.y = 0
+		motion.y = 1
 	else:
 		motion.y += GRAVITY * delta
 		
@@ -41,20 +44,20 @@ func move(delta):
 	if isHurt:
 		return
 	
-	if (is_on_wall() or !hit_ledge.is_colliding()) and not isDead:
+	if (is_on_wall() or !hit_ledge.is_colliding()) and not isDead and not isAttacking:
 		scale.x = -scale.x
 		direction = -direction
-		#hit_ledge.position.x = -hit_ledge.position.x
 	
-	if not isDead and not isHurt:	
+	if not isDead and not isHurt and not isAttacking:	
 		motion.x = speed * direction
 	else:
-		motion.x = lerp(motion.x, 0, 0.25)
+		motion.x = lerp(motion.x, 0, 0.1)
+
 	
 	
 func animate():
 	
-	if isHurt:
+	if isHurt or isAttacking:
 		return
 	
 	if scale.x > 0:
@@ -75,6 +78,8 @@ func hurt(enemyPosition : Vector2):
 	
 	hp -= 1
 	isHurt = true
+	isAttacking = false
+	$Attack.set_collision_mask_bit(0,false)
 	
 	if enemyPosition.x > position.x: 
 		motion = Vector2(-KNOCKBACK, -JUMP_SPEED/2)
@@ -103,8 +108,31 @@ func _on_AnimatedSprite_animation_finished():
 		$DeadFade.play("fade_out")
 		yield($DeadFade, "animation_finished")
 		queue_free()
-
+			
 	
 func _on_DamageOnTouch_body_entered(body):
+	if body.name == "Player":
+		get_tree().call_group("GameState", "hurt", position)
+
+
+func _on_DetectPlayer_body_entered(body):
+	if body.name == "Player" and not isAttacking and not isDead:
+		isAttacking = true
+		animated_sprite.play("ready")
+		yield(animated_sprite, "animation_finished")
+		attack()
+
+func test_attack():
+	pass
+
+func attack():
+	animated_sprite.play("attack")
+	$Attack.set_collision_mask_bit(0, true)
+	yield(animated_sprite, "animation_finished")
+	$Attack.set_collision_mask_bit(0, false)
+	isAttacking = false
+
+
+func _on_Attack_body_entered(body):
 	if body.name == "Player":
 		get_tree().call_group("GameState", "hurt", position)

@@ -27,9 +27,10 @@ signal animate
 func _physics_process(delta): # delta is the time difference between frames, multiply by delta to adjust for FPS drops
 	
 	move(delta)
-	jump(delta)
-	attack()
-	throwSword()
+	if not isDead:
+		jump(delta)
+		attack()
+		throwSword()
 	apply_gravity(delta)
 	move_and_slide(motion, UP)
 	animate()
@@ -51,9 +52,10 @@ func apply_gravity(delta):
 
 
 func jump(delta):
-	if Input.is_action_pressed("jump") and is_on_floor() and not isDead:
+	if Input.is_action_pressed("jump") and is_on_floor():
 		motion.y = -JUMP_SPEED
-
+	elif Input.is_action_just_pressed("drop") and is_on_floor():
+		position.y += 1
 
 func attack():
 	if Input.is_action_just_pressed("attack") and animAffix == "_sword":
