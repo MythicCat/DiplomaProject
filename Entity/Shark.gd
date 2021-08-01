@@ -9,17 +9,20 @@ export var attackCooldown = 2
 
 func attack():
 
-	motion = Vector2(600 * direction,-200)
+	motion = Vector2(600 * direction,-200) 
 	timer.start()
 	yield(timer, "timeout")
-	
-	animated_sprite.play("attack")
-	$Attack.set_collision_mask_bit(0, true)
-	yield(animated_sprite, "animation_finished")
-	$Attack.set_collision_mask_bit(0, false)
 	canAttack = false
 	$AttackCooldown.start(attackCooldown)
-	isAttacking = false
+	
+	.attack()
+	
+	
+func detect_player():
+	if $DetectPlayer.is_colliding() and $DetectPlayer.get_collider().name == "Player":
+		if not isAttacking and not isDead and canAttack:
+			ready_attack()
+
 
 func _on_AttackCooldown_timeout():
 	canAttack = true

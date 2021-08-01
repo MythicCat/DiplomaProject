@@ -7,6 +7,7 @@ const JUMP_SPEED = 340
 const FRICTION = 0.25
 const AIR_FRICTION = 0.1
 const KNOCKBACK = 120
+const BASE_SPEED = 60
 
 export var speed = 60
 export var hp = 3
@@ -15,16 +16,17 @@ var direction = -1
 var isHurt = false
 var isDead = false
 var isAttacking = false
+var in_air = false
 
 onready var animated_sprite = $AnimatedSprite
 onready var hit_ledge = $DetectLedge
 onready var touchArea = $DamageOnTouch/CollisionShape2D
-onready var attackDetect = $AttackRay
 	
 func _physics_process(delta):
 	
-
 	move(delta)
+	if not isDead:
+		detect_player()
 	animate()	
 	apply_gravity(delta)
 	move_and_slide(motion, UP * delta)
@@ -33,10 +35,12 @@ func _physics_process(delta):
 func apply_gravity(delta):
 	if is_on_floor() and motion.y > 0:
 		motion.y = GRAVITY * delta
+		in_air = false
 	elif is_on_ceiling():
 		motion.y = 1
 	else:
 		motion.y += GRAVITY * delta
+		in_air = true
 		
 		
 func move(delta):	
@@ -44,11 +48,11 @@ func move(delta):
 	if isHurt:
 		return
 	
-	if (is_on_wall() or !hit_ledge.is_colliding()) and not isDead and not isAttacking:
+	if (is_on_wall() or !hit_ledge.is_colliding()) and not isDead and not isAttacking and not in_air:
 		scale.x = -scale.x
 		direction = -direction
 	
-	if not isDead and not isHurt and not isAttacking:	
+	if not isDead and not isHurt and not isAttacking and not in_air:	
 		motion.x = speed * direction
 	else:
 		motion.x = lerp(motion.x, 0, 0.1)
@@ -79,6 +83,7 @@ func hurt(enemyPosition : Vector2):
 	hp -= 1
 	isHurt = true
 	isAttacking = false
+	motion.x = speed * direction
 	$Attack.set_collision_mask_bit(0,false)
 	
 	if enemyPosition.x > position.x: 
@@ -115,17 +120,22 @@ func _on_DamageOnTouch_body_entered(body):
 		get_tree().call_group("GameState", "hurt", position)
 
 
-func _on_DetectPlayer_body_entered(body):
-	if body.name == "Player" and not isAttacking and not isDead:
-		isAttacking = true
-		animated_sprite.play("ready")
-		yield(animated_sprite, "animation_finished")
-		attack()
-
-func test_attack():
+func detect_player():
 	pass
 
+
+func ready_attack():
+	isAttacking = true
+	animated_sprite.play("ready")
+	yield(animated_sprite, "animation_finished")
+	attack()
+
+
 func attack():
+	
+	if not isAttacking: # if attack was interrupted by player attack
+		return
+	
 	animated_sprite.play("attack")
 	$Attack.set_collision_mask_bit(0, true)
 	yield(animated_sprite, "animation_finished")

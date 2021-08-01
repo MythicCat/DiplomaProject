@@ -48,14 +48,9 @@ animations = [ {
 "name": "ready",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 22 ), ExtResource( 21 ), ExtResource( 28 ), ExtResource( 24 ) ],
+"frames": [ ExtResource( 19 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 20 ) ],
 "loop": false,
-"name": "hurt",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 32 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
-"loop": false,
-"name": "attack",
+"name": "hurt_dead",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
@@ -68,9 +63,14 @@ animations = [ {
 "name": "dead",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 19 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 20 ) ],
+"frames": [ ExtResource( 32 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
 "loop": false,
-"name": "hurt_dead",
+"name": "attack",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 21 ), ExtResource( 28 ), ExtResource( 24 ) ],
+"loop": false,
+"name": "hurt",
 "speed": 10.0
 } ]
 
@@ -81,7 +81,7 @@ extents = Vector2( 11.6412, 10.8469 )
 extents = Vector2( 14.7267, 12.661 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 34.8967, 7.3689 )
+extents = Vector2( 35.9348, 7.3689 )
 
 [sub_resource type="Animation" id=5]
 length = 2.0
@@ -98,7 +98,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[node name="Crab" type="KinematicBody2D"]
+[node name="Enemy" type="KinematicBody2D"]
 z_index = 2
 collision_layer = 16
 collision_mask = 35
@@ -117,7 +117,7 @@ shape = SubResource( 2 )
 [node name="DetectLedge" type="RayCast2D" parent="."]
 position = Vector2( -9.04776, 3.7755 )
 enabled = true
-cast_to = Vector2( 0, 10 )
+cast_to = Vector2( 0, 20 )
 collision_mask = 2
 
 [node name="DamageOnTouch" type="Area2D" parent="."]
@@ -126,13 +126,6 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageOnTouch"]
 position = Vector2( 0.966705, 0.259613 )
 shape = SubResource( 3 )
-
-[node name="DetectPlayer" type="Area2D" parent="."]
-collision_layer = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectPlayer"]
-position = Vector2( 1.85408, 4.50272 )
-shape = SubResource( 4 )
 
 [node name="Attack" type="Area2D" parent="."]
 collision_layer = 0
@@ -145,7 +138,11 @@ shape = SubResource( 4 )
 [node name="DeadFade" type="AnimationPlayer" parent="."]
 anims/fade_out = SubResource( 5 )
 
+[node name="DetectPlayer" type="RayCast2D" parent="."]
+rotation = 1.5708
+enabled = true
+collision_mask = 3
+
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="body_entered" from="DamageOnTouch" to="." method="_on_DamageOnTouch_body_entered"]
-[connection signal="body_entered" from="DetectPlayer" to="." method="_on_DetectPlayer_body_entered"]
 [connection signal="body_entered" from="Attack" to="." method="_on_Attack_body_entered"]

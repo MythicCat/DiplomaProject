@@ -5,3 +5,13 @@
 
 [node name="Crab" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+
+[node name="AnimatedSprite" parent="." index="0"]
+frame = 0
+
+[node name="CollisionShape2D" parent="Attack" index="0"]
+position = Vector2( 2.09004, 4.38474 )
+
+[node name="DetectPlayer" parent="." index="6"]
+position = Vector2( 53.9188, 4.60139 )
+cast_to = Vector2( 0, 85 )
