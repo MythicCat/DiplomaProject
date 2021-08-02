@@ -29,7 +29,7 @@ func _physics_process(delta):
 		detect_player()
 	animate()	
 	apply_gravity(delta)
-	move_and_slide(motion, UP * delta)
+	move_and_slide(motion, UP)
 
 	
 func apply_gravity(delta):

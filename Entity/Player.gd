@@ -105,7 +105,7 @@ func animate():
 	emit_signal("animate", motion, is_on_floor(), isDead, animAffix)
 	
 	
-func hurt(enemyPosition : Vector2):
+func hurt(enemyPosition : Vector2, knockbackFactor = 1):
 	
 	if isDead:
 		return
@@ -127,9 +127,9 @@ func hurt(enemyPosition : Vector2):
 		animated_sprite.play("hurt_dead")
 		
 	if enemyPosition.x > position.x: # TODO fix this, check if player is further than half of enemy collision box away
-		motion = Vector2(-KNOCKBACK, -JUMP_SPEED)
+		motion = Vector2(-KNOCKBACK * knockbackFactor, -JUMP_SPEED)
 	else:
-		motion = Vector2( KNOCKBACK, -JUMP_SPEED)
+		motion = Vector2( KNOCKBACK * knockbackFactor, -JUMP_SPEED)
 
 
 	#$HurtSFX.play()

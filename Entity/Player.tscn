@@ -83,39 +83,9 @@ animations = [ {
 "name": "jump",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 30 ), ExtResource( 24 ), ExtResource( 26 ) ],
+"frames": [ ExtResource( 59 ), ExtResource( 61 ), ExtResource( 66 ), ExtResource( 62 ) ],
 "loop": false,
-"name": "attack3",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "fall_sword",
-"speed": 3.0
-}, {
-"frames": [ ExtResource( 39 ), ExtResource( 40 ) ],
-"loop": false,
-"name": "land_sword",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 2 ) ],
-"loop": false,
-"name": "jump_sword",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 1 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "idle_sword",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 25 ), ExtResource( 29 ), ExtResource( 28 ) ],
-"loop": false,
-"name": "attack2",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 20 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "hurt_sword",
+"name": "hurt",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 47 ), ExtResource( 45 ), ExtResource( 44 ), ExtResource( 43 ) ],
@@ -128,15 +98,20 @@ animations = [ {
 "name": "fall",
 "speed": 3.0
 }, {
+"frames": [ ExtResource( 41 ), ExtResource( 42 ), ExtResource( 48 ), ExtResource( 46 ) ],
+"loop": false,
+"name": "dead",
+"speed": 10.0
+}, {
 "frames": [ ExtResource( 60 ), ExtResource( 57 ), ExtResource( 68 ), ExtResource( 65 ), ExtResource( 64 ), ExtResource( 55 ) ],
 "loop": true,
 "name": "run",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 41 ), ExtResource( 42 ), ExtResource( 48 ), ExtResource( 46 ) ],
-"loop": false,
-"name": "dead",
-"speed": 10.0
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "fall_sword",
+"speed": 3.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
 "loop": true,
@@ -148,9 +123,34 @@ animations = [ {
 "name": "attack1",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 59 ), ExtResource( 61 ), ExtResource( 66 ), ExtResource( 62 ) ],
+"frames": [ ExtResource( 39 ), ExtResource( 40 ) ],
 "loop": false,
-"name": "hurt",
+"name": "land_sword",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "hurt_sword",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "jump_sword",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 29 ), ExtResource( 28 ) ],
+"loop": false,
+"name": "attack2",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 1 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "idle_sword",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 30 ), ExtResource( 24 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "attack3",
 "speed": 10.0
 } ]
 
@@ -203,6 +203,7 @@ tracks/0/keys = {
 }
 
 [node name="Player" type="KinematicBody2D"]
+z_index = 2
 collision_mask = 95
 script = ExtResource( 16 )
 
