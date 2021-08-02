@@ -131,7 +131,6 @@ format = 1
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1116.47, -48.5009 )
-z_index = 2
 
 [node name="Water" type="TileMap" parent="."]
 tile_set = SubResource( 2 )
@@ -230,7 +229,9 @@ position = Vector2( -60.2651, 200.327 )
 
 [node name="Boss" parent="Enemies" instance=ExtResource( 30 )]
 position = Vector2( 1032.72, 1.81839 )
+spawn_point_count = 4
 shoot_timer_seconds = 1
+arc_points = Vector2( -180, -90 )
 
 [node name="Interface" type="CanvasLayer" parent="."]
 
