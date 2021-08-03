@@ -78,29 +78,34 @@ animations = [ {
 "name": "idle",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 59 ), ExtResource( 61 ), ExtResource( 66 ), ExtResource( 62 ) ],
+"frames": [ ExtResource( 25 ), ExtResource( 29 ), ExtResource( 28 ) ],
 "loop": false,
-"name": "hurt",
+"name": "attack2",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 67 ), ExtResource( 56 ), ExtResource( 58 ) ],
-"loop": false,
-"name": "jump",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 47 ), ExtResource( 45 ), ExtResource( 44 ), ExtResource( 43 ) ],
-"loop": false,
-"name": "hurt_dead",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 1 ), ExtResource( 4 ) ],
 "loop": true,
-"name": "fall_sword",
-"speed": 3.0
+"name": "idle_sword",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 41 ), ExtResource( 42 ), ExtResource( 48 ), ExtResource( 46 ) ],
 "loop": false,
 "name": "dead",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 30 ), ExtResource( 24 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "attack3",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 60 ), ExtResource( 57 ), ExtResource( 68 ), ExtResource( 65 ), ExtResource( 64 ), ExtResource( 55 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 27 ), ExtResource( 23 ) ],
+"loop": false,
+"name": "attack1",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 63 ) ],
@@ -113,24 +118,14 @@ animations = [ {
 "name": "land_sword",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 22 ), ExtResource( 27 ), ExtResource( 23 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 2 ) ],
 "loop": false,
-"name": "attack1",
+"name": "jump_sword",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 60 ), ExtResource( 57 ), ExtResource( 68 ), ExtResource( 65 ), ExtResource( 64 ), ExtResource( 55 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
 "loop": true,
-"name": "run",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 25 ), ExtResource( 29 ), ExtResource( 28 ) ],
-"loop": false,
-"name": "attack2",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 1 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "idle_sword",
+"name": "run_sword",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 20 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 21 ) ],
@@ -138,19 +133,24 @@ animations = [ {
 "name": "hurt_sword",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 2 ) ],
-"loop": false,
-"name": "jump_sword",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 30 ), ExtResource( 24 ), ExtResource( 26 ) ],
-"loop": false,
-"name": "attack3",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "run_sword",
+"name": "fall_sword",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 59 ), ExtResource( 61 ), ExtResource( 66 ), ExtResource( 62 ) ],
+"loop": false,
+"name": "hurt",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 47 ), ExtResource( 45 ), ExtResource( 44 ), ExtResource( 43 ) ],
+"loop": false,
+"name": "hurt_dead",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 67 ), ExtResource( 56 ), ExtResource( 58 ) ],
+"loop": false,
+"name": "jump",
 "speed": 10.0
 } ]
 

@@ -229,9 +229,7 @@ position = Vector2( -60.2651, 200.327 )
 
 [node name="Boss" parent="Enemies" instance=ExtResource( 30 )]
 position = Vector2( 1032.72, 1.81839 )
-spawn_point_count = 4
 shoot_timer_seconds = 1
-arc_points = Vector2( -180, -90 )
 
 [node name="Interface" type="CanvasLayer" parent="."]
 
@@ -257,21 +255,20 @@ __meta__ = {
 position = Vector2( 369.751, 445.836 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 5 )
-frame = 3
 playing = true
 
 [node name="AnimatedWater2" type="AnimatedSprite" parent="Background"]
 position = Vector2( 861.739, 468.682 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 6 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="AnimatedWater3" type="AnimatedSprite" parent="Background"]
 position = Vector2( 542.728, 520.075 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 7 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]

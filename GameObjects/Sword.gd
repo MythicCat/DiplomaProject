@@ -19,7 +19,7 @@ func _on_RigidBody2D_body_entered(body):
 	#$ThrowShape.disabled = true
 	#$PickUpShape.disabled = false
 	
-	if body is Enemy:
+	if body is Enemy or body is Boss:
 		body.hurt(global_position)
 		gravity_scale = 5
 	elif body is Player:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Idle/1.png" type="Texture" id=1]
 [ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Hit/2.png" type="Texture" id=2]
@@ -152,6 +152,56 @@ tracks/6/keys = {
 "update": 1,
 "values": [ 35 ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("ClosedShape:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("OpenShape:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath(".:collision_layer")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 16 ]
+}
+tracks/10/type = "method"
+tracks/10/path = NodePath("ShootTimer")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 4 ],
+"method": "start"
+} ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "hurt"
@@ -236,22 +286,8 @@ tracks/1/keys = {
 "update": 1,
 "values": [ 0 ]
 }
-tracks/2/type = "method"
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 4 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "increase_idle_count"
-} ]
-}
 
-[sub_resource type="Animation" id=27]
+[sub_resource type="Animation" id=6]
 resource_name = "idle_open"
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
@@ -278,7 +314,7 @@ tracks/1/keys = {
 "values": [ 4 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
@@ -378,9 +414,20 @@ tracks/7/keys = {
 "method": "start"
 } ]
 }
+tracks/8/type = "value"
+tracks/8/path = NodePath(".:collision_layer")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
 
-[sub_resource type="Animation" id=7]
-resource_name = "shoot"
+[sub_resource type="Animation" id=8]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
@@ -421,92 +468,95 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=17]
+[sub_resource type="AnimationNodeAnimation" id=9]
 animation = "close"
 
-[sub_resource type="AnimationNodeAnimation" id=18]
+[sub_resource type="AnimationNodeAnimation" id=10]
 animation = "hurt"
 
-[sub_resource type="AnimationNodeAnimation" id=24]
+[sub_resource type="AnimationNodeAnimation" id=11]
 animation = "hurt_open"
 
-[sub_resource type="AnimationNodeAnimation" id=8]
+[sub_resource type="AnimationNodeAnimation" id=12]
 animation = "idle"
 
-[sub_resource type="AnimationNodeAnimation" id=28]
+[sub_resource type="AnimationNodeAnimation" id=13]
 animation = "idle_open"
 
-[sub_resource type="AnimationNodeAnimation" id=9]
+[sub_resource type="AnimationNodeAnimation" id=14]
 animation = "open"
 
-[sub_resource type="AnimationNodeAnimation" id=10]
+[sub_resource type="AnimationNodeAnimation" id=15]
 animation = "shoot"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
 switch_mode = 2
 auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=19]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=20]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=21]
 switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=22]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=29]
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=32]
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=33]
-switch_mode = 2
-auto_advance = true
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=34]
-
-[sub_resource type="AnimationNodeStateMachine" id=13]
-states/close/node = SubResource( 17 )
+[sub_resource type="AnimationNodeStateMachine" id=29]
+states/close/node = SubResource( 9 )
 states/close/position = Vector2( 1063, 259 )
-states/hurt/node = SubResource( 18 )
-states/hurt/position = Vector2( 754, 180 )
-states/hurt_open/node = SubResource( 24 )
+states/hurt/node = SubResource( 10 )
+states/hurt/position = Vector2( 753, 180 )
+states/hurt_open/node = SubResource( 11 )
 states/hurt_open/position = Vector2( 1236, 180 )
-states/idle/node = SubResource( 8 )
+states/idle/node = SubResource( 12 )
 states/idle/position = Vector2( 580, 259 )
-states/idle_open/node = SubResource( 28 )
+states/idle_open/node = SubResource( 13 )
 states/idle_open/position = Vector2( 1063, 180 )
-states/open/node = SubResource( 9 )
+states/open/node = SubResource( 14 )
 states/open/position = Vector2( 900, 180 )
-states/shoot/node = SubResource( 10 )
+states/shoot/node = SubResource( 15 )
 states/shoot/position = Vector2( 580, 95 )
-transitions = [ "idle", "shoot", SubResource( 11 ), "shoot", "idle", SubResource( 12 ), "shoot", "hurt", SubResource( 19 ), "idle", "hurt", SubResource( 20 ), "hurt", "open", SubResource( 21 ), "close", "idle", SubResource( 22 ), "open", "idle_open", SubResource( 29 ), "idle_open", "hurt_open", SubResource( 30 ), "hurt_open", "idle_open", SubResource( 31 ), "idle_open", "close", SubResource( 32 ), "hurt", "idle", SubResource( 33 ), "hurt_open", "close", SubResource( 34 ) ]
+transitions = [ "idle", "shoot", SubResource( 16 ), "shoot", "idle", SubResource( 17 ), "shoot", "hurt", SubResource( 18 ), "idle", "hurt", SubResource( 19 ), "hurt", "open", SubResource( 20 ), "close", "idle", SubResource( 21 ), "open", "idle_open", SubResource( 22 ), "idle_open", "hurt_open", SubResource( 23 ), "hurt_open", "idle_open", SubResource( 24 ), "idle_open", "close", SubResource( 25 ), "hurt", "idle", SubResource( 26 ), "hurt_open", "close", SubResource( 27 ), "hurt", "shoot", SubResource( 28 ) ]
 start_node = "idle"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=14]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=30]
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=31]
 extents = Vector2( 12, 12 )
 
-[sub_resource type="RectangleShape2D" id=16]
+[sub_resource type="RectangleShape2D" id=32]
 extents = Vector2( 40, 28 )
 
 [node name="Boss" type="KinematicBody2D"]
 z_index = 1
-collision_layer = 0
+collision_layer = 16
 collision_mask = 35
 script = ExtResource( 18 )
 
@@ -515,7 +565,6 @@ position = Vector2( 2, -22 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 1 )
 animation = "close"
-frame = 4
 
 [node name="ClosedShape" type="CollisionPolygon2D" parent="."]
 position = Vector2( 3.97299, 3.1784 )
@@ -537,15 +586,15 @@ anims/close = SubResource( 2 )
 anims/hurt = SubResource( 3 )
 anims/hurt_open = SubResource( 4 )
 anims/idle = SubResource( 5 )
-anims/idle_open = SubResource( 27 )
-anims/open = SubResource( 6 )
-anims/shoot = SubResource( 7 )
+anims/idle_open = SubResource( 6 )
+anims/open = SubResource( 7 )
+anims/shoot = SubResource( 8 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 13 )
+tree_root = SubResource( 29 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 14 )
+parameters/playback = SubResource( 30 )
 
 [node name="Pearl" type="Area2D" parent="."]
 collision_layer = 16
@@ -553,7 +602,7 @@ collision_mask = 32
 
 [node name="PearlHitbox" type="CollisionShape2D" parent="Pearl"]
 position = Vector2( 32, 2 )
-shape = SubResource( 15 )
+shape = SubResource( 31 )
 disabled = true
 
 [node name="InsideClam" type="Area2D" parent="."]
@@ -561,14 +610,20 @@ collision_layer = 0
 
 [node name="ClamInterior" type="CollisionShape2D" parent="InsideClam"]
 position = Vector2( -2, -10 )
-shape = SubResource( 16 )
+shape = SubResource( 32 )
 disabled = true
 
 [node name="CloseTimer" type="Timer" parent="."]
 wait_time = 5.0
+one_shot = true
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="Pearl" to="." method="_on_Pearl_area_entered"]
 [connection signal="body_entered" from="InsideClam" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="InsideClam" to="." method="_on_Area2D_body_exited"]
 [connection signal="timeout" from="CloseTimer" to="." method="_on_CloseTimer_timeout"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]

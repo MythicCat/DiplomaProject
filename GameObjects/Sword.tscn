@@ -19,14 +19,14 @@ animations = [ {
 "name": "idle",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": false,
-"name": "embed",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "spin",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "embed",
 "speed": 10.0
 } ]
 
@@ -67,7 +67,6 @@ position = Vector2( 0.00451279, -0.00451565 )
 z_index = 3
 frames = SubResource( 1 )
 animation = "spin"
-frame = 2
 playing = true
 
 [node name="ThrowShape" type="CollisionShape2D" parent="."]

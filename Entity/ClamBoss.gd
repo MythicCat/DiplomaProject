@@ -1,4 +1,6 @@
+class_name Boss
 extends KinematicBody2D
+
 
 const pearl = preload("res://Hazards/Pearl.tscn")
 
@@ -9,14 +11,13 @@ const ATTACK_MAX = 3
 
 var step = 0
 var radius = 10
-var ready = true
 var motion = Vector2(0,0)
 var in_air = false
 var immune = false
 var playerRef = null
 var pearlHp = 20
+var shot_count = 0 # how many times the clam fires
 
-var _idle_count = 0
 var _shell_damage = 0
 var _state_machine
 
@@ -31,7 +32,6 @@ export var arc_points = Vector2(-180, -90)
 """
 	- Ground slam attack
 	- Different bullet patters
-
 """
 
 func _ready(): 
@@ -50,6 +50,8 @@ func _ready():
 		spawn_point.position = pos
 		spawn_point.rotation = pos.angle()
 		$FiringPoint.add_child(spawn_point)
+		
+	$ShootTimer.start()
 		
 
 func _physics_process(delta):
@@ -77,22 +79,24 @@ func jump():
 		
 
 
-func shoot():
+func shoot():	
 	
-	ready = false	
 	for sp in $FiringPoint.get_children():
 		var bullet = pearl.instance()
 		get_tree().root.add_child(bullet)
 		bullet.position = sp.global_position
 		bullet.rotation = sp.global_rotation
+	shot_count += 1
 
 
 func hurt(_enemy_pos : Vector2): # must detect thrown swords
 	
+	print("Took damage!")
 	if _shell_damage < shell_threshold:
 		_shell_damage += 1
 		_state_machine.travel("hurt")
 	elif _shell_damage == shell_threshold:
+		$ShootTimer.stop()
 		_shell_damage += 1
 		_state_machine.travel("open")
 	elif not immune:
@@ -105,15 +109,6 @@ func hurt(_enemy_pos : Vector2): # must detect thrown swords
 func eject_player():
 	if playerRef != null:
 		playerRef.hurt(position + Vector2(100, 0), 2.5)
-
-
-func increase_idle_count():
-	_idle_count += 1
-		
-	if _idle_count > ATTACK_MAX:
-		_idle_count = 0
-		_state_machine.travel("shoot")
-	print("Idle increased")
 
 
 func _on_Pearl_area_entered(area):
@@ -131,5 +126,14 @@ func _on_Area2D_body_exited(body):
 
 
 func _on_CloseTimer_timeout():
-	_shell_damage = 0
-	_state_machine.travel("close")
+	 _shell_damage = 0
+	 _state_machine.travel("close")
+
+
+func _on_ShootTimer_timeout():
+	if shot_count >= 3:
+		shot_count = 0
+		# traverse to slam
+	else:
+		_state_machine.travel("shoot")
+	$ShootTimer.start()

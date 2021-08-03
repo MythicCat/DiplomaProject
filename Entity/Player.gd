@@ -1,6 +1,6 @@
+class_name Player
 extends KinematicBody2D
 
-class_name Player
 
 var motion = Vector2(0,0)
 var attackNum = 1
