@@ -68,4 +68,5 @@ wait_time = 5.0
 one_shot = true
 
 [connection signal="body_entered" from="." to="." method="_on_Node2D_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Respawn" to="." method="_on_Respawn_timeout"]

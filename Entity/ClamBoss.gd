@@ -24,7 +24,7 @@ var _state_machine
 
 var test = true
 
-export var shell_threshold = 4
+export var shell_threshold = 1
 export var spawn_point_count = 4
 export var shoot_timer_seconds = 5
 export var arc_points = Vector2(-180, -90)
@@ -92,14 +92,17 @@ func shoot():
 func hurt(_enemy_pos : Vector2): # must detect thrown swords
 	
 	print("Took damage!")
-	if _shell_damage < shell_threshold:
+	if _shell_damage < shell_threshold and immune:
+		
 		_shell_damage += 1
 		_state_machine.travel("hurt")
-	elif _shell_damage == shell_threshold:
-		$ShootTimer.stop()
-		_shell_damage += 1
-		_state_machine.travel("open")
-	elif not immune:
+		
+		if _shell_damage == shell_threshold:
+			$ShootTimer.stop()
+			_shell_damage += 1
+			_state_machine.travel("open")
+		
+	else:
 		immune = true
 		pearlHp -= 1
 		_state_machine.travel("hurt_open")

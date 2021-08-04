@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Water/Bottom/1.png" type="Texture" id=1]
 [ext_resource path="res://Tilesets/ShipBackgroundTiles.tres" type="TileSet" id=2]
@@ -31,7 +31,6 @@
 [ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Small 04.png" type="Texture" id=29]
 [ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Medium 02.png" type="Texture" id=30]
 [ext_resource path="res://Treasure Hunters/Pirate Ship/Sprites/Decorations/Chains/Big/04.png" type="Texture" id=31]
-[ext_resource path="res://GameObjects/BoomBarrel.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Interface/GUI.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/2.png" type="Texture" id=34]
 [ext_resource path="res://Entity/Player.tscn" type="PackedScene" id=35]
@@ -219,32 +218,59 @@ animations = [ {
 [sub_resource type="GDScript" id=12]
 script/source = "extends Area2D
 
+const barrel = preload(\"res://GameObjects/BoomBarrel.tscn\")
+
+var explosion_position = Vector2()
+var ready = true
+
+onready var spawn_point = $BarrelLocation
 
 func _ready():
 	add_to_group(\"BossLogic\")
-	$BarrelLocation.position = $TNTBarrel.position
-	pass
-
+	var new_barrel = barrel.instance()
+	new_barrel.position = spawn_point.position
+	new_barrel.sleeping = true
+	new_barrel.set_as_toplevel(true)
+	spawn_point.add_child(new_barrel)
 
 func _on_Area2D_body_entered(body):
 	body.linear_velocity.x -= body.linear_velocity.x + 100
-	$TNTBarrel.sleeping = false
-	$TNTBarrel/AnimatedSprite.play(\"armed\")
+	if not ready:
+		return
+	
+	ready = false
+	spawn_point.get_child(0).sleeping = false
+	spawn_point.get_child(0).get_child(0).play(\"armed\")
+	#$TNTBarrel.sleeping = false
+	#$TNTBarrel/AnimatedSprite.play(\"armed\")
 	print(\"Release barrel\")
 
 func _on_barrel_ready():
-	pass
+	ready = true
 
 func _on_barrel_exploded():
+	
+	explosion_position = spawn_point.get_child(0).position
+	$ExplosionAnimation.position = explosion_position
 	$ExplosionAnimation.visible = true
 	
-	$TNTBarrel.reset_state($BarrelLocation.position) # reset barrel position
+	spawn_point.get_child(0).queue_free()
+	reset_barrel()
+	#$TNTBarrel.reset_state($BarrelLocation.position) # reset barrel position
 	
 	$ExplosionAnimation.play(\"explosion\")
 	yield($ExplosionAnimation,\"animation_finished\")
 	$ExplosionAnimation.visible = false
-	
-	pass # Replace with function body.
+
+
+func reset_barrel():
+	var new_barrel = barrel.instance()
+	new_barrel.position = $BarrelLocation.position
+	new_barrel.sleeping = true
+	new_barrel.set_as_toplevel(true)
+	spawn_point.add_child(new_barrel)
+	spawn_point.get_child(spawn_point.get_child_count() -1).prepare()
+
 "
 
 [sub_resource type="RectangleShape2D" id=11]
@@ -348,21 +374,21 @@ __meta__ = {
 position = Vector2( 369.751, 445.836 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 7 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="AnimatedWater2" type="AnimatedSprite" parent="Background"]
 position = Vector2( 861.739, 468.682 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 8 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="AnimatedWater3" type="AnimatedSprite" parent="Background"]
 position = Vector2( 542.728, 520.075 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 9 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
@@ -400,20 +426,15 @@ collision_mask = 32
 script = SubResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossRoom/Area2D"]
-position = Vector2( 3254.21, -41.9561 )
+position = Vector2( 3254.21, -42.3097 )
 shape = SubResource( 11 )
 
 [node name="Chain" type="AnimatedSprite" parent="BossRoom/Area2D"]
 position = Vector2( 3252.71, -34.0684 )
 frames = SubResource( 10 )
 animation = "idle"
-frame = 7
+frame = 4
 playing = true
-
-[node name="TNTBarrel" parent="BossRoom/Area2D" instance=ExtResource( 32 )]
-position = Vector2( 3255.09, 2.11955 )
-sleeping = true
-angular_damp = 72.544
 
 [node name="ExplosionAnimation" type="AnimatedSprite" parent="BossRoom/Area2D"]
 visible = false
@@ -424,6 +445,6 @@ frames = SubResource( 13 )
 animation = "explosion"
 
 [node name="BarrelLocation" type="Position2D" parent="BossRoom/Area2D"]
-position = Vector2( 3253.51, 4.48224 )
+position = Vector2( 3255.09, 2.12 )
 
 [connection signal="body_entered" from="BossRoom/Area2D" to="BossRoom/Area2D" method="_on_Area2D_body_entered"]
