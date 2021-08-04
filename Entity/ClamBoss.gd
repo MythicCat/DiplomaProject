@@ -92,7 +92,7 @@ func shoot():
 func hurt(_enemy_pos : Vector2): # must detect thrown swords
 	
 	print("Took damage!")
-	if _shell_damage < shell_threshold and immune:
+	if _shell_damage < shell_threshold and not immune:
 		
 		_shell_damage += 1
 		_state_machine.travel("hurt")
