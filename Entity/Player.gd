@@ -17,7 +17,7 @@ const JUMP_SPEED = 340
 const FRICTION = 0.25
 const AIR_FRICTION = 0.1
 const WORLD_LIMIT = 500
-const KNOCKBACK = 120
+const KNOCKBACK = 200
 
 onready var animated_sprite = $AnimatedSprite
 onready var SwordThrow = $AnimatedSprite/ThrowPoint
@@ -105,32 +105,43 @@ func animate():
 	emit_signal("animate", motion, is_on_floor(), isDead, animAffix)
 	
 	
-func hurt(enemyPosition : Vector2, knockbackFactor = 1):
-	
+func hurt(enemyPosition : Vector2, knockback_factor = 1):
 	if isDead:
 		return
 	
 	isHurt = true
 	isImmune = true
-	position.y -= 1
+	
+	# disable any active attacks
+	isAttacking = false
+	get_node("AttackArea" + String(attackNum) + "/CollisionShape2D").disabled = true
+		
+	position.y -= 10
 	
 	get_tree().call_group("Gui", "update_hp_bar")
 	yield(get_tree(), "idle_frame")
 	
 	if PlayerVariables.lives <= 0:
-		isDead = true
-	
+		isDead = true	
+			
 	if not isDead:
-		$AnimationPlayer.play("immunity")
+		knockback(enemyPosition, knockback_factor)
 		animated_sprite.play("hurt" + animAffix)
+		yield(animated_sprite, "animation_finished")
+		$AnimationPlayer.play("immunity")
+		isHurt = false
 	else:
+		knockback(enemyPosition, knockback_factor)
 		animated_sprite.play("hurt_dead")
 		
-	if enemyPosition.x > position.x: # TODO fix this, check if player is further than half of enemy collision box away
-		motion = Vector2(-KNOCKBACK * knockbackFactor, -JUMP_SPEED)
-	else:
-		motion = Vector2( KNOCKBACK * knockbackFactor, -JUMP_SPEED)
 
+	
+
+func knockback(enemyPosition : Vector2, knockbackFactor = 1):
+	if enemyPosition.x > position.x: # TODO fix this, check if player is further than half of enemy collision box away
+		motion = Vector2(-KNOCKBACK * knockbackFactor, -JUMP_SPEED/2)
+	else:
+		motion = Vector2( KNOCKBACK * knockbackFactor, -JUMP_SPEED/2)
 
 	#$HurtSFX.play()
 	
@@ -155,9 +166,6 @@ func _on_AnimatedSprite_animation_finished():
 			attackNum += 1
 		else:
 			attackNum = 1
-	
-	if "hurt" in animated_sprite.animation:
-		isHurt = false
 		
 	if "fall" in animated_sprite.animation and is_on_floor():
 		animated_sprite.play("land" + PlayerVariables.animation_affix);

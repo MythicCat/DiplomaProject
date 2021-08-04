@@ -7,11 +7,11 @@ func _ready():
 	PlayerVariables.newLevel()
 	get_tree().call_group("Gui", "update_hp_bar")
 	
-func hurt(enemyPosition : Vector2):
+func hurt(enemyPosition : Vector2, knockback_multiplier = 1):
 	if $Player.isImmune:
 		return
 	PlayerVariables.lives -= 1
-	$Player.hurt(enemyPosition)
+	$Player.hurt(enemyPosition, knockback_multiplier)
 	print(PlayerVariables.lives)
 	if PlayerVariables.lives <= 0:
 		end_game()

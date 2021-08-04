@@ -150,7 +150,7 @@ tracks/6/keys = {
 "times": PoolRealArray( 3 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 35 ]
+"values": [ 11 ]
 }
 tracks/7/type = "value"
 tracks/7/path = NodePath("ClosedShape:disabled")
@@ -186,7 +186,7 @@ tracks/9/keys = {
 "times": PoolRealArray( 3 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 16 ]
+"values": [ 8 ]
 }
 tracks/10/type = "method"
 tracks/10/path = NodePath("ShootTimer")
@@ -556,24 +556,24 @@ extents = Vector2( 40, 28 )
 
 [node name="Boss" type="KinematicBody2D"]
 z_index = 1
-collision_layer = 16
-collision_mask = 35
+collision_layer = 8
+collision_mask = 3
 script = ExtResource( 18 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 2, -22 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 1 )
-animation = "close"
+animation = "open"
 
 [node name="ClosedShape" type="CollisionPolygon2D" parent="."]
 position = Vector2( 3.97299, 3.1784 )
 rotation = 1.5708
 polygon = PoolVector2Array( -31.1784, 19.973, -15.1784, 41.973, -3.1784, 45.973, 16.8216, 45.973, 30.8216, 29.973, 30.8216, -22.027, 28.8216, -32.027, 16.8216, -46.027, 10.8216, -48.027, -3.1784, -48.027, -21.1784, -36.027, -31.1784, -16.027 )
+disabled = true
 
 [node name="OpenShape" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( 8, -62, 50, -62, 64, -46, 64, -4, 52, 20, 34, 34, -24, 34, -42, 20, -42, 10, 38, 10, 38, -52, 2, -52, 2, -58 )
-disabled = true
 
 [node name="Pattern1" type="Node" parent="."]
 
@@ -603,7 +603,6 @@ collision_mask = 32
 [node name="PearlHitbox" type="CollisionShape2D" parent="Pearl"]
 position = Vector2( 32, 2 )
 shape = SubResource( 31 )
-disabled = true
 
 [node name="InsideClam" type="Area2D" parent="."]
 collision_layer = 0
@@ -611,7 +610,6 @@ collision_layer = 0
 [node name="ClamInterior" type="CollisionShape2D" parent="InsideClam"]
 position = Vector2( -2, -10 )
 shape = SubResource( 32 )
-disabled = true
 
 [node name="CloseTimer" type="Timer" parent="."]
 wait_time = 5.0

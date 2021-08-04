@@ -1,0 +1,429 @@
+[gd_scene load_steps=57 format=2]
+
+[ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Water/Bottom/1.png" type="Texture" id=1]
+[ext_resource path="res://Tilesets/ShipBackgroundTiles.tres" type="TileSet" id=2]
+[ext_resource path="res://Tilesets/ShipTerrainTiles.tres" type="TileSet" id=3]
+[ext_resource path="res://Tilesets/IslandTiles.tres" type="TileSet" id=4]
+[ext_resource path="res://Entity/ClamBoss.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Tilesets/PalmTop.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Treasure Hunters/Pirate Ship/Sprites/Decorations/Chains/Big/01.png" type="Texture" id=7]
+[ext_resource path="res://Treasure Hunters/Pirate Ship/Sprites/Decorations/Chains/Big/02.png" type="Texture" id=8]
+[ext_resource path="res://Treasure Hunters/Pirate Ship/Sprites/Decorations/Chains/Big/06.png" type="Texture" id=9]
+[ext_resource path="res://Treasure Hunters/Pirate Ship/Sprites/Decorations/Chains/Big/08.png" type="Texture" id=10]
+[ext_resource path="res://Items/MapPieceOne.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Treasure Hunters/Pirate Ship/Sprites/Decorations/Chains/Big/05.png" type="Texture" id=12]
+[ext_resource path="res://Treasure Hunters/Pirate Ship/Sprites/Decorations/Chains/Big/07.png" type="Texture" id=13]
+[ext_resource path="res://Treasure Hunters/Pirate Ship/Sprites/Decorations/Chains/Big/03.png" type="Texture" id=14]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Bottom and Grass (32x32).png" type="Texture" id=15]
+[ext_resource path="res://Levels/water.tres" type="Texture" id=16]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 02.png" type="Texture" id=17]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 04.png" type="Texture" id=18]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Medium 01.png" type="Texture" id=19]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Small 01.png" type="Texture" id=20]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Small 02.png" type="Texture" id=21]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Small 03.png" type="Texture" id=22]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Medium 03.png" type="Texture" id=23]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Medium 04.png" type="Texture" id=24]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Big Clouds.png" type="Texture" id=25]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" type="Texture" id=26]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 03.png" type="Texture" id=27]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 01.png" type="Texture" id=28]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Small 04.png" type="Texture" id=29]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Medium 02.png" type="Texture" id=30]
+[ext_resource path="res://Treasure Hunters/Pirate Ship/Sprites/Decorations/Chains/Big/04.png" type="Texture" id=31]
+[ext_resource path="res://GameObjects/BoomBarrel.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Interface/GUI.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/2.png" type="Texture" id=34]
+[ext_resource path="res://Entity/Player.tscn" type="PackedScene" id=35]
+[ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/7.png" type="Texture" id=36]
+[ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/6.png" type="Texture" id=37]
+[ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/5.png" type="Texture" id=38]
+[ext_resource path="res://Levels/Level1.gd" type="Script" id=39]
+[ext_resource path="res://Tilesets/BackTreeRight.tres" type="Texture" id=40]
+[ext_resource path="res://Tilesets/BackTreeLeft.tres" type="Texture" id=41]
+[ext_resource path="res://Tilesets/BackTreeCenter.tres" type="Texture" id=42]
+[ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/3.png" type="Texture" id=43]
+[ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/4.png" type="Texture" id=44]
+[ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/1.png" type="Texture" id=45]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "water.tres 0"
+0/texture = ExtResource( 16 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 32, 32 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 1
+0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 504 ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 32, 32 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "1.png 1"
+1/texture = ExtResource( 1 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 32, 32 )
+1/tile_mode = 1
+1/autotile/bitmask_mode = 1
+1/autotile/bitmask_flags = [ Vector2( 0, 0 ), 511 ]
+1/autotile/icon_coordinate = Vector2( 0, 0 )
+1/autotile/tile_size = Vector2( 32, 32 )
+1/autotile/spacing = 0
+1/autotile/occluder_map = [  ]
+1/autotile/navpoly_map = [  ]
+1/autotile/priority_map = [  ]
+1/autotile/z_index_map = [  ]
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 1 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+
+[sub_resource type="TileSet" id=3]
+0/name = "BackTreeCenter.tres 0"
+0/texture = ExtResource( 42 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "BackTreeLeft.tres 1"
+1/texture = ExtResource( 41 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 64, 64 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "BackTreeRight.tres 2"
+2/texture = ExtResource( 40 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 64, 64 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+
+[sub_resource type="TileSet" id=4]
+0/name = "Front Palm Bottom and Grass (32x32).png 0"
+0/texture = ExtResource( 15 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 32, 32, 32, 32 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 32, 32 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "Front Palm Bottom and Grass (32x32).png 1"
+1/texture = ExtResource( 15 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 96, 96 )
+1/tile_mode = 2
+1/autotile/icon_coordinate = Vector2( 0, 0 )
+1/autotile/tile_size = Vector2( 32, 32 )
+1/autotile/spacing = 0
+1/autotile/occluder_map = [  ]
+1/autotile/navpoly_map = [  ]
+1/autotile/priority_map = [  ]
+1/autotile/z_index_map = [  ]
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 28 ), ExtResource( 17 ), ExtResource( 27 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 19 ), ExtResource( 30 ), ExtResource( 23 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="GDScript" id=12]
+script/source = "extends Area2D
+
+
+func _ready():
+	add_to_group(\"BossLogic\")
+	$BarrelLocation.position = $TNTBarrel.position
+	pass
+
+
+func _on_Area2D_body_entered(body):
+	body.linear_velocity.x -= body.linear_velocity.x + 100
+	$TNTBarrel.sleeping = false
+	$TNTBarrel/AnimatedSprite.play(\"armed\")
+	print(\"Release barrel\")
+
+func _on_barrel_ready():
+	pass
+
+func _on_barrel_exploded():
+	$ExplosionAnimation.visible = true
+	
+	$TNTBarrel.reset_state($BarrelLocation.position) # reset barrel position
+	
+	$ExplosionAnimation.play(\"explosion\")
+	yield($ExplosionAnimation,\"animation_finished\")
+	$ExplosionAnimation.visible = false
+	
+	pass # Replace with function body.
+"
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 5.28833, 31.1816 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 14 ), ExtResource( 31 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ ExtResource( 45 ), ExtResource( 34 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 38 ), ExtResource( 37 ), ExtResource( 36 ) ],
+"loop": true,
+"name": "explosion",
+"speed": 6.0
+} ]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource( 39 )
+
+[node name="Player" parent="." instance=ExtResource( 35 )]
+position = Vector2( 3053.63, 18.2557 )
+
+[node name="MapPieceOne" parent="." instance=ExtResource( 11 )]
+position = Vector2( 2464.01, -402.663 )
+
+[node name="Tilesets" type="Node" parent="."]
+
+[node name="Water" type="TileMap" parent="Tilesets"]
+tile_set = SubResource( 2 )
+cell_size = Vector2( 32, 32 )
+show_collision = true
+collision_layer = 8
+format = 1
+
+[node name="IslandTileMap" type="TileMap" parent="Tilesets"]
+z_index = 1
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 2
+collision_mask = 17
+format = 1
+tile_data = PoolIntArray( -720801, 0, 0, -720800, 0, 1, -720799, 0, 1, -720798, 0, 1, -720797, 0, 1, -720796, 0, 1, -720795, 0, 1, -720794, 0, 1, -720793, 0, 1, -720792, 0, 1, -720791, 0, 2, -655269, 0, 0, -655268, 0, 1, -655267, 0, 1, -655266, 0, 1, -655265, 0, 65543, -655264, 0, 65537, -655263, 0, 65537, -655262, 0, 65537, -655261, 0, 65537, -655260, 0, 65537, -655259, 0, 65537, -655258, 0, 65537, -655257, 0, 65537, -655256, 0, 65537, -655255, 0, 65542, -655254, 0, 1, -655253, 0, 1, -655252, 0, 1, -655251, 0, 1, -655250, 0, 2, -589735, 0, 0, -589734, 0, 1, -589733, 0, 65543, -589732, 0, 65537, -589731, 0, 65537, -589730, 0, 65537, -589729, 0, 65537, -589728, 0, 65537, -589727, 0, 65537, -589726, 0, 65537, -589725, 0, 65537, -589724, 0, 65537, -589723, 0, 65537, -589722, 0, 65537, -589721, 0, 65537, -589720, 0, 65537, -589719, 0, 65537, -589718, 0, 65537, -589717, 0, 65537, -589716, 0, 65537, -589715, 0, 65537, -589714, 0, 65542, -589713, 0, 2, -524201, 0, 0, -524200, 0, 1, -524199, 0, 65543, -524198, 0, 65537, -524197, 0, 65537, -524196, 0, 65537, -524195, 0, 65537, -524194, 0, 65537, -524193, 0, 65537, -524192, 0, 65537, -524191, 0, 65537, -524190, 0, 65537, -524189, 0, 65537, -524188, 0, 65537, -524187, 0, 65537, -524186, 0, 65537, -524185, 0, 65537, -524184, 0, 65537, -524183, 0, 65537, -524182, 0, 65537, -524181, 0, 65537, -524180, 0, 65537, -524179, 0, 65537, -524178, 0, 65537, -524177, 0, 65542, -524176, 0, 1, -524175, 0, 1, -524174, 0, 2, -458667, 0, 0, -458666, 0, 1, -458665, 0, 65543, -458664, 0, 65537, -458663, 0, 65537, -458662, 0, 65537, -458661, 0, 65537, -458660, 0, 65537, -458659, 0, 65537, -458658, 0, 65537, -458657, 0, 65537, -458656, 0, 65537, -458655, 0, 65537, -458654, 0, 65537, -458653, 0, 65537, -458652, 0, 65537, -458651, 0, 65537, -458650, 0, 65537, -458649, 0, 65537, -458648, 0, 65537, -458647, 0, 65537, -458646, 0, 65537, -458645, 0, 65537, -458644, 0, 65537, -458643, 0, 65537, -458642, 0, 65537, -458641, 0, 65537, -458640, 0, 65537, -458639, 0, 65537, -458638, 0, 65542, -458637, 0, 1, -458636, 0, 2, -393131, 0, 65536, -393130, 0, 65537, -393129, 0, 65537, -393128, 0, 65537, -393127, 0, 65537, -393126, 0, 65537, -393125, 0, 65537, -393124, 0, 65537, -393123, 0, 65537, -393122, 0, 65537, -393121, 0, 65537, -393120, 0, 65537, -393119, 0, 65537, -393118, 0, 65537, -393117, 0, 65537, -393116, 0, 65537, -393115, 0, 65537, -393114, 0, 65537, -393113, 0, 65537, -393112, 0, 65537, -393111, 0, 65537, -393110, 0, 65537, -393109, 0, 65537, -393108, 0, 65537, -393107, 0, 65537, -393106, 0, 65537, -393105, 0, 65537, -393104, 0, 65537, -393103, 0, 65537, -393102, 0, 65537, -393101, 0, 65537, -393100, 0, 65542, -393099, 0, 2, -327596, 0, 0, -327595, 0, 65543, -327594, 0, 65537, -327593, 0, 65537, -327592, 0, 65537, -327591, 0, 65537, -327590, 0, 65537, -327589, 0, 65537, -327588, 0, 65537, -327587, 0, 65537, -327586, 0, 6, -327585, 0, 131073, -327584, 0, 131073, -327583, 0, 131073, -327582, 0, 7, -327581, 0, 65537, -327580, 0, 65537, -327579, 0, 65537, -327578, 0, 65537, -327577, 0, 65537, -327576, 0, 65537, -327575, 0, 65537, -327574, 0, 65537, -327573, 0, 65537, -327572, 0, 65537, -327571, 0, 65537, -327570, 0, 65537, -327569, 0, 65537, -327568, 0, 65537, -327567, 0, 65537, -327566, 0, 65537, -327565, 0, 65537, -327564, 0, 65537, -327563, 0, 65538, -262060, 0, 65536, -262059, 0, 65537, -262058, 0, 65537, -262057, 0, 65537, -262056, 0, 65537, -262055, 0, 65537, -262054, 0, 65537, -262053, 0, 65537, -262052, 0, 6, -262051, 0, 131073, -262050, 0, 131074, -262046, 0, 131072, -262045, 0, 131073, -262044, 0, 131073, -262043, 0, 7, -262042, 0, 65537, -262041, 0, 65537, -262040, 0, 65537, -262039, 0, 65537, -262038, 0, 65537, -262037, 0, 65537, -262036, 0, 65537, -262035, 0, 65537, -262034, 0, 65537, -262033, 0, 65537, -262032, 0, 65537, -262031, 0, 65537, -262030, 0, 65537, -262029, 0, 65537, -262028, 0, 65537, -262027, 0, 65538, -196525, 0, 0, -196524, 0, 65543, -196523, 0, 65537, -196522, 0, 65537, -196521, 0, 65537, -196520, 0, 65537, -196519, 0, 65537, -196518, 0, 6, -196517, 0, 131073, -196516, 0, 131074, -196507, 0, 131072, -196506, 0, 131073, -196505, 0, 7, -196504, 0, 65537, -196503, 0, 65537, -196502, 0, 65537, -196501, 0, 65537, -196500, 0, 65537, -196499, 0, 65537, -196498, 0, 65537, -196497, 0, 65537, -196496, 0, 65537, -196495, 0, 65537, -196494, 0, 65537, -196493, 0, 65537, -196492, 0, 65537, -196491, 0, 65538, -130989, 0, 65536, -130988, 0, 65537, -130987, 0, 65537, -130986, 0, 65537, -130985, 0, 65537, -130984, 0, 65537, -130983, 0, 65537, -130982, 0, 65538, -130969, 0, 131072, -130968, 0, 7, -130967, 0, 65537, -130966, 0, 65537, -130965, 0, 65537, -130964, 0, 65537, -130963, 0, 65537, -130962, 0, 65537, -130961, 0, 65537, -130960, 0, 65537, -130959, 0, 65537, -130958, 0, 65537, -130957, 0, 65537, -130956, 0, 65537, -130955, 0, 65538, -65453, 0, 131072, -65452, 0, 7, -65451, 0, 65537, -65450, 0, 65537, -65449, 0, 65537, -65448, 0, 65537, -65447, 0, 6, -65446, 0, 131074, -65432, 0, 65536, -65431, 0, 65537, -65430, 0, 65537, -65429, 0, 65537, -65428, 0, 65537, -65427, 0, 65537, -65426, 0, 65537, -65425, 0, 65537, -65424, 0, 65537, -65423, 0, 65537, -65422, 0, 65537, -65421, 0, 65537, -65420, 0, 65537, -65419, 0, 65538, 84, 0, 131072, 85, 0, 131073, 86, 0, 7, 87, 0, 65537, 88, 0, 65537, 89, 0, 65538, 104, 0, 65536, 105, 0, 65537, 106, 0, 65537, 107, 0, 65537, 108, 0, 65537, 109, 0, 65537, 110, 0, 65537, 111, 0, 65537, 112, 0, 65537, 113, 0, 65537, 114, 0, 65537, 115, 0, 65537, 116, 0, 65537, 117, 0, 65538, 65622, 0, 131072, 65623, 0, 131073, 65624, 0, 7, 65625, 0, 65538, 65640, 0, 65536, 65641, 0, 65537, 65642, 0, 65537, 65643, 0, 65537, 65644, 0, 65537, 65645, 0, 65537, 65646, 0, 65537, 65647, 0, 65537, 65648, 0, 65537, 65649, 0, 65537, 65650, 0, 65537, 65651, 0, 65537, 65652, 0, 65537, 65653, 0, 65538, 131160, 0, 131072, 131161, 0, 131074, 131176, 0, 65536, 131177, 0, 65537, 131178, 0, 65537, 131179, 0, 65537, 131180, 0, 65537, 131181, 0, 65537, 131182, 0, 65537, 131183, 0, 65537, 131184, 0, 65537, 131185, 0, 65537, 131186, 0, 65537, 131187, 0, 65537, 131188, 0, 65537, 131189, 0, 65538, 196712, 0, 65536, 196713, 0, 65537, 196714, 0, 65537, 196715, 0, 65537, 196716, 0, 65537, 196717, 0, 65537, 196718, 0, 65537, 196719, 0, 65537, 196720, 0, 65537, 196721, 0, 65537, 196722, 0, 65537, 196723, 0, 65537, 196724, 0, 65537, 196725, 0, 65542, 196726, 0, 1, 196727, 0, 2, 262228, 0, 0, 262229, 0, 1, 262230, 0, 1, 262231, 0, 2, 262248, 0, 65536, 262249, 0, 65537, 262250, 0, 65537, 262251, 0, 65537, 262252, 0, 65537, 262253, 0, 65537, 262254, 0, 65537, 262255, 0, 65537, 262256, 0, 65537, 262257, 0, 65537, 262258, 0, 65537, 262259, 0, 65537, 262260, 0, 65537, 262261, 0, 65537, 262262, 0, 6, 262263, 0, 131074, 327764, 0, 131072, 327765, 0, 7, 327766, 0, 65537, 327767, 0, 65542, 327768, 0, 2, 327784, 0, 65536, 327785, 0, 65537, 327786, 0, 65537, 327787, 0, 65537, 327788, 0, 65537, 327789, 0, 65537, 327790, 0, 65537, 327791, 0, 65537, 327792, 0, 65537, 327793, 0, 65537, 327794, 0, 65537, 327795, 0, 65537, 327796, 0, 65537, 327797, 0, 6, 327798, 0, 131074, 393301, 0, 65536, 393302, 0, 65537, 393303, 0, 65537, 393304, 0, 65542, 393305, 0, 1, 393306, 0, 1, 393307, 0, 1, 393308, 0, 1, 393309, 0, 1, 393310, 0, 1, 393311, 0, 1, 393312, 0, 1, 393313, 0, 1, 393314, 0, 1, 393315, 0, 1, 393316, 0, 1, 393317, 0, 1, 393318, 0, 1, 393319, 0, 1, 393320, 0, 65543, 393321, 0, 65537, 393322, 0, 65537, 393323, 0, 65537, 393324, 0, 65537, 393325, 0, 65537, 393326, 0, 65537, 393327, 0, 65537, 393328, 0, 65537, 393329, 0, 65537, 393330, 0, 65537, 393331, 0, 65537, 393332, 0, 65537, 393333, 0, 65538, 458837, 0, 131072, 458838, 0, 131073, 458839, 0, 131073, 458840, 0, 131073, 458841, 0, 131073, 458842, 0, 7, 458843, 0, 65537, 458844, 0, 65537, 458845, 0, 65537, 458846, 0, 65537, 458847, 0, 65537, 458848, 0, 65537, 458849, 0, 65537, 458850, 0, 65537, 458851, 0, 65537, 458852, 0, 65537, 458853, 0, 65537, 458854, 0, 65537, 458855, 0, 65537, 458856, 0, 65537, 458857, 0, 65537, 458858, 0, 65537, 458859, 0, 65537, 458860, 0, 65537, 458861, 0, 65537, 458862, 0, 65537, 458863, 0, 65537, 458864, 0, 65537, 458865, 0, 65537, 458866, 0, 65537, 458867, 0, 65537, 458868, 0, 65537, 458869, 0, 65542, 458870, 0, 2, 524378, 0, 131072, 524379, 0, 7, 524380, 0, 65537, 524381, 0, 65537, 524382, 0, 65537, 524383, 0, 65537, 524384, 0, 65537, 524385, 0, 65537, 524386, 0, 65537, 524387, 0, 65537, 524388, 0, 65537, 524389, 0, 65537, 524390, 0, 65537, 524391, 0, 65537, 524392, 0, 65537, 524393, 0, 65537, 524394, 0, 65537, 524395, 0, 65537, 524396, 0, 65537, 524397, 0, 65537, 524398, 0, 65537, 524399, 0, 65537, 524400, 0, 65537, 524401, 0, 65537, 524402, 0, 65537, 524403, 0, 65537, 524404, 0, 65537, 524405, 0, 6, 524406, 0, 131074, 589915, 0, 131072, 589916, 0, 7, 589917, 0, 65537, 589918, 0, 65537, 589919, 0, 65537, 589920, 0, 65537, 589921, 0, 65537, 589922, 0, 65537, 589923, 0, 65537, 589924, 0, 65537, 589925, 0, 65537, 589926, 0, 65537, 589927, 0, 65537, 589928, 0, 65537, 589929, 0, 65537, 589930, 0, 65537, 589931, 0, 65537, 589932, 0, 65537, 589933, 0, 65537, 589934, 0, 65537, 589935, 0, 65537, 589936, 0, 65537, 589937, 0, 65537, 589938, 0, 6, 589939, 0, 131073, 589940, 0, 131073, 589941, 0, 131074, 655452, 0, 131072, 655453, 0, 131073, 655454, 0, 131073, 655455, 0, 131073, 655456, 0, 131073, 655457, 0, 131073, 655458, 0, 131073, 655459, 0, 131073, 655460, 0, 131073, 655461, 0, 131073, 655462, 0, 131073, 655463, 0, 131073, 655464, 0, 131073, 655465, 0, 131073, 655466, 0, 131073, 655467, 0, 131073, 655468, 0, 131073, 655469, 0, 131073, 655470, 0, 131073, 655471, 0, 131073, 655472, 0, 131073, 655473, 0, 131073, 655474, 0, 131074 )
+
+[node name="BackgroundTrees" type="TileMap" parent="Tilesets"]
+z_index = 3
+tile_set = SubResource( 3 )
+cell_size = Vector2( 50, 52 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+
+[node name="TreesAndGrass" type="TileMap" parent="Tilesets"]
+z_index = 3
+tile_set = SubResource( 4 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -982969, 1, 131074, 131167, 1, 0, 196692, 1, 131074, 196693, 1, 131074, 196694, 1, 131073, 196695, 1, 131073, 196703, 1, 0, 262232, 1, 131074, 262237, 1, 0, 262239, 1, 0, 327769, 1, 131074, 327770, 1, 131073, 327771, 1, 131074, 327772, 1, 131073, 327773, 1, 0, 327774, 1, 131074, 327775, 1, 0, 327776, 1, 131074, 327777, 1, 0, 327778, 1, 131073, 327779, 1, 131073, 327780, 1, 131074, 327781, 1, 131074, 327782, 1, 131073, 327783, 1, 131073, 393309, 1, 65536, 393311, 1, 65536, 393313, 1, 65536 )
+
+[node name="ShipBackdropTIleMap" type="TileMap" parent="Tilesets"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 2
+collision_mask = 0
+format = 1
+
+[node name="ShipTerrainTileMap" type="TileMap" parent="Tilesets"]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 2
+collision_mask = 17
+format = 1
+
+[node name="Hazards" type="Node" parent="."]
+
+[node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="GUI" parent="Interface" instance=ExtResource( 33 )]
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 32.0
+rect_scale = Vector2( 2, 2 )
+
+[node name="Background" type="ParallaxBackground" parent="."]
+scroll_base_offset = Vector2( 0, -100 )
+
+[node name="Background" type="TextureRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 26 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedWater" type="AnimatedSprite" parent="Background"]
+position = Vector2( 369.751, 445.836 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 7 )
+frame = 2
+playing = true
+
+[node name="AnimatedWater2" type="AnimatedSprite" parent="Background"]
+position = Vector2( 861.739, 468.682 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 8 )
+frame = 1
+playing = true
+
+[node name="AnimatedWater3" type="AnimatedSprite" parent="Background"]
+position = Vector2( 542.728, 520.075 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 9 )
+frame = 1
+playing = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
+position = Vector2( 0, -54 )
+motion_scale = Vector2( 0.1, 0 )
+motion_mirroring = Vector2( 448, 0 )
+
+[node name="BigClouds" type="Sprite" parent="Background/ParallaxLayer"]
+texture = ExtResource( 25 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 896, 101 )
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Boss" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 3265.48, 140.43 )
+
+[node name="Node" type="Node" parent="."]
+
+[node name="PalmTop" parent="Node" instance=ExtResource( 6 )]
+position = Vector2( 2990.38, 111.895 )
+
+[node name="PalmTop2" parent="Node" instance=ExtResource( 6 )]
+position = Vector2( 3118.33, 143.919 )
+
+[node name="PalmTop3" parent="Node" instance=ExtResource( 6 )]
+position = Vector2( 3054.46, 47.9756 )
+
+[node name="BossRoom" type="Node" parent="."]
+
+[node name="Area2D" type="Area2D" parent="BossRoom"]
+collision_layer = 0
+collision_mask = 32
+script = SubResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossRoom/Area2D"]
+position = Vector2( 3254.21, -41.9561 )
+shape = SubResource( 11 )
+
+[node name="Chain" type="AnimatedSprite" parent="BossRoom/Area2D"]
+position = Vector2( 3252.71, -34.0684 )
+frames = SubResource( 10 )
+animation = "idle"
+frame = 7
+playing = true
+
+[node name="TNTBarrel" parent="BossRoom/Area2D" instance=ExtResource( 32 )]
+position = Vector2( 3255.09, 2.11955 )
+sleeping = true
+angular_damp = 72.544
+
+[node name="ExplosionAnimation" type="AnimatedSprite" parent="BossRoom/Area2D"]
+visible = false
+position = Vector2( 3256.27, 107.131 )
+scale = Vector2( 2, 2 )
+z_index = 2
+frames = SubResource( 13 )
+animation = "explosion"
+
+[node name="BarrelLocation" type="Position2D" parent="BossRoom/Area2D"]
+position = Vector2( 3253.51, 4.48224 )
+
+[connection signal="body_entered" from="BossRoom/Area2D" to="BossRoom/Area2D" method="_on_Area2D_body_entered"]

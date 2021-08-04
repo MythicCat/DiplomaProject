@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://Entity/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Bottom and Grass (32x32).png" type="Texture" id=2]
@@ -46,11 +46,12 @@
 [ext_resource path="res://Items/ChestKey.tscn" type="PackedScene" id=44]
 [ext_resource path="res://Items/LockedChest.tscn" type="PackedScene" id=45]
 [ext_resource path="res://Entity/Starfish.tscn" type="PackedScene" id=46]
+[ext_resource path="res://Tilesets/PalmTop.tscn" type="PackedScene" id=47]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
+[sub_resource type="ConvexPolygonShape2D" id=3]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
-[sub_resource type="TileSet" id=2]
+[sub_resource type="TileSet" id=4]
 0/name = "water.tres 0"
 0/texture = ExtResource( 8 )
 0/tex_offset = Vector2( 0, 0 )
@@ -93,19 +94,19 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 1/navigation_offset = Vector2( 0, 0 )
 1/shape_offset = Vector2( 0, 0 )
 1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape = SubResource( 1 )
+1/shape = SubResource( 3 )
 1/shape_one_way = false
 1/shape_one_way_margin = 1.0
 1/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 1 ),
+"shape": SubResource( 3 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 1/z_index = 0
 
-[sub_resource type="TileSet" id=3]
+[sub_resource type="TileSet" id=5]
 0/name = "BackTreeCenter.tres 0"
 0/texture = ExtResource( 42 )
 0/tex_offset = Vector2( 0, 0 )
@@ -149,7 +150,7 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 2/shapes = [  ]
 2/z_index = 0
 
-[sub_resource type="TileSet" id=4]
+[sub_resource type="TileSet" id=6]
 0/name = "Front Palm Bottom and Grass (32x32).png 0"
 0/texture = ExtResource( 2 )
 0/tex_offset = Vector2( 0, 0 )
@@ -193,13 +194,13 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 1/shapes = [  ]
 1/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 36.2977, 16.7743 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 184.297, 10 )
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=9]
 animations = [ {
 "frames": [ ExtResource( 30 ), ExtResource( 20 ), ExtResource( 29 ), ExtResource( 22 ) ],
 "loop": true,
@@ -207,7 +208,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=10]
 animations = [ {
 "frames": [ ExtResource( 21 ), ExtResource( 31 ), ExtResource( 26 ), ExtResource( 27 ) ],
 "loop": true,
@@ -215,7 +216,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=11]
 animations = [ {
 "frames": [ ExtResource( 23 ), ExtResource( 25 ), ExtResource( 24 ), ExtResource( 28 ) ],
 "loop": true,
@@ -223,7 +224,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=10]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 38 ), ExtResource( 36 ), ExtResource( 35 ), ExtResource( 37 ) ],
 "loop": true,
@@ -231,7 +232,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 15.1239, 5.76193 )
 
 [node name="Level1" type="Node2D"]
@@ -258,7 +259,7 @@ format = 1
 tile_data = PoolIntArray( -327643, 0, 65541, -327636, 0, 65541, -327623, 0, 65537, -327622, 0, 65539, -262107, 0, 196613, -262100, 0, 131077, -262087, 0, 131073, -262086, 0, 131075, -196564, 0, 196613, -196551, 0, 131073, -196550, 0, 131075, -131015, 0, 131073, -131014, 0, 131075, -65479, 0, 131073, -65478, 0, 131075, 57, 0, 131073, 58, 0, 131075, 65570, 0, 65537, 65571, 0, 65538, 65572, 0, 65538, 65573, 0, 65538, 65574, 0, 65538, 65575, 0, 65538, 65576, 0, 65538, 65577, 0, 65538, 65578, 0, 65538, 65579, 0, 65538, 65580, 0, 65538, 65581, 0, 65538, 65582, 0, 65538, 65583, 0, 65538, 65584, 0, 65538, 65585, 0, 65538, 65586, 0, 65538, 65587, 0, 65538, 65588, 0, 65538, 65589, 0, 65538, 65590, 0, 65538, 65591, 0, 65538, 65592, 0, 65538, 65593, 0, 131080, 65594, 0, 131075, 131106, 0, 131073, 131107, 0, 131074, 131108, 0, 131074, 131109, 0, 131074, 131110, 0, 131074, 131111, 0, 131074, 131112, 0, 131074, 131113, 0, 131074, 131114, 0, 131074, 131115, 0, 131074, 131116, 0, 131074, 131117, 0, 131074, 131118, 0, 131074, 131119, 0, 131074, 131120, 0, 131074, 131121, 0, 131074, 131122, 0, 131074, 131123, 0, 131074, 131124, 0, 131074, 131125, 0, 131074, 131126, 0, 65543, 131127, 0, 196610, 131128, 0, 196610, 131129, 0, 196610, 131130, 0, 196611, 196642, 0, 196609, 196643, 0, 196610, 196644, 0, 196610, 196645, 0, 196610, 196646, 0, 196610, 196647, 0, 196610, 196648, 0, 196610, 196649, 0, 196610, 196650, 0, 65544, 196651, 0, 131074, 196652, 0, 131074, 196653, 0, 131074, 196654, 0, 131074, 196655, 0, 131074, 196656, 0, 65543, 196657, 0, 196610, 196658, 0, 131083, 196659, 0, 196610, 196660, 0, 65544, 196661, 0, 65543, 196662, 0, 196611, 262186, 0, 196609, 262187, 0, 65544, 262188, 0, 131074, 262189, 0, 131074, 262190, 0, 131074, 262191, 0, 131074, 262192, 0, 131075, 262194, 0, 131077, 262196, 0, 131073, 262197, 0, 131075, 327723, 0, 196609, 327724, 0, 196610, 327725, 0, 196610, 327726, 0, 196610, 327727, 0, 196610, 327728, 0, 196611, 327730, 0, 196613, 327732, 0, 196609, 327733, 0, 196611 )
 
 [node name="Water" type="TileMap" parent="Tilesets"]
-tile_set = SubResource( 2 )
+tile_set = SubResource( 4 )
 cell_size = Vector2( 32, 32 )
 collision_layer = 8
 format = 1
@@ -275,7 +276,7 @@ tile_data = PoolIntArray( -917439, 0, 0, -917438, 0, 1, -917437, 0, 1, -917436, 
 
 [node name="BackgroundTrees" type="TileMap" parent="Tilesets"]
 z_index = 3
-tile_set = SubResource( 3 )
+tile_set = SubResource( 5 )
 cell_size = Vector2( 50, 52 )
 collision_layer = 0
 collision_mask = 0
@@ -283,7 +284,7 @@ format = 1
 
 [node name="TreesAndGrass" type="TileMap" parent="Tilesets"]
 z_index = 3
-tile_set = SubResource( 4 )
+tile_set = SubResource( 6 )
 cell_size = Vector2( 32, 32 )
 format = 1
 tile_data = PoolIntArray( -1114044, 1, 0, -1048512, 1, 0, -1048508, 1, 0, -982976, 1, 0, -982975, 1, 131074, -982974, 1, 131074, -982973, 1, 131073, -982972, 1, 0, -982971, 1, 131074, -982970, 1, 131074, -982969, 1, 131074, -917440, 1, 1, -917439, 1, 2, -917436, 1, 65536, -917429, 1, 0, -851896, 1, 131074, -851895, 1, 131073, -851894, 1, 131073, -851893, 1, 0, -851892, 1, 131074, -851891, 1, 131074, -851890, 1, 131074, -851889, 1, 131074, -851888, 1, 131073, -851887, 1, 131074, -851886, 1, 131074, -786357, 1, 65536, -720827, 1, 131074, -720826, 1, 131074, -720825, 1, 131073, -720824, 1, 131073, -720823, 1, 131074, -720822, 1, 131074, -655299, 1, 0, -655285, 1, 131073, -524313, 1, 131074, -524300, 1, 0, -589802, 1, 131073, -589763, 1, 1, -589762, 1, 2, -458764, 1, 0, -458757, 1, 0, -524219, 1, 131073, -524218, 1, 131074, -524217, 1, 131073, -524216, 1, 131074, -524215, 1, 131073, -524214, 1, 131073, -524213, 1, 131074, -524212, 1, 131073, -393228, 1, 0, -393226, 1, 0, -393221, 1, 0, -393217, 1, 0, -458743, 1, 0, -458731, 1, 131073, -458685, 1, 131073, -458684, 1, 131073, -327703, 1, 131074, -327692, 1, 0, -327691, 1, 131073, -327690, 1, 0, -327689, 1, 131073, -327688, 1, 131074, -327687, 1, 131074, -327686, 1, 131073, -327685, 1, 0, -327684, 1, 131073, -327683, 1, 131074, -327682, 1, 131073, -327681, 1, 0, -393216, 1, 131073, -393215, 1, 131074, -393213, 1, 0, -393207, 1, 0, -393198, 1, 131074, -393197, 1, 131074, -393154, 1, 131074, -393153, 1, 131074, -393152, 1, 131074, -393151, 1, 131074, -393150, 1, 131074, -262170, 1, 131074, -262162, 1, 0, -262156, 1, 1, -262155, 1, 2, -262154, 1, 65536, -262149, 1, 65536, -262145, 1, 65536, -327677, 1, 0, -327671, 1, 0, -327668, 1, 0, -196631, 1, 65537, -196630, 1, 65538, -196626, 1, 1, -196625, 1, 131072, -196624, 1, 131072, -196623, 1, 131072, -196622, 1, 131072, -196621, 1, 131072, -196620, 1, 131072, -196619, 1, 2, -262143, 1, 65537, -262142, 1, 131072, -262141, 1, 65538, -262138, 1, 0, -262135, 1, 0, -262132, 1, 0, -262130, 1, 0, -262128, 1, 131073, -196602, 1, 0, -196599, 1, 0, -196597, 1, 131073, -196596, 1, 0, -196594, 1, 0, -196593, 1, 131073, -196592, 1, 131073, -196591, 1, 131074, -131070, 1, 131074, -131069, 1, 131074, -131066, 1, 0, -131063, 1, 1, -131062, 1, 2, -131061, 1, 65537, -131060, 1, 65538, -131059, 1, 131073, -131058, 1, 0, -21, 1, 0, -65532, 1, 131074, -65531, 1, 131073, -65530, 1, 0, -65528, 1, 131073, -65527, 1, 131074, -65526, 1, 131074, -65522, 1, 65536, -65518, 1, 131073, -65517, 1, 131073, -65516, 1, 131074, -65515, 1, 131074, -65514, 1, 131073, -65513, 1, 131074, -65507, 1, 131074, 65514, 1, 131073, 65515, 1, 0, 6, 1, 65536, 24, 1, 131074, 131050, 1, 65537, 131051, 1, 65538, 131056, 1, 0, 65561, 1, 131073, 65562, 1, 131073, 65563, 1, 131073, 196587, 1, 131073, 196592, 1, 0, 262123, 1, 65537, 262124, 1, 131072, 262125, 1, 131072, 262126, 1, 131072, 262127, 1, 131072, 262128, 1, 65538, 262136, 1, 131074, 262137, 1, 131074, 262138, 1, 131073, 262139, 1, 131073, 262140, 1, 131074, 262141, 1, 131073, 196638, 1, 131074, 196639, 1, 131073, 196640, 1, 131073, 196641, 1, 131074, 262159, 1, 131073, 393206, 1, 1, 393207, 1, 131072, 393208, 1, 131072, 393209, 1, 2, 327681, 1, 65537, 327682, 1, 131072, 327683, 1, 65538, 327684, 1, 131074, 327693, 1, 131073, 327707, 1, 131074, 327708, 1, 131074, 393227, 1, 131074, 393232, 1, 131074, 393238, 1, 131074, 393240, 1, 131073, 393241, 1, 131073, 393242, 1, 131074, 458752, 1, 131074, 458753, 1, 131073, 458759, 1, 131073, 458760, 1, 131073, 458761, 1, 131074, 458769, 1, 131074, 458770, 1, 131073, 458771, 1, 0, 458773, 1, 131074, 458781, 1, 131074, 524290, 1, 131074, 524306, 1, 65537, 524307, 1, 65538, 589827, 1, 131073, 589830, 1, 131073 )
@@ -420,7 +421,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Water2"]
 position = Vector2( 22.0497, 6.68176 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
 [node name="Water3" type="Area2D" parent="Hazards"]
 position = Vector2( 733.484, 269.229 )
@@ -432,7 +433,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Water3"]
 position = Vector2( 22.0497, 6.68176 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
 [node name="Water4" type="Area2D" parent="Hazards"]
 position = Vector2( 2838.09, -338.874 )
@@ -444,7 +445,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Water4"]
 position = Vector2( 0.417297, -0.431763 )
-shape = SubResource( 6 )
+shape = SubResource( 8 )
 
 [node name="Water5" type="Area2D" parent="Hazards"]
 position = Vector2( -1108.59, 301.682 )
@@ -456,7 +457,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Water5"]
 position = Vector2( 0.417297, -0.431763 )
-shape = SubResource( 6 )
+shape = SubResource( 8 )
 
 [node name="Spikes" parent="Hazards" instance=ExtResource( 16 )]
 position = Vector2( 336.583, 272.943 )
@@ -530,22 +531,22 @@ __meta__ = {
 [node name="AnimatedWater" type="AnimatedSprite" parent="Background"]
 position = Vector2( 369.751, 445.836 )
 scale = Vector2( 4, 4 )
-frames = SubResource( 7 )
-frame = 3
+frames = SubResource( 9 )
+frame = 2
 playing = true
 
 [node name="AnimatedWater2" type="AnimatedSprite" parent="Background"]
 position = Vector2( 861.739, 468.682 )
 scale = Vector2( 4, 4 )
-frames = SubResource( 8 )
-frame = 2
+frames = SubResource( 10 )
+frame = 1
 playing = true
 
 [node name="AnimatedWater3" type="AnimatedSprite" parent="Background"]
 position = Vector2( 542.728, 520.075 )
 scale = Vector2( 4, 4 )
-frames = SubResource( 9 )
-frame = 2
+frames = SubResource( 11 )
+frame = 1
 playing = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
@@ -561,24 +562,7 @@ region_rect = Rect2( 0, 0, 896, 101 )
 
 [node name="TreeTops" type="Node" parent="."]
 
-[node name="PalmTop" type="StaticBody2D" parent="TreeTops"]
-position = Vector2( 622.573, 208.19 )
-z_index = 3
-collision_layer = 2
-collision_mask = 17
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop"]
-frames = SubResource( 10 )
-animation = "idle"
-playing = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop"]
-position = Vector2( 0.662231, -9.93246 )
-shape = SubResource( 11 )
-one_way_collision = true
+[node name="PalmTop" parent="TreeTops" instance=ExtResource( 47 )]
 
 [node name="PalmTop2" type="StaticBody2D" parent="TreeTops"]
 position = Vector2( 110.419, 144.001 )
@@ -589,13 +573,14 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop2"]
-frames = SubResource( 10 )
+frames = SubResource( 1 )
 animation = "idle"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop2"]
 position = Vector2( 0.662231, -9.93246 )
-shape = SubResource( 11 )
+shape = SubResource( 2 )
 one_way_collision = true
 
 [node name="PalmTop3" type="StaticBody2D" parent="TreeTops"]
@@ -607,13 +592,14 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop3"]
-frames = SubResource( 10 )
+frames = SubResource( 1 )
 animation = "idle"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop3"]
 position = Vector2( 0.662231, -9.93246 )
-shape = SubResource( 11 )
+shape = SubResource( 2 )
 one_way_collision = true
 
 [node name="PalmTop20" type="StaticBody2D" parent="TreeTops"]
@@ -625,14 +611,14 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop20"]
-frames = SubResource( 10 )
+frames = SubResource( 1 )
 animation = "idle"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop20"]
 position = Vector2( 0.662231, -9.93246 )
-shape = SubResource( 11 )
+shape = SubResource( 2 )
 one_way_collision = true
 
 [node name="PalmTop21" type="StaticBody2D" parent="TreeTops"]
@@ -644,14 +630,14 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop21"]
-frames = SubResource( 10 )
+frames = SubResource( 1 )
 animation = "idle"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop21"]
 position = Vector2( 0.662231, -9.93246 )
-shape = SubResource( 11 )
+shape = SubResource( 2 )
 one_way_collision = true
 
 [node name="PalmTop4" type="StaticBody2D" parent="TreeTops"]
@@ -663,14 +649,14 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop4"]
-frames = SubResource( 10 )
+frames = SubResource( 1 )
 animation = "idle"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop4"]
 position = Vector2( 0.662231, -9.93246 )
-shape = SubResource( 11 )
+shape = SubResource( 2 )
 one_way_collision = true
 
 [node name="PalmTop5" type="StaticBody2D" parent="TreeTops"]
@@ -682,14 +668,14 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop5"]
-frames = SubResource( 10 )
+frames = SubResource( 1 )
 animation = "idle"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop5"]
 position = Vector2( 0.662231, -9.93246 )
-shape = SubResource( 11 )
+shape = SubResource( 2 )
 one_way_collision = true
 
 [node name="PalmTop6" type="StaticBody2D" parent="TreeTops"]
@@ -701,14 +687,13 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop6"]
-frames = SubResource( 10 )
+frames = SubResource( 1 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop6"]
 position = Vector2( 0.662231, -9.93246 )
-shape = SubResource( 11 )
+shape = SubResource( 2 )
 one_way_collision = true
 
 [node name="PalmTop7" type="StaticBody2D" parent="TreeTops"]
@@ -720,14 +705,13 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop7"]
-frames = SubResource( 10 )
+frames = SubResource( 1 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop7"]
 position = Vector2( 0.662231, -9.93246 )
-shape = SubResource( 11 )
+shape = SubResource( 2 )
 one_way_collision = true
 
 [node name="PalmTop8" type="StaticBody2D" parent="TreeTops"]
@@ -739,13 +723,14 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop8"]
-frames = SubResource( 10 )
+frames = SubResource( 1 )
 animation = "idle"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop8"]
 position = Vector2( 0.662231, -9.93246 )
-shape = SubResource( 11 )
+shape = SubResource( 2 )
 one_way_collision = true
 
 [node name="PalmTop9" type="StaticBody2D" parent="TreeTops"]
@@ -757,13 +742,14 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop9"]
-frames = SubResource( 10 )
+frames = SubResource( 1 )
 animation = "idle"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop9"]
 position = Vector2( 0.662231, -9.93246 )
-shape = SubResource( 11 )
+shape = SubResource( 2 )
 one_way_collision = true
 
 [node name="PalmTop10" type="StaticBody2D" parent="TreeTops"]
@@ -775,14 +761,14 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop10"]
-frames = SubResource( 10 )
+frames = SubResource( 1 )
 animation = "idle"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop10"]
 position = Vector2( 0.662231, -9.93246 )
-shape = SubResource( 11 )
+shape = SubResource( 2 )
 one_way_collision = true
 
 [node name="PalmTop11" type="StaticBody2D" parent="TreeTops"]
@@ -794,14 +780,14 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop11"]
-frames = SubResource( 10 )
+frames = SubResource( 1 )
 animation = "idle"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop11"]
 position = Vector2( 0.662231, -9.93246 )
-shape = SubResource( 11 )
+shape = SubResource( 2 )
 one_way_collision = true
 
 [node name="PalmTop12" type="StaticBody2D" parent="TreeTops"]
@@ -813,14 +799,13 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop12"]
-frames = SubResource( 10 )
+frames = SubResource( 1 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop12"]
 position = Vector2( 0.662231, -9.93246 )
-shape = SubResource( 11 )
+shape = SubResource( 2 )
 one_way_collision = true
 
 [node name="PalmTop13" type="StaticBody2D" parent="TreeTops"]
@@ -832,14 +817,13 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop13"]
-frames = SubResource( 10 )
+frames = SubResource( 1 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop13"]
 position = Vector2( 0.662231, -9.93246 )
-shape = SubResource( 11 )
+shape = SubResource( 2 )
 one_way_collision = true
 
 [node name="PalmTop14" type="StaticBody2D" parent="TreeTops"]
@@ -851,14 +835,13 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop14"]
-frames = SubResource( 10 )
+frames = SubResource( 1 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop14"]
 position = Vector2( 0.662231, -9.93246 )
-shape = SubResource( 11 )
+shape = SubResource( 2 )
 one_way_collision = true
 
 [node name="PalmTop15" type="StaticBody2D" parent="TreeTops"]
@@ -870,13 +853,14 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop15"]
-frames = SubResource( 10 )
+frames = SubResource( 1 )
 animation = "idle"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop15"]
 position = Vector2( 0.662231, -9.93246 )
-shape = SubResource( 11 )
+shape = SubResource( 2 )
 one_way_collision = true
 
 [node name="PalmTop16" type="StaticBody2D" parent="TreeTops"]
@@ -888,14 +872,14 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop16"]
-frames = SubResource( 10 )
+frames = SubResource( 1 )
 animation = "idle"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop16"]
 position = Vector2( 0.662231, -9.93246 )
-shape = SubResource( 11 )
+shape = SubResource( 2 )
 one_way_collision = true
 
 [node name="PalmTop17" type="StaticBody2D" parent="TreeTops"]
@@ -907,14 +891,14 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop17"]
-frames = SubResource( 10 )
+frames = SubResource( 1 )
 animation = "idle"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop17"]
 position = Vector2( 0.662231, -9.93246 )
-shape = SubResource( 11 )
+shape = SubResource( 2 )
 one_way_collision = true
 
 [node name="PalmTop18" type="StaticBody2D" parent="TreeTops"]
@@ -926,14 +910,14 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop18"]
-frames = SubResource( 10 )
+frames = SubResource( 1 )
 animation = "idle"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop18"]
 position = Vector2( 0.662231, -9.93246 )
-shape = SubResource( 11 )
+shape = SubResource( 2 )
 one_way_collision = true
 
 [node name="PalmTop19" type="StaticBody2D" parent="TreeTops"]
@@ -945,14 +929,14 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop19"]
-frames = SubResource( 10 )
+frames = SubResource( 1 )
 animation = "idle"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop19"]
 position = Vector2( 0.662231, -9.93246 )
-shape = SubResource( 11 )
+shape = SubResource( 2 )
 one_way_collision = true
 
 [connection signal="body_entered" from="Hazards/Water2" to="Hazards/Water2" method="_on_Water_body_entered"]

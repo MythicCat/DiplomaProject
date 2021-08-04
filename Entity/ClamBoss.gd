@@ -108,7 +108,7 @@ func hurt(_enemy_pos : Vector2): # must detect thrown swords
 
 func eject_player():
 	if playerRef != null:
-		playerRef.hurt(position + Vector2(100, 0), 2.5)
+		get_tree().call_group("GameState", "hurt", position + Vector2(100, 0), 2)
 
 
 func _on_Pearl_area_entered(area):
@@ -134,6 +134,7 @@ func _on_ShootTimer_timeout():
 	if shot_count >= 3:
 		shot_count = 0
 		# traverse to slam
+		#
 	else:
 		_state_machine.travel("shoot")
 	$ShootTimer.start()

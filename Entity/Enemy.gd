@@ -86,17 +86,16 @@ func hurt(enemyPosition : Vector2):
 	motion.x = speed * direction
 	$Attack.set_collision_mask_bit(0,false)
 	
-	if enemyPosition.x > position.x: 
-		motion = Vector2(-KNOCKBACK, -JUMP_SPEED/2)
-	else:
-		motion = Vector2( KNOCKBACK, -JUMP_SPEED/2)
-			
+	
 	if hp <= 0:
+		knockback(enemyPosition)
 		isDead = true
 		animated_sprite.play("hurt_dead")
 		die()
 	else:
-		animated_sprite.play("hurt")			
+		knockback(enemyPosition)
+		animated_sprite.play("hurt")
+		yield(animated_sprite, "animation_finished")
 
 		
 func die():
@@ -104,6 +103,11 @@ func die():
 	set_collision_layer_bit(4, false)
 	$DamageOnTouch.set_collision_mask_bit(0, false)
 
+func knockback(enemyPosition : Vector2):
+	if enemyPosition.x > position.x: # TODO fix this, check if player is further than half of enemy collision box away
+		motion += Vector2(-KNOCKBACK, -JUMP_SPEED/2)
+	else:
+		motion += Vector2( KNOCKBACK, -JUMP_SPEED/2)
 
 func _on_AnimatedSprite_animation_finished():	
 	if "hurt" in animated_sprite.animation:

@@ -19,12 +19,14 @@ func _on_RigidBody2D_body_entered(body):
 	#$ThrowShape.disabled = true
 	#$PickUpShape.disabled = false
 	
-	if body is Enemy or body is Boss:
+	if body is Enemy:
 		body.hurt(global_position)
 		gravity_scale = 5
 	elif body is Player:
 		body.heal("sword")
 		queue_free()
+	elif body is Boss:
+		linear_velocity -= Vector2(100, 100)
 	else:
 		if $Animation.flip_h:
 			direction = -1
@@ -40,7 +42,7 @@ func _integrate_forces(state):
 		var position = state.get_contact_local_position(0)
 		var angle = state.get_contact_local_normal(0).angle()
 		collision_angle = angle * 180 / PI
-		print(collision_angle)
+		#print(collision_angle)
 		collision_pos = to_local(position) # this could be it
 
 

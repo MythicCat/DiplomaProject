@@ -7,6 +7,10 @@ var canAttack = true
 export var attackCooldown = 2
 
 
+func hurt(enemyPosition : Vector2):
+	canAttack = false
+	.hurt(enemyPosition)
+
 func attack():
 
 	motion = Vector2(600 * direction,-200) 
