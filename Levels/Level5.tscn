@@ -191,7 +191,7 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 1/shapes = [  ]
 1/z_index = 0
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [ ExtResource( 28 ), ExtResource( 17 ), ExtResource( 27 ), ExtResource( 18 ) ],
 "loop": true,
@@ -199,7 +199,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ ExtResource( 19 ), ExtResource( 30 ), ExtResource( 23 ), ExtResource( 24 ) ],
 "loop": true,
@@ -207,7 +207,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=7]
 animations = [ {
 "frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 29 ) ],
 "loop": true,
@@ -215,7 +215,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="GDScript" id=12]
+[sub_resource type="GDScript" id=8]
 script/source = "extends Area2D
 
 const barrel = preload(\"res://GameObjects/BoomBarrel.tscn\")
@@ -254,16 +254,15 @@ func _on_barrel_exploded():
 	$ExplosionAnimation.position = explosion_position
 	$ExplosionAnimation.visible = true
 	
+	$ExplosionAnimation.play(\"explosion\")
 	spawn_point.get_child(0).queue_free()
-	reset_barrel()
 	#$TNTBarrel.reset_state($BarrelLocation.position) # reset barrel position
 	
-	$ExplosionAnimation.play(\"explosion\")
 	yield($ExplosionAnimation,\"animation_finished\")
 	$ExplosionAnimation.visible = false
 
 
-func reset_barrel():
+func _reset_barrel():
 	var new_barrel = barrel.instance()
 	new_barrel.position = $BarrelLocation.position
 	new_barrel.sleeping = true
@@ -273,7 +272,7 @@ func reset_barrel():
 
 "
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 5.28833, 31.1816 )
 
 [sub_resource type="SpriteFrames" id=10]
@@ -284,7 +283,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=13]
+[sub_resource type="SpriteFrames" id=11]
 animations = [ {
 "frames": [ ExtResource( 45 ), ExtResource( 34 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 38 ), ExtResource( 37 ), ExtResource( 36 ) ],
 "loop": true,
@@ -332,7 +331,7 @@ z_index = 3
 tile_set = SubResource( 4 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( -982969, 1, 131074, 131167, 1, 0, 196692, 1, 131074, 196693, 1, 131074, 196694, 1, 131073, 196695, 1, 131073, 196703, 1, 0, 262232, 1, 131074, 262237, 1, 0, 262239, 1, 0, 327769, 1, 131074, 327770, 1, 131073, 327771, 1, 131074, 327772, 1, 131073, 327773, 1, 0, 327774, 1, 131074, 327775, 1, 0, 327776, 1, 131074, 327777, 1, 0, 327778, 1, 131073, 327779, 1, 131073, 327780, 1, 131074, 327781, 1, 131074, 327782, 1, 131073, 327783, 1, 131073, 393309, 1, 65536, 393311, 1, 65536, 393313, 1, 65536 )
+tile_data = PoolIntArray( -982969, 1, 131074, 65625, 1, 65537, 65626, 1, 131072, 65627, 1, 65538, 131167, 1, 0, 196692, 1, 131074, 196693, 1, 131074, 196694, 1, 131073, 196695, 1, 131073, 196703, 1, 0, 262232, 1, 131074, 262237, 1, 0, 262239, 1, 0, 327769, 1, 131074, 327770, 1, 131073, 327771, 1, 131074, 327772, 1, 131073, 327773, 1, 0, 327774, 1, 131074, 327775, 1, 0, 327776, 1, 131074, 327777, 1, 0, 327778, 1, 131073, 327779, 1, 131073, 327780, 1, 131074, 327781, 1, 131074, 327782, 1, 131073, 327783, 1, 131073, 393309, 1, 65536, 393311, 1, 65536, 393313, 1, 65536 )
 
 [node name="ShipBackdropTIleMap" type="TileMap" parent="Tilesets"]
 tile_set = ExtResource( 2 )
@@ -373,22 +372,20 @@ __meta__ = {
 [node name="AnimatedWater" type="AnimatedSprite" parent="Background"]
 position = Vector2( 369.751, 445.836 )
 scale = Vector2( 4, 4 )
-frames = SubResource( 7 )
-frame = 3
+frames = SubResource( 5 )
+frame = 1
 playing = true
 
 [node name="AnimatedWater2" type="AnimatedSprite" parent="Background"]
 position = Vector2( 861.739, 468.682 )
 scale = Vector2( 4, 4 )
-frames = SubResource( 8 )
-frame = 2
+frames = SubResource( 6 )
 playing = true
 
 [node name="AnimatedWater3" type="AnimatedSprite" parent="Background"]
 position = Vector2( 542.728, 520.075 )
 scale = Vector2( 4, 4 )
-frames = SubResource( 9 )
-frame = 2
+frames = SubResource( 7 )
 playing = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
@@ -418,22 +415,25 @@ position = Vector2( 3118.33, 143.919 )
 [node name="PalmTop3" parent="Node" instance=ExtResource( 6 )]
 position = Vector2( 3054.46, 47.9756 )
 
+[node name="PalmTop4" parent="Node" instance=ExtResource( 6 )]
+position = Vector2( 2926.36, 16.1948 )
+
 [node name="BossRoom" type="Node" parent="."]
 
 [node name="Area2D" type="Area2D" parent="BossRoom"]
 collision_layer = 0
 collision_mask = 32
-script = SubResource( 12 )
+script = SubResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossRoom/Area2D"]
 position = Vector2( 3254.21, -42.3097 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="Chain" type="AnimatedSprite" parent="BossRoom/Area2D"]
 position = Vector2( 3252.71, -34.0684 )
 frames = SubResource( 10 )
 animation = "idle"
-frame = 4
+frame = 6
 playing = true
 
 [node name="ExplosionAnimation" type="AnimatedSprite" parent="BossRoom/Area2D"]
@@ -441,7 +441,7 @@ visible = false
 position = Vector2( 3256.27, 107.131 )
 scale = Vector2( 2, 2 )
 z_index = 2
-frames = SubResource( 13 )
+frames = SubResource( 11 )
 animation = "explosion"
 
 [node name="BarrelLocation" type="Position2D" parent="BossRoom/Area2D"]

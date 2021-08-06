@@ -25,9 +25,7 @@ var _state_machine
 var test = true
 
 export var shell_threshold = 1
-export var spawn_point_count = 4
 export var shoot_timer_seconds = 5
-export var arc_points = Vector2(-180, -90)
 
 """
 	- Ground slam attack
@@ -42,16 +40,9 @@ func _ready():
 	$ClosedShape.disabled = false
 	_state_machine = $AnimationTree.get("parameters/playback")
 	
-	step = abs(arc_points.x - arc_points.y) / spawn_point_count
-
-	for i in range(spawn_point_count):
-		var spawn_point = Node2D.new()
-		var pos = Vector2(radius, 0).rotated(deg2rad(arc_points.x + (step * i+1)))
-		spawn_point.position = pos
-		spawn_point.rotation = pos.angle()
-		$FiringPoint.add_child(spawn_point)
+	create_firing_pattern(-180,-90)
 		
-	$ShootTimer.start()
+	$ShootTimer.start(2)
 		
 
 func _physics_process(delta):
@@ -71,12 +62,11 @@ func apply_gravity(delta):
 	else:
 		motion.y += GRAVITY * delta
 		in_air = true
-		
-		
+
+
 func jump():
 	if is_on_floor():
-		motion.y -= 400
-		
+		motion.y -= 400	
 
 
 func shoot():	
@@ -99,9 +89,10 @@ func hurt(_enemy_pos : Vector2): # must detect thrown swords
 		
 		if _shell_damage == shell_threshold:
 			$ShootTimer.stop()
+			$CloseTimer.start()
 			_shell_damage += 1
 			_state_machine.travel("open")
-		
+
 	else:
 		immune = true
 		pearlHp -= 1
@@ -113,6 +104,19 @@ func eject_player():
 	if playerRef != null:
 		get_tree().call_group("GameState", "hurt", position + Vector2(100, 0), 2)
 
+
+func create_firing_pattern(maxAngle = 180, minAngle = 90, bullet_count = 4):
+	step = abs(-maxAngle + minAngle) / bullet_count
+
+	for i in range(bullet_count):
+		var spawn_point = Node2D.new()
+		var pos = Vector2(radius, 0).rotated(deg2rad(maxAngle + (step * i+1)))
+		spawn_point.position = pos
+		spawn_point.rotation = pos.angle()
+		$FiringPoint.add_child(spawn_point)
+
+func reset_barrel():
+	get_tree().call_group("BossLogic", "_reset_barrel")
 
 func _on_Pearl_area_entered(area):
 	hurt(Vector2())
@@ -140,4 +144,4 @@ func _on_ShootTimer_timeout():
 		#
 	else:
 		_state_machine.travel("shoot")
-	$ShootTimer.start()
+	$ShootTimer.start(2)

@@ -30,7 +30,7 @@ extents = Vector2( 11.75, 12.75 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "respawn"
-length = 10.0
+length = 25.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:modulate")
 tracks/0/interp = 1
@@ -38,15 +38,15 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2, 3, 4, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.3, 8.5, 8.7, 8.9, 9.1, 9.3, 9.5, 9.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 2, 5, 8, 10, 12, 14, 16, 18, 19.6, 20.1, 20.6, 21.1, 21.6, 22.1, 22.6, 23.1, 23.6, 23.8, 24, 24.2, 24.4, 24.6, 24.8, 25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.0993789 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.0993789 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.0993789 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [node name="Node2D" type="RigidBody2D"]
 collision_layer = 8
-collision_mask = 8
+collision_mask = 10
 continuous_cd = 2
 contacts_reported = 1
 contact_monitor = true
@@ -68,5 +68,6 @@ wait_time = 5.0
 one_shot = true
 
 [connection signal="body_entered" from="." to="." method="_on_Node2D_body_entered"]
+[connection signal="sleeping_state_changed" from="." to="." method="_on_Node2D_sleeping_state_changed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Respawn" to="." method="_on_Respawn_timeout"]

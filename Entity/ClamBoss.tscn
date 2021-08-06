@@ -47,11 +47,6 @@ animations = [ {
 "name": "hurt",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 10 ) ],
-"loop": false,
-"name": "shoot",
-"speed": 8.0
-}, {
 "frames": [ ExtResource( 6 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 16 ) ],
 "loop": true,
 "name": "bite",
@@ -61,6 +56,11 @@ animations = [ {
 "loop": true,
 "name": "hurt_open",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "shoot",
+"speed": 8.0
 } ]
 
 [sub_resource type="Animation" id=2]
@@ -109,11 +109,14 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 2.8 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 2.8, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "eject_player"
+}, {
+"args": [  ],
+"method": "reset_barrel"
 } ]
 }
 tracks/4/type = "value"
@@ -198,7 +201,7 @@ tracks/10/keys = {
 "times": PoolRealArray( 3 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [ 4 ],
+"args": [ 1 ],
 "method": "start"
 } ]
 }
@@ -400,27 +403,13 @@ tracks/6/keys = {
 "update": 1,
 "values": [ 3 ]
 }
-tracks/7/type = "method"
-tracks/7/path = NodePath("CloseTimer")
+tracks/7/type = "value"
+tracks/7/path = NodePath(".:collision_layer")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0.5 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [ 5 ],
-"method": "start"
-} ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath(".:collision_layer")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -619,7 +608,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="ShootTimer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 2.0
 one_shot = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

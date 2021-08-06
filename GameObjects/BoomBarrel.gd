@@ -16,3 +16,7 @@ func prepare():
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	get_tree().call_group("BossLogic", "_on_barrel_ready")
+
+
+func _on_Node2D_sleeping_state_changed():
+	$AnimatedSprite.play("armed")
