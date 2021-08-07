@@ -47,6 +47,11 @@ animations = [ {
 "name": "hurt",
 "speed": 10.0
 }, {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "shoot",
+"speed": 8.0
+}, {
 "frames": [ ExtResource( 6 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 16 ) ],
 "loop": true,
 "name": "bite",
@@ -56,11 +61,6 @@ animations = [ {
 "loop": true,
 "name": "hurt_open",
 "speed": 10.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 10 ) ],
-"loop": false,
-"name": "shoot",
-"speed": 8.0
 } ]
 
 [sub_resource type="Animation" id=2]
@@ -109,14 +109,11 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 2.8, 3 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 2.8 ),
+"transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "eject_player"
-}, {
-"args": [  ],
-"method": "reset_barrel"
 } ]
 }
 tracks/4/type = "value"
@@ -553,8 +550,7 @@ script = ExtResource( 18 )
 position = Vector2( 2, -22 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 1 )
-animation = "close"
-frame = 4
+animation = "idle"
 
 [node name="ClosedShape" type="CollisionPolygon2D" parent="."]
 position = Vector2( 3.97299, 3.1784 )

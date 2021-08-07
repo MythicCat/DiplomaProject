@@ -260,6 +260,7 @@ func _on_barrel_exploded():
 	
 	yield($ExplosionAnimation,\"animation_finished\")
 	$ExplosionAnimation.visible = false
+	$ResetBarrel.start()
 
 
 func _reset_barrel():
@@ -270,6 +271,10 @@ func _reset_barrel():
 	spawn_point.add_child(new_barrel)
 	spawn_point.get_child(spawn_point.get_child_count() -1).prepare()
 
+
+
+func _on_ResetBarrel_timeout():
+	_reset_barrel()
 "
 
 [sub_resource type="RectangleShape2D" id=9]
@@ -373,19 +378,20 @@ __meta__ = {
 position = Vector2( 369.751, 445.836 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 5 )
-frame = 1
 playing = true
 
 [node name="AnimatedWater2" type="AnimatedSprite" parent="Background"]
 position = Vector2( 861.739, 468.682 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 6 )
+frame = 3
 playing = true
 
 [node name="AnimatedWater3" type="AnimatedSprite" parent="Background"]
 position = Vector2( 542.728, 520.075 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 7 )
+frame = 3
 playing = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
@@ -433,7 +439,7 @@ shape = SubResource( 9 )
 position = Vector2( 3252.71, -34.0684 )
 frames = SubResource( 10 )
 animation = "idle"
-frame = 6
+frame = 1
 playing = true
 
 [node name="ExplosionAnimation" type="AnimatedSprite" parent="BossRoom/Area2D"]
@@ -447,4 +453,9 @@ animation = "explosion"
 [node name="BarrelLocation" type="Position2D" parent="BossRoom/Area2D"]
 position = Vector2( 3255.09, 2.12 )
 
+[node name="ResetBarrel" type="Timer" parent="BossRoom/Area2D"]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="body_entered" from="BossRoom/Area2D" to="BossRoom/Area2D" method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="BossRoom/Area2D/ResetBarrel" to="BossRoom/Area2D" method="_on_ResetBarrel_timeout"]

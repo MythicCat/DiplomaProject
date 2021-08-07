@@ -81,9 +81,10 @@ func shoot():
 
 func hurt(_enemy_pos : Vector2): # must detect thrown swords
 	
-	print("Took damage!")
-	if _shell_damage < shell_threshold and not immune:
+	
+	if _shell_damage < shell_threshold:
 		
+		print("Shell damaged!")
 		_shell_damage += 1
 		_state_machine.travel("hurt")
 		
@@ -93,11 +94,11 @@ func hurt(_enemy_pos : Vector2): # must detect thrown swords
 			_shell_damage += 1
 			_state_machine.travel("open")
 
+
 	else:
-		immune = true
+		print("Pearl damaged!")
 		pearlHp -= 1
 		_state_machine.travel("hurt_open")
-		immune = false
 
 
 func eject_player():
@@ -115,8 +116,6 @@ func create_firing_pattern(maxAngle = 180, minAngle = 90, bullet_count = 4):
 		spawn_point.rotation = pos.angle()
 		$FiringPoint.add_child(spawn_point)
 
-func reset_barrel():
-	get_tree().call_group("BossLogic", "_reset_barrel")
 
 func _on_Pearl_area_entered(area):
 	hurt(Vector2())
