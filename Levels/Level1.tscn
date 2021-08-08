@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://Entity/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Bottom and Grass (32x32).png" type="Texture" id=2]
@@ -47,6 +47,7 @@
 [ext_resource path="res://Items/LockedChest.tscn" type="PackedScene" id=45]
 [ext_resource path="res://Entity/Starfish.tscn" type="PackedScene" id=46]
 [ext_resource path="res://Tilesets/PalmTop.tscn" type="PackedScene" id=47]
+[ext_resource path="res://Sound/Music/Origami Repetika - Shanty of Mermaidia.mp3" type="AudioStream" id=48]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -243,7 +244,7 @@ position = Vector2( 2699.11, -358.148 )
 next_scene = "res://Levels/Level2.tscn"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 2367, -414.756 )
+position = Vector2( -14.3723, -288.248 )
 
 [node name="MapPieceOne" parent="." instance=ExtResource( 14 )]
 position = Vector2( 2464.01, -402.663 )
@@ -532,19 +533,21 @@ __meta__ = {
 position = Vector2( 369.751, 445.836 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 7 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="AnimatedWater2" type="AnimatedSprite" parent="Background"]
 position = Vector2( 861.739, 468.682 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 8 )
+frame = 2
 playing = true
 
 [node name="AnimatedWater3" type="AnimatedSprite" parent="Background"]
 position = Vector2( 542.728, 520.075 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 9 )
+frame = 2
 playing = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
@@ -573,7 +576,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop2"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop2"]
@@ -592,7 +594,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop3"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop3"]
@@ -611,7 +612,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop20"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 1
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop20"]
@@ -630,7 +631,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop21"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 1
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop21"]
@@ -649,7 +650,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop4"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 1
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop4"]
@@ -668,6 +669,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop5"]
 frames = SubResource( 10 )
 animation = "idle"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop5"]
@@ -686,7 +688,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop6"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 3
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop6"]
@@ -705,7 +707,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop7"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 3
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop7"]
@@ -724,7 +726,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop8"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop8"]
@@ -743,7 +744,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop9"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop9"]
@@ -762,7 +762,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop10"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 1
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop10"]
@@ -781,6 +781,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop11"]
 frames = SubResource( 10 )
 animation = "idle"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop11"]
@@ -799,7 +800,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop12"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 3
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop12"]
@@ -818,7 +819,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop13"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 3
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop13"]
@@ -837,7 +838,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop14"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 3
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop14"]
@@ -856,7 +857,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop15"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop15"]
@@ -875,7 +875,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop16"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 1
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop16"]
@@ -894,7 +894,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop17"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 1
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop17"]
@@ -913,6 +913,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop18"]
 frames = SubResource( 10 )
 animation = "idle"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop18"]
@@ -931,12 +932,18 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop19"]
 frames = SubResource( 10 )
 animation = "idle"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop19"]
 position = Vector2( 0.662231, -9.93246 )
 shape = SubResource( 11 )
 one_way_collision = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 48 )
+volume_db = -10.0
+bus = "Music"
 
 [connection signal="body_entered" from="Hazards/Water2" to="Hazards/Water2" method="_on_Water_body_entered"]
 [connection signal="body_entered" from="Hazards/Water3" to="Hazards/Water3" method="_on_Water_body_entered"]

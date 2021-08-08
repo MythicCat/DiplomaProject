@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/CaptainHurt1.wav-deb06ea5e2ce77fc1f757d360ed93b69.sample"
+
+[deps]
+
+source_file="res://Sound/SFX/Entity/CaptainHurt1.wav"
+dest_files=[ "res://.import/CaptainHurt1.wav-deb06ea5e2ce77fc1f757d360ed93b69.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -126,12 +126,14 @@ func hurt(enemyPosition : Vector2, knockback_factor = 1):
 			
 	if not isDead:
 		knockback(enemyPosition, knockback_factor)
+		get_node("Sounds/Hurt" + str(randi()%3+1)).play()
 		animated_sprite.play("hurt" + animAffix)
 		yield(animated_sprite, "animation_finished")
 		$AnimationPlayer.play("immunity")
 		isHurt = false
 	else:
 		knockback(enemyPosition, knockback_factor)
+		$Sounds/Dead.play()
 		animated_sprite.play("hurt_dead")
 		
 
@@ -145,8 +147,8 @@ func knockback(enemyPosition : Vector2, knockbackFactor = 1):
 
 	#$HurtSFX.play()
 	
-func heal(heal_type):
-	if heal_type == "sword":
+func pick_up(pick_up_type):
+	if pick_up_type == "sword":
 		animAffix = "_sword"
 
 func throwSword():
@@ -159,6 +161,7 @@ func _on_AnimatedSprite_animation_finished():
 	
 	if "attack" in animated_sprite.animation:
 		isAttacking = false
+		get_node("Sounds/Attack" + str(randi()%2+1)).play()
 		#get correct attack Area2D box and disable it
 		get_node("AttackArea" + String(attackNum) + "/CollisionShape2D").disabled = true	
 		#set next attack animation
@@ -166,6 +169,9 @@ func _on_AnimatedSprite_animation_finished():
 			attackNum += 1
 		else:
 			attackNum = 1
+	
+	if animated_sprite.animation == "hurt_dead":
+		isHurt = false
 		
 	if "fall" in animated_sprite.animation and is_on_floor():
 		animated_sprite.play("land" + PlayerVariables.animation_affix);

@@ -2,7 +2,7 @@ extends Node
 
 const MAX_HP = 3
 
-var lives = 15
+var lives = 3
 var treasure = 0
 var totalTreasure = 0
 var keys = 0

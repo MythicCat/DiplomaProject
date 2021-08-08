@@ -30,6 +30,9 @@ func move(delta):
 		motion.x = lerp(motion.x, 0, 0.1)
 	else:
 		motion.x = lerp(motion.x, 150*direction, 0.25)
+	
+	if isAttacking and not $AttackSound.playing:
+		$AttackSound.play()
 
 func attack():	
 	animated_sprite.play("attack")
@@ -44,3 +47,8 @@ func hurt(enemyPosition : Vector2):
 		$AttackCooldown.start(attackCooldown + 2)
 		
 	.hurt(enemyPosition)
+
+
+func _on_AttackSound_finished():
+	if isAttacking:
+		$AttackSound.play()

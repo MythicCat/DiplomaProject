@@ -19,7 +19,9 @@ func attack():
 	canAttack = false
 	$AttackCooldown.start(attackCooldown)
 	
+	$AttackSound.play()
 	.attack()
+	
 	
 	
 func detect_player():

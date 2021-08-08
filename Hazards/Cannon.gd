@@ -23,4 +23,5 @@ func _on_AnimatedSprite_animation_finished():
 func _on_CannonSprite_frame_changed():
 	if $CannonSprite.frame == 3:
 		$FireEffect.play("fire_effect")
+		$AudioStreamPlayer.play()
 		$RayCast2D.add_child(load("res://Hazards/Cannonball.tscn").instance())

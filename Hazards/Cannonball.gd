@@ -24,6 +24,7 @@ func detect_collision():
 		ball.visible = false
 		speed = 0
 		explosion.visible = true
+		$Area2D.set_collision_mask_bit(0,false)
 		explosion.play("explode")
 		
 

@@ -26,11 +26,11 @@ func close():
 			fade_duration, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	$Tween.start()
 
+# BUTTON FUNCTIONS
 
 func _on_Resume_pressed():
 	if not $Tween.is_active():
 		close()
-	
 
 
 func _on_Quit_pressed():
@@ -46,3 +46,33 @@ func _on_Options_pressed():
 func _on_Tween_tween_all_completed():
 	mainControls.show()
 	optionsControls.hide()
+
+# SLIDER FUNCTIONS
+
+func _on_MasterSlider_value_changed(value):
+	var bus_index = AudioServer.get_bus_index("Master")
+	AudioServer.set_bus_volume_db(bus_index, value)
+	
+	if value == -20:
+		AudioServer.set_bus_mute(bus_index, true)
+	else:
+		AudioServer.set_bus_mute(bus_index, false)
+
+
+func _on_MusicSlider_value_changed(value):
+	var bus_index = AudioServer.get_bus_index("Music")
+	AudioServer.set_bus_volume_db(bus_index, value)
+	
+	if value == -20:
+		AudioServer.set_bus_mute(bus_index, true)
+	else:
+		AudioServer.set_bus_mute(bus_index, false)
+
+func _on_SFXSlider_value_changed(value):
+	var bus_index = AudioServer.get_bus_index("SFX")
+	AudioServer.set_bus_volume_db(bus_index, value)
+	
+	if value == -20:
+		AudioServer.set_bus_mute(bus_index, true)
+	else:
+		AudioServer.set_bus_mute(bus_index, false)

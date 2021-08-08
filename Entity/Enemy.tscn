@@ -48,6 +48,21 @@ animations = [ {
 "name": "ready",
 "speed": 10.0
 }, {
+"frames": [ ExtResource( 22 ), ExtResource( 21 ), ExtResource( 28 ), ExtResource( 24 ) ],
+"loop": false,
+"name": "hurt",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 32 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
+"loop": false,
+"name": "attack",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 26 ), ExtResource( 23 ), ExtResource( 27 ), ExtResource( 25 ) ],
+"loop": false,
+"name": "dead",
+"speed": 10.0
+}, {
 "frames": [ ExtResource( 19 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 20 ) ],
 "loop": false,
 "name": "hurt_dead",
@@ -56,21 +71,6 @@ animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "run",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 26 ), ExtResource( 23 ), ExtResource( 27 ), ExtResource( 25 ) ],
-"loop": false,
-"name": "dead",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 32 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
-"loop": false,
-"name": "attack",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 22 ), ExtResource( 21 ), ExtResource( 28 ), ExtResource( 24 ) ],
-"loop": false,
-"name": "hurt",
 "speed": 10.0
 } ]
 

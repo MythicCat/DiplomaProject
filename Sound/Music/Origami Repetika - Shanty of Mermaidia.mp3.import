@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Origami Repetika - Shanty of Mermaidia.mp3-ccf2d2483045896d98b54559b4624e16.mp3str"
+
+[deps]
+
+source_file="res://Sound/Music/Origami Repetika - Shanty of Mermaidia.mp3"
+dest_files=[ "res://.import/Origami Repetika - Shanty of Mermaidia.mp3-ccf2d2483045896d98b54559b4624e16.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

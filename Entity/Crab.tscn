@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Entity/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entity/Crab.gd" type="Script" id=2]
+[ext_resource path="res://Sound/SFX/Entity/CrabSnip.wav" type="AudioStream" id=3]
 
 [node name="Crab" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -15,3 +16,7 @@ position = Vector2( 2.09004, 4.38474 )
 [node name="DetectPlayer" parent="." index="6"]
 position = Vector2( 53.9188, 4.60139 )
 cast_to = Vector2( 0, 85 )
+
+[node name="AttackSound" type="AudioStreamPlayer2D" parent="." index="7"]
+stream = ExtResource( 3 )
+bus = "SFX"

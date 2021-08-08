@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SLOWER-TEMPO2019-12-09_-_Retro_Forest_-_David_Fesliyan.mp3-3217329eddce50a8d9ca8b82bfdaece8.mp3str"
+
+[deps]
+
+source_file="res://Sound/Music/SLOWER-TEMPO2019-12-09_-_Retro_Forest_-_David_Fesliyan.mp3"
+dest_files=[ "res://.import/SLOWER-TEMPO2019-12-09_-_Retro_Forest_-_David_Fesliyan.mp3-3217329eddce50a8d9ca8b82bfdaece8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

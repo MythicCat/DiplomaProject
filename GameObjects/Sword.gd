@@ -24,7 +24,7 @@ func _on_RigidBody2D_body_entered(body):
 		body.hurt(global_position)
 		gravity_scale = 5
 	elif body is Player:
-		body.heal("sword")
+		body.pick_up("sword")
 		queue_free()
 	elif body is Boss:
 		linear_velocity -= Vector2(100, 100)

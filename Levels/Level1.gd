@@ -6,6 +6,7 @@ func _ready():
 	PlayerVariables.mapPiece = false
 	PlayerVariables.newLevel()
 	get_tree().call_group("Gui", "update_hp_bar")
+	$AudioStreamPlayer.play()
 	
 func hurt(enemyPosition : Vector2, knockback_multiplier = 1):
 	if $Player.isImmune:
