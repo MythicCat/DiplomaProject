@@ -121,10 +121,10 @@ func _on_AnimatedSprite_animation_finished():
 	
 func _on_DamageOnTouch_body_entered(body):
 	if body.name == "Player":
-		get_tree().call_group("GameState", "hurt", position)
+		get_tree().call_group("GameState", "hurt", global_position)
 
 
-func detect_player():
+func detect_player(): # up to inherited scenes to implement
 	pass
 
 

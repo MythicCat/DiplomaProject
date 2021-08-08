@@ -9,7 +9,8 @@ onready var player = get_parent().get_parent().get_parent()
 func _on_RigidBody2D_body_entered(body):
 	
 	set_collision_mask_bit(0, true) # after it hits something, enable collision with player so they can pick it up
-	set_collision_mask_bit(4, false) # prevent enemies from constantly colliding with sword	
+	set_collision_mask_bit(4, false) # prevent enemies from constantly colliding with sword
+	set_collision_layer_bit(5, false)
 
 	$ReturnTimer.start()
 

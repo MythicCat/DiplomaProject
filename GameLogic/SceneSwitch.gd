@@ -3,10 +3,25 @@ extends Node
 var current_scene = null
 var next_path = ""
 
+onready var _pause_menu = $Interface/PauseMenu
+
 func _ready():
 	var root = get_tree().get_root()
+	add_child(ResourceLoader.load("res://Levels/Level1.tscn").instance())
 	current_scene = get_children()[get_child_count() -1]
+	current_scene.pause_mode = PAUSE_MODE_STOP
 	add_to_group("GameState")
+
+func _unhandled_input(event):
+	if event.is_action_pressed("pause"):
+		var tree = get_tree()
+		tree.paused = not tree.paused
+		if tree.paused:
+			_pause_menu.open()
+		else:
+			_pause_menu.close()
+		get_tree().set_input_as_handled() # prevents input from propagating further
+
 
 func goto_scene(path):
 	# This function will usually be called from a signal callback,
@@ -32,7 +47,10 @@ func _deferred_goto_scene(path):
 
 	# Instance the new scene.
 	current_scene = new_scene.instance()
-
+	
+	# Make scene pausable
+	current_scene.pause_mode = PAUSE_MODE_STOP
+	
 	# Add it to the active scene, as child of root.
 	add_child(current_scene)
 

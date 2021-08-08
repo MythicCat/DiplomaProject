@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Water/Bottom/1.png" type="Texture" id=1]
 [ext_resource path="res://Tilesets/ShipBackgroundTiles.tres" type="TileSet" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://Treasure Hunters/Pirate Ship/Sprites/Decorations/Chains/Big/02.png" type="Texture" id=8]
 [ext_resource path="res://Treasure Hunters/Pirate Ship/Sprites/Decorations/Chains/Big/06.png" type="Texture" id=9]
 [ext_resource path="res://Treasure Hunters/Pirate Ship/Sprites/Decorations/Chains/Big/08.png" type="Texture" id=10]
-[ext_resource path="res://Items/MapPieceOne.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Treasure Hunters/Pirate Ship/Sprites/Decorations/Chains/Big/05.png" type="Texture" id=12]
 [ext_resource path="res://Treasure Hunters/Pirate Ship/Sprites/Decorations/Chains/Big/07.png" type="Texture" id=13]
 [ext_resource path="res://Treasure Hunters/Pirate Ship/Sprites/Decorations/Chains/Big/03.png" type="Texture" id=14]
@@ -31,6 +30,7 @@
 [ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Small 04.png" type="Texture" id=29]
 [ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Medium 02.png" type="Texture" id=30]
 [ext_resource path="res://Treasure Hunters/Pirate Ship/Sprites/Decorations/Chains/Big/04.png" type="Texture" id=31]
+[ext_resource path="res://Levels/BossRoom.gd" type="Script" id=32]
 [ext_resource path="res://Interface/GUI.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/2.png" type="Texture" id=34]
 [ext_resource path="res://Entity/Player.tscn" type="PackedScene" id=35]
@@ -215,7 +215,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="GDScript" id=8]
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 8.42383, 40.7092 )
+
+[sub_resource type="GDScript" id=9]
 script/source = "extends Area2D
 
 const barrel = preload(\"res://GameObjects/BoomBarrel.tscn\")
@@ -277,10 +280,10 @@ func _on_ResetBarrel_timeout():
 	_reset_barrel()
 "
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 5.28833, 31.1816 )
 
-[sub_resource type="SpriteFrames" id=10]
+[sub_resource type="SpriteFrames" id=11]
 animations = [ {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 14 ), ExtResource( 31 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 10 ) ],
 "loop": true,
@@ -288,7 +291,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=11]
+[sub_resource type="SpriteFrames" id=12]
 animations = [ {
 "frames": [ ExtResource( 45 ), ExtResource( 34 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 38 ), ExtResource( 37 ), ExtResource( 36 ) ],
 "loop": true,
@@ -296,14 +299,11 @@ animations = [ {
 "speed": 6.0
 } ]
 
-[node name="Level1" type="Node2D"]
+[node name="Level5" type="Node2D"]
 script = ExtResource( 39 )
 
 [node name="Player" parent="." instance=ExtResource( 35 )]
-position = Vector2( 3053.63, 18.2557 )
-
-[node name="MapPieceOne" parent="." instance=ExtResource( 11 )]
-position = Vector2( 2464.01, -402.663 )
+position = Vector2( 2707.63, 102.256 )
 
 [node name="Tilesets" type="Node" parent="."]
 
@@ -378,20 +378,19 @@ __meta__ = {
 position = Vector2( 369.751, 445.836 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 
 [node name="AnimatedWater2" type="AnimatedSprite" parent="Background"]
 position = Vector2( 861.739, 468.682 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 6 )
-frame = 3
 playing = true
 
 [node name="AnimatedWater3" type="AnimatedSprite" parent="Background"]
 position = Vector2( 542.728, 520.075 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 7 )
-frame = 3
 playing = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
@@ -425,37 +424,55 @@ position = Vector2( 3054.46, 47.9756 )
 position = Vector2( 2926.36, 16.1948 )
 
 [node name="BossRoom" type="Node" parent="."]
+script = ExtResource( 32 )
 
-[node name="Area2D" type="Area2D" parent="BossRoom"]
+[node name="Tween" type="Tween" parent="BossRoom"]
+
+[node name="BossRoomCamera" type="Camera2D" parent="BossRoom"]
+position = Vector2( 3091.82, 29.8056 )
+z_index = 2
+zoom = Vector2( 0.6, 0.6 )
+
+[node name="PlayerEntered" type="Area2D" parent="BossRoom"]
+position = Vector2( 2777.89, 99.7779 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossRoom/PlayerEntered"]
+position = Vector2( -0.161469, -0.13797 )
+shape = SubResource( 8 )
+
+[node name="BossRoomLogic" type="Area2D" parent="BossRoom"]
+position = Vector2( 0, -0.561218 )
 collision_layer = 0
 collision_mask = 32
-script = SubResource( 8 )
+script = SubResource( 9 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BossRoom/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossRoom/BossRoomLogic"]
 position = Vector2( 3254.21, -42.3097 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
-[node name="Chain" type="AnimatedSprite" parent="BossRoom/Area2D"]
+[node name="Chain" type="AnimatedSprite" parent="BossRoom/BossRoomLogic"]
 position = Vector2( 3252.71, -34.0684 )
-frames = SubResource( 10 )
+frames = SubResource( 11 )
 animation = "idle"
-frame = 1
+frame = 6
 playing = true
 
-[node name="ExplosionAnimation" type="AnimatedSprite" parent="BossRoom/Area2D"]
+[node name="ExplosionAnimation" type="AnimatedSprite" parent="BossRoom/BossRoomLogic"]
 visible = false
 position = Vector2( 3256.27, 107.131 )
 scale = Vector2( 2, 2 )
 z_index = 2
-frames = SubResource( 11 )
+frames = SubResource( 12 )
 animation = "explosion"
 
-[node name="BarrelLocation" type="Position2D" parent="BossRoom/Area2D"]
+[node name="BarrelLocation" type="Position2D" parent="BossRoom/BossRoomLogic"]
 position = Vector2( 3255.09, 2.12 )
 
-[node name="ResetBarrel" type="Timer" parent="BossRoom/Area2D"]
+[node name="ResetBarrel" type="Timer" parent="BossRoom/BossRoomLogic"]
 wait_time = 5.0
 one_shot = true
 
-[connection signal="body_entered" from="BossRoom/Area2D" to="BossRoom/Area2D" method="_on_Area2D_body_entered"]
-[connection signal="timeout" from="BossRoom/Area2D/ResetBarrel" to="BossRoom/Area2D" method="_on_ResetBarrel_timeout"]
+[connection signal="body_entered" from="BossRoom/PlayerEntered" to="BossRoom" method="_on_PlayerEntered_body_entered"]
+[connection signal="body_entered" from="BossRoom/BossRoomLogic" to="BossRoom/BossRoomLogic" method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="BossRoom/BossRoomLogic/ResetBarrel" to="BossRoom/BossRoomLogic" method="_on_ResetBarrel_timeout"]

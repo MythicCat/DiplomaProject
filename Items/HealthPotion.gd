@@ -2,7 +2,7 @@ extends Area2D
 
 func _on_Item_body_entered(body):
 	
-	if PlayerVariables.lives == 3:
+	if PlayerVariables.is_full_hp():
 		return
 	
 	set_collision_mask_bit(0, false)

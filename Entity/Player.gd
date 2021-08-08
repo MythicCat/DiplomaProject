@@ -174,3 +174,7 @@ func _on_AnimatedSprite_animation_finished():
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "immunity":
 		isImmune = false
+
+
+func _get_camera():
+	return $Camera2D
