@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Treasure Hunters/Pirate Treasure/Sprites/Map Effect/Out/03.png" type="Texture" id=1]
 [ext_resource path="res://Treasure Hunters/Pirate Treasure/Sprites/Map Effect/Out/02.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 1/01.png" type="Texture" id=10]
 [ext_resource path="res://Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 1/08.png" type="Texture" id=11]
 [ext_resource path="res://Items/MapPiece.gd" type="Script" id=12]
+[ext_resource path="res://Sound/SFX/ObjectsAndItems/Paper.wav" type="AudioStream" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -37,11 +38,16 @@ script = ExtResource( 12 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "idle"
-frame = 1
+frame = 7
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.25, 0 )
 shape = SubResource( 2 )
+
+[node name="PickUp" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 13 )
+volume_db = 6.0
+bus = "SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_MapPiece_body_entered"]

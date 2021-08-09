@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=2]
+[gd_scene load_steps=85 format=2]
 
 [ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 04.png" type="Texture" id=1]
 [ext_resource path="res://Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/11-Jump Sword/Jump Sword 03.png" type="Texture" id=2]
@@ -76,6 +76,7 @@
 [ext_resource path="res://Sound/SFX/Entity/CaptainHurt2.wav" type="AudioStream" id=74]
 [ext_resource path="res://Sound/SFX/Entity/CaptainDead.wav" type="AudioStream" id=75]
 [ext_resource path="res://Sound/SFX/Entity/CaptainHurt1.wav" type="AudioStream" id=76]
+[ext_resource path="res://Sound/SFX/Entity/SwordThrow.wav" type="AudioStream" id=77]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -94,9 +95,39 @@ animations = [ {
 "name": "jump",
 "speed": 10.0
 }, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 1 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "idle_sword",
+"speed": 10.0
+}, {
 "frames": [ ExtResource( 41 ), ExtResource( 42 ), ExtResource( 48 ), ExtResource( 46 ) ],
 "loop": false,
 "name": "dead",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "run_sword",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 30 ), ExtResource( 24 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "attack3",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 29 ), ExtResource( 28 ) ],
+"loop": false,
+"name": "attack2",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 63 ) ],
+"loop": true,
+"name": "fall",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "hurt_sword",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 47 ), ExtResource( 45 ), ExtResource( 44 ), ExtResource( 43 ) ],
@@ -109,9 +140,9 @@ animations = [ {
 "name": "run",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 39 ), ExtResource( 40 ) ],
+"frames": [ ExtResource( 22 ), ExtResource( 27 ), ExtResource( 23 ) ],
 "loop": false,
-"name": "land_sword",
+"name": "attack1",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 6 ) ],
@@ -119,44 +150,14 @@ animations = [ {
 "name": "fall_sword",
 "speed": 3.0
 }, {
-"frames": [ ExtResource( 25 ), ExtResource( 29 ), ExtResource( 28 ) ],
-"loop": false,
-"name": "attack2",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 63 ) ],
-"loop": true,
-"name": "fall",
-"speed": 3.0
-}, {
 "frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 2 ) ],
 "loop": false,
 "name": "jump_sword",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "run_sword",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 20 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 21 ) ],
+"frames": [ ExtResource( 39 ), ExtResource( 40 ) ],
 "loop": false,
-"name": "hurt_sword",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 1 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "idle_sword",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 30 ), ExtResource( 24 ), ExtResource( 26 ) ],
-"loop": false,
-"name": "attack3",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 22 ), ExtResource( 27 ), ExtResource( 23 ) ],
-"loop": false,
-"name": "attack1",
+"name": "land_sword",
 "speed": 10.0
 } ]
 
@@ -340,6 +341,11 @@ bus = "SFX"
 [node name="Dead" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 75 )
 volume_db = -6.0
+bus = "SFX"
+
+[node name="SwordThrow" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 77 )
+volume_db = -4.0
 bus = "SFX"
 
 [connection signal="animate" from="." to="AnimatedSprite" method="_on_Player_animate"]

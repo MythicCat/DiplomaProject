@@ -7,6 +7,7 @@ func _on_Item_body_entered(body):
 	if PlayerVariables.keys <= 0:
 		return
 	
+	$PickUp.play()
 	PlayerVariables.keys -= 1
 	set_collision_mask_bit(0,false) # disable collision area
 	PlayerVariables.treasure += treasureValue # replace with coin shower

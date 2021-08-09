@@ -9,6 +9,7 @@ export var attackCooldown = 2
 
 func hurt(enemyPosition : Vector2):
 	canAttack = false
+	$HurtSound.play()
 	.hurt(enemyPosition)
 
 func attack():

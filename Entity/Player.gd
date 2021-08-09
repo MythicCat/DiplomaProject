@@ -59,10 +59,11 @@ func jump(delta):
 		position.y += 1
 
 func attack():
-	if Input.is_action_just_pressed("attack") and animAffix == "_sword":
+	if Input.is_action_just_pressed("attack") and animAffix == "_sword" and not isAttacking:
 		isAttacking = true
 		
 		#get correct attack Area2D box and enable it
+		get_node("Sounds/Attack" + str(randi()%2+1)).play()
 		var attackArea = get_node("AttackArea" + String(attackNum) + "/CollisionShape2D")
 		if animated_sprite.flip_h:
 			attackArea.position.x = -abs(attackArea.position.x)
@@ -153,6 +154,7 @@ func pick_up(pick_up_type):
 
 func throwSword():
 	if Input.is_action_just_pressed("throw") and animAffix == "_sword":
+		$Sounds/SwordThrow.play()
 		SwordThrow.throw(animated_sprite.flip_h)
 		animAffix = ""
 
@@ -161,7 +163,6 @@ func _on_AnimatedSprite_animation_finished():
 	
 	if "attack" in animated_sprite.animation:
 		isAttacking = false
-		get_node("Sounds/Attack" + str(randi()%2+1)).play()
 		#get correct attack Area2D box and disable it
 		get_node("AttackArea" + String(attackNum) + "/CollisionShape2D").disabled = true	
 		#set next attack animation

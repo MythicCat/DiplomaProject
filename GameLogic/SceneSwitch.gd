@@ -6,6 +6,11 @@ var next_path = ""
 onready var _pause_menu = $Interface/PauseMenu
 
 func _ready():
+	
+	var directory = Directory.new()
+	#if directory.file_exists("user://saved_level.tscn"): # load level
+	#	goto_scene("user://saved_level.tscn")
+	
 	var root = get_tree().get_root()
 	add_child(ResourceLoader.load("res://Levels/Level1.tscn").instance())
 	current_scene = get_children()[get_child_count() -1]
@@ -58,3 +63,9 @@ func _deferred_goto_scene(path):
 	get_tree().set_current_scene(current_scene)
 	
 	$Transition.transition()
+
+
+func save_level():
+	var packed_scene = PackedScene.new()
+	packed_scene.pack(get_child(get_child_count() - 1))
+	ResourceSaver.save("user://saved_level.tscn", packed_scene)

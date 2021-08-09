@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SharkHurt.wav-a96102cb4d7d71933e4693f2a50e5dcf.sample"
+
+[deps]
+
+source_file="res://Sound/SFX/Entity/SharkHurt.wav"
+dest_files=[ "res://.import/SharkHurt.wav-a96102cb4d7d71933e4693f2a50e5dcf.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

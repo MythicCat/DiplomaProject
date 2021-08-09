@@ -19,3 +19,4 @@ func hurt(enemyPosition : Vector2, knockback_multiplier = 1):
 
 func end_game():
 	get_tree().call_group("GameState", "goto_scene", "res://Levels/GameOver.tscn")
+	
