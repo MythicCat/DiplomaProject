@@ -22,6 +22,9 @@ onready var animated_sprite = $AnimatedSprite
 onready var hit_ledge = $DetectLedge
 onready var touchArea = $DamageOnTouch/CollisionShape2D
 	
+func _ready():
+	scale.x = 1
+
 func _physics_process(delta):
 	
 	move(delta)
@@ -49,9 +52,9 @@ func move(delta):
 		return
 	
 	if (is_on_wall() or !hit_ledge.is_colliding()) and not isDead and not isAttacking and not in_air:
-		scale.x = -scale.x
+		flip_nodes() # scale is not saved properly during PackedScene
 		direction = -direction
-	
+
 	if not isDead and not isHurt and not isAttacking and not in_air:	
 		motion.x = speed * direction
 	else:
@@ -64,10 +67,10 @@ func animate():
 	if isHurt or isAttacking:
 		return
 	
-	if scale.x > 0:
-		animated_sprite.flip_h = false
-	else:
-		animated_sprite.flip_h = true
+#	if motion.x > 0:
+#		animated_sprite.flip_h = false
+#	else:
+#		animated_sprite.flip_h = true
 	
 	if abs(motion.x) > 0 and not isDead:
 		animated_sprite.play("run")
@@ -117,8 +120,8 @@ func _on_AnimatedSprite_animation_finished():
 		$DeadFade.play("fade_out")
 		yield($DeadFade, "animation_finished")
 		queue_free()
-			
-	
+
+
 func _on_DamageOnTouch_body_entered(body):
 	if body.name == "Player":
 		get_tree().call_group("GameState", "hurt", global_position)
@@ -150,3 +153,10 @@ func attack():
 func _on_Attack_body_entered(body):
 	if body.name == "Player":
 		get_tree().call_group("GameState", "hurt", position)
+
+
+func flip_nodes():
+	$AnimatedSprite.flip_h = not $AnimatedSprite.flip_h
+	$DetectLedge.position.x = -$DetectLedge.position.x
+	$Attack/CollisionShape2D.position.x = -$Attack/CollisionShape2D.position.x
+	$DetectPlayer.rotation_degrees = -$DetectPlayer.rotation_degrees

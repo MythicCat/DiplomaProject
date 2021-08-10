@@ -8,3 +8,7 @@ func detect_player():
 func attack():
 	$AttackSound.play()
 	.attack()
+
+func flip_nodes():
+	$DetectPlayer.position.x = -$DetectPlayer.position.x
+	.flip_nodes()

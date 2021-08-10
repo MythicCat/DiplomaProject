@@ -8,7 +8,7 @@ onready var optionsControls = $ColorRect/CenterContainer/TextureRect/Options
 onready var mainControls = $ColorRect/CenterContainer/TextureRect/Main
 
 func _ready():
-	_get_volume_data()
+	#_get_volume_data()
 	hide()
 	mainControls.show()
 	optionsControls.hide()
@@ -56,7 +56,6 @@ func _get_volume_data():
 		var bus_volume = AudioServer.get_bus_volume_db(i)
 		var bus_name = AudioServer.get_bus_name(i)
 		get_node("ColorRect/CenterContainer/TextureRect/Options/" + bus_name + "Slider").value = bus_volume
-		pass
 
 
 func _on_Tween_tween_all_completed():

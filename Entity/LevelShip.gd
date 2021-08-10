@@ -18,8 +18,8 @@ func _physics_process(delta):
 	
 
 func _on_CheckForPlayer_body_entered(body):
-	
-	if !PlayerVariables.mapPiece: # only go to next level if player found the map piece
+
+	if !PlayerVariables.mapPiece and body == Player: # only go to next level if player found the map piece
 		return
 	startMoving = true
 	$Sail.play("move_start")

@@ -140,11 +140,11 @@ func hurt(enemyPosition : Vector2, knockback_factor = 1):
 
 	
 
-func knockback(enemyPosition : Vector2, knockbackFactor = 1):
+func knockback(enemyPosition : Vector2, h_knockback_factor = 1, v_knockback_factor = 1):
 	if enemyPosition.x > position.x: # TODO fix this, check if player is further than half of enemy collision box away
-		motion = Vector2(-KNOCKBACK * knockbackFactor, -JUMP_SPEED/2)
+		motion = Vector2(-KNOCKBACK * h_knockback_factor, (-JUMP_SPEED/2) * v_knockback_factor)
 	else:
-		motion = Vector2( KNOCKBACK * knockbackFactor, -JUMP_SPEED/2)
+		motion = Vector2( KNOCKBACK * h_knockback_factor, (-JUMP_SPEED/2) * v_knockback_factor)
 
 	#$HurtSFX.play()
 	

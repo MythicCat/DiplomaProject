@@ -336,7 +336,6 @@ z_index = 0
 [node name="LockedChest" parent="Coins1AndChest" instance=ExtResource( 45 )]
 position = Vector2( 1850.83, 80.3612 )
 z_index = 1
-collision_layer = 0
 treasureValue = 30
 
 [node name="ChestKey" parent="Coins1AndChest" instance=ExtResource( 44 )]
@@ -534,21 +533,21 @@ __meta__ = {
 position = Vector2( 369.751, 445.836 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 7 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="AnimatedWater2" type="AnimatedSprite" parent="Background"]
 position = Vector2( 861.739, 468.682 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 8 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="AnimatedWater3" type="AnimatedSprite" parent="Background"]
 position = Vector2( 542.728, 520.075 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 9 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
@@ -577,7 +576,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop2"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop2"]
@@ -596,7 +594,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop3"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop3"]
@@ -615,7 +612,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop20"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop20"]
@@ -634,7 +631,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop21"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop21"]
@@ -653,7 +650,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop4"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop4"]
@@ -672,7 +669,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop5"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop5"]
@@ -691,6 +688,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop6"]
 frames = SubResource( 10 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop6"]
@@ -709,6 +707,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop7"]
 frames = SubResource( 10 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop7"]
@@ -727,7 +726,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop8"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop8"]
@@ -746,7 +744,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop9"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop9"]
@@ -765,7 +762,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop10"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop10"]
@@ -784,7 +781,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop11"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop11"]
@@ -803,6 +800,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop12"]
 frames = SubResource( 10 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop12"]
@@ -821,6 +819,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop13"]
 frames = SubResource( 10 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop13"]
@@ -839,6 +838,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop14"]
 frames = SubResource( 10 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop14"]
@@ -857,7 +857,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop15"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop15"]
@@ -876,7 +875,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop16"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop16"]
@@ -895,7 +894,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop17"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop17"]
@@ -914,7 +913,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop18"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop18"]
@@ -933,7 +932,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TreeTops/PalmTop19"]
 frames = SubResource( 10 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeTops/PalmTop19"]
