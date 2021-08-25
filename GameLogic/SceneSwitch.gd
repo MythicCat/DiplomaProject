@@ -36,14 +36,6 @@ func _unhandled_input(event):
 
 
 func goto_scene(path):
-	# This function will usually be called from a signal callback,
-	# or some other function in the current scene.
-	# Deleting the current scene at this point is
-	# a bad idea, because it may still be executing code.
-	# This will result in a crash or unexpected behavior.
-
-	# The solution is to defer the load to a later time, when
-	# we can be sure that no code from the current scene is running:
 	
 	next_path = path
 	$Transition.transition()
@@ -58,23 +50,19 @@ func goto_scene(path):
 	
 
 func _deferred_goto_scene(path):
-	# It is now safe to remove the current scene
-	current_scene.queue_free()
-
-	# Load the new scene.
-	var new_scene = ResourceLoader.load(path)
-
-	# Instance the new scene.
-	current_scene = new_scene.instance()
 	
-	# Make scene pausable
-	current_scene.pause_mode = PAUSE_MODE_STOP
+	current_scene.queue_free() # current scene safe to remove
 	
-	# Add it to the active scene, as child of root.
-	add_child(current_scene)
+	var new_scene = ResourceLoader.load(path) # load next level
+	
+	current_scene = new_scene.instance() # instance level
+	current_scene.pause_mode = PAUSE_MODE_STOP # make pausable
+		
+	add_child(current_scene) # add to Game as child
 
-	# Optionally, to make it compatible with the SceneTree.change_scene() API.
 	get_tree().set_current_scene(current_scene)
+	
+	PlayerVariables.new_level() # reset coin and key counter
 	
 	$Transition.transition()
 
@@ -84,6 +72,7 @@ func save_level():
 	var packed_scene = PackedScene.new()
 	packed_scene.pack(get_child(get_child_count() - 1))
 	ResourceSaver.save("user://saved_level.tscn", packed_scene)
+	$SaveStatus/LabelFade.play("show_label")
 	
 func load_level():
 	goto_scene("user://saved_level.tscn")

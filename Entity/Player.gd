@@ -87,10 +87,10 @@ func move(delta):
 	else:
 		friction = AIR_FRICTION
 	
-	if Input.is_action_pressed("left") and !Input.is_action_pressed("right") and not isDead:
+	if Input.is_action_pressed("left") and not Input.is_action_pressed("right") and not isDead:
 		motion.x = -SPEED
 		animated_sprite.flip_h = true	
-	elif Input.is_action_pressed("right") and !Input.is_action_pressed("left") and not isDead:
+	elif Input.is_action_pressed("right") and not Input.is_action_pressed("left") and not isDead:
 		motion.x = SPEED
 		animated_sprite.flip_h = false
 	elif abs(motion.x) > 0.5 or isDead:
@@ -106,7 +106,7 @@ func animate():
 	emit_signal("animate", motion, is_on_floor(), isDead, animAffix)
 	
 	
-func hurt(enemyPosition : Vector2, knockback_factor = 1):
+func hurt(enemyPosition : Vector2, h_knockback_factor = 1, v_knockback_factor = 1):
 	if isDead:
 		return
 	
@@ -126,14 +126,14 @@ func hurt(enemyPosition : Vector2, knockback_factor = 1):
 		isDead = true	
 			
 	if not isDead:
-		knockback(enemyPosition, knockback_factor)
+		knockback(enemyPosition, h_knockback_factor, v_knockback_factor)
 		get_node("Sounds/Hurt" + str(randi()%3+1)).play()
 		animated_sprite.play("hurt" + animAffix)
 		yield(animated_sprite, "animation_finished")
 		$AnimationPlayer.play("immunity")
 		isHurt = false
 	else:
-		knockback(enemyPosition, knockback_factor)
+		knockback(enemyPosition, h_knockback_factor, v_knockback_factor)
 		$Sounds/Dead.play()
 		animated_sprite.play("hurt_dead")
 		

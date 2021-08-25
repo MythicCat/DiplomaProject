@@ -4,7 +4,7 @@ var speed = 200
 
 onready var ball = $Sprite
 
-func _process(delta):
+func _physics_process(delta):
 	position += transform.x * speed * delta
 	detect_collision()
 

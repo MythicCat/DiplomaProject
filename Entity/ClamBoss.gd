@@ -18,7 +18,7 @@ var playerRef = null
 var pearlHp = 20
 var shot_count = 0 # how many times the clam fires
 
-var _shell_damage = 0
+var _closed = true
 var _state_machine
 
 
@@ -82,16 +82,15 @@ func shoot():
 func hurt(_enemy_pos : Vector2): # must detect thrown swords
 	
 	
-	if _shell_damage < shell_threshold:
+	if _closed:
 		
 		print("Shell damaged!")
-		_shell_damage += 1
+		_closed = false
 		_state_machine.travel("hurt")
 		
-		if _shell_damage == shell_threshold:
+		if not _closed:
 			$ShootTimer.stop()
 			$CloseTimer.start()
-			_shell_damage += 1
 			_state_machine.travel("open")
 
 
@@ -99,6 +98,8 @@ func hurt(_enemy_pos : Vector2): # must detect thrown swords
 		print("Pearl damaged!")
 		pearlHp -= 1
 		_state_machine.travel("hurt_open")
+		if pearlHp <= 0:
+			queue_free()
 
 
 func eject_player():
@@ -132,7 +133,7 @@ func _on_Area2D_body_exited(body):
 
 
 func _on_CloseTimer_timeout():
-	 _shell_damage = 0
+	 _closed = true
 	 _state_machine.travel("close")
 
 

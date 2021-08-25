@@ -1,18 +1,25 @@
 extends Node2D
 
-export var speed = 200
+export var speed = 210
+
+var direction = 1
 
 onready var ball = $Area2D/Sprite
 onready var explosion = $AnimatedSprite
 
 func _ready():
 	set_as_toplevel(true)
+	direction = get_parent().get_parent().scale.x
 	global_position = get_parent().global_position
 
 func _process(delta):
-	position.x -= speed * delta
+	position.x -= speed * direction * delta
 	detect_collision()
-
+	
+#func _physics_process(delta):
+#	position -= transform.x * delta * direction
+#	detect_collision()
+	
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 	

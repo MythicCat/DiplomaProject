@@ -2,7 +2,7 @@ extends Node2D
 
 export var firing_timer = 3
 var fired = false
-		
+
 func _process(delta):
 	if fired:
 		$CannonSprite.play("idle")

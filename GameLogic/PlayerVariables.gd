@@ -20,8 +20,10 @@ func restart():
 	mapPiece = false
 	disableAnimate = false
 
-func newLevel():
+func new_level():
 	total_treasure += treasure
+	keys = 0
+	mapPiece = false
 	treasure = 0
 
 func is_full_hp() -> bool:

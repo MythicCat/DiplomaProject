@@ -35,7 +35,6 @@ func _on_Resume_pressed():
 
 
 func _on_Quit_pressed():
-	get_tree().call_group("GameState", "save_level")
 	scene_root.notification(NOTIFICATION_WM_QUIT_REQUEST)
 	get_tree().quit()
 

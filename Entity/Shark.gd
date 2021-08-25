@@ -30,6 +30,5 @@ func detect_player():
 		if not isAttacking and not isDead and canAttack:
 			ready_attack()
 
-
 func _on_AttackCooldown_timeout():
 	canAttack = true

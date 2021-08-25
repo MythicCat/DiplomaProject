@@ -1,0 +1,90 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Ship/Ship/Idle/5.png" type="Texture" id=5]
+[ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Ship/Ship/Idle/3.png" type="Texture" id=9]
+[ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Ship/Ship/Idle/6.png" type="Texture" id=11]
+[ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Ship/Ship/Idle/4.png" type="Texture" id=13]
+[ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Ship/Ship/Idle/1.png" type="Texture" id=15]
+[ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Ship/Ship/Idle/2.png" type="Texture" id=19]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends KinematicBody2D
+
+export var maxSpeed = 80
+var sailUp = false
+var motion = Vector2(0,0)
+var startMoving = false
+var startTime = false
+var direction = 1
+const UP = Vector2(0,-1) # for move_and_slide ( -1 -> treat walls and floor differently)
+
+func _physics_process(delta):
+	
+	animate()
+	if startMoving:
+		move()
+	move_and_slide(motion, UP)
+	
+
+func _on_CheckForPlayer_body_entered(body):
+	if body.name == \"Player\": # only go to next level if player found the map piece
+		startMoving = true
+
+
+func animate():	
+	$Boat.play(\"idle\")
+	
+
+func move():
+	
+	if is_on_wall():
+		scale.x = -scale.x
+		direction = -direction
+	
+	if abs(motion.x) < maxSpeed and not is_on_wall():
+		motion.x = lerp(motion.x , 90, 0.01) * direction
+	else:
+		motion.x = 0
+		startMoving = false
+"
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 15 ), ExtResource( 19 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 5 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "idle",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 38.2438, 10.7363 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 22.639, 10.9482 )
+
+[node name="RowBoat" type="KinematicBody2D"]
+collision_layer = 0
+collision_mask = 3
+script = SubResource( 1 )
+
+[node name="Boat" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+animation = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 3 )
+
+[node name="CheckForPlayer" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckForPlayer"]
+position = Vector2( -2.99661, -21.3509 )
+shape = SubResource( 4 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+rotation = -1.5708
+enabled = true
+cast_to = Vector2( 0, 90 )
+collision_mask = 2
+
+[connection signal="body_entered" from="CheckForPlayer" to="." method="_on_CheckForPlayer_body_entered"]

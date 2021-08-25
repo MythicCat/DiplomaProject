@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Interface/Button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Treasure Hunters/Wood and Paper UI/Sprites/Prefabs/6.png" type="Texture" id=2]
@@ -11,11 +11,18 @@ script/source = "extends \"res://Interface/PauseMenu.gd\"
 
 onready var reset_button = $ColorRect/CenterContainer/TextureRect/Main/RestartGame
 onready var play_button = $ColorRect/CenterContainer/TextureRect/Main/Play
+onready var quit_button = $ColorRect/CenterContainer/TextureRect/Main/Quit
+onready var options_button = $ColorRect/CenterContainer/TextureRect/Main/Options
+
+onready var buttons = [reset_button, play_button, quit_button, options_button]
 
 func _ready():
 	_get_volume_data()
-	reset_button.disabled = true
 
+	for button in buttons:
+		button.disabled = false
+	reset_button.disabled = true
+	
 func open():
 	pass
 	
@@ -32,6 +39,13 @@ func _on_Resume_pressed():
 		get_tree().call_group(\"GameState\", \"load_level\")
 	else:
 		get_tree().call_group(\"GameState\", \"new_game\")
+		
+	for button in buttons:
+		button.disabled = true
+	
+	$Tween.interpolate_property(self, \"modulate:a\", 1.0, 0.0,
+			0.8, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	$Tween.start()
 
 
 func _on_Quit_pressed():
@@ -83,6 +97,12 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color( 0.8, 0.8, 0.8, 0 )
 anti_aliasing = false
+
+[sub_resource type="StreamTexture" id=5]
+load_path = "res://.import/7.png-af4d94923a3d2403f2051d2fe47d3a5b.stex"
+
+[sub_resource type="StreamTexture" id=6]
+load_path = "res://.import/7pressed.png-db8cbc26ed8d1946ebedfd85d9977e0b.stex"
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -247,6 +267,18 @@ custom_styles/grabber_area_highlight = SubResource( 4 )
 custom_styles/grabber_area = SubResource( 4 )
 min_value = -20.0
 max_value = 0.0
+
+[node name="Exit" type="TouchScreenButton" parent="ColorRect"]
+pause_mode = 2
+position = Vector2( 932.437, 25.1003 )
+scale = Vector2( 2, 2 )
+z_index = 4
+normal = SubResource( 5 )
+pressed = SubResource( 6 )
+action = "pause"
+visibility_mode = 1
+
+[node name="Tween" type="Tween" parent="."]
 
 [connection signal="pressed" from="ColorRect/CenterContainer/TextureRect/Main/Play" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="ColorRect/CenterContainer/TextureRect/Main/RestartGame" to="." method="_on_RestartGame_pressed"]

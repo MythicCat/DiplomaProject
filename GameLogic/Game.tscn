@@ -1,12 +1,32 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Interface/MainMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Transition.gd" type="Script" id=2]
 [ext_resource path="res://GameLogic/SceneSwitch.gd" type="Script" id=3]
 [ext_resource path="res://Interface/PauseMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Treasure Hunters/Font/Early GameBoy.ttf" type="DynamicFontData" id=5]
 
-[sub_resource type="Animation" id=1]
-resource_name = "fade_to_black"
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 5 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "show_label"
+length = 4.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("GameSaved:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:color")
@@ -21,8 +41,7 @@ tracks/0/keys = {
 "values": [ Color( 0.2, 0.196078, 0.239216, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "fade_to_normal"
+[sub_resource type="Animation" id=4]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:color")
@@ -41,9 +60,29 @@ tracks/0/keys = {
 pause_mode = 2
 script = ExtResource( 3 )
 
+[node name="SaveStatus" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="GameSaved" type="Label" parent="SaveStatus"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -216.0
+margin_top = 50.0
+margin_right = 216.0
+margin_bottom = 90.0
+custom_fonts/font = SubResource( 1 )
+text = "progress saved"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelFade" type="AnimationPlayer" parent="SaveStatus"]
+anims/show_label = SubResource( 2 )
+
 [node name="Transition" type="CanvasLayer" parent="."]
 pause_mode = 1
-layer = 3
+layer = 2
 script = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="Transition"]
@@ -55,15 +94,17 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
-anims/fade_to_black = SubResource( 1 )
-anims/fade_to_normal = SubResource( 2 )
+anims/fade_to_black = SubResource( 3 )
+anims/fade_to_normal = SubResource( 4 )
 
 [node name="Interface" type="CanvasLayer" parent="."]
 pause_mode = 2
 layer = 3
 
 [node name="PauseMenu" parent="Interface" instance=ExtResource( 4 )]
+visible = false
 
 [node name="MainMenu" parent="Interface" instance=ExtResource( 1 )]
+visible = false
 
 [connection signal="animation_finished" from="Transition/AnimationPlayer" to="Transition" method="_on_AnimationPlayer_animation_finished"]
