@@ -6,7 +6,6 @@ func _on_Node2D_body_entered(body):
 	if body is Boss:
 		print("Collided barrel")
 		body.hurt(Vector2())
-		$AudioStreamPlayer2D.play()
 		get_tree().call_group("BossLogic", "_on_barrel_exploded")
 		
 func prepare():

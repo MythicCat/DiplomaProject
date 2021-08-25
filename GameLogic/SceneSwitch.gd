@@ -63,6 +63,7 @@ func _deferred_goto_scene(path):
 	get_tree().set_current_scene(current_scene)
 	
 	PlayerVariables.new_level() # reset coin and key counter
+	get_tree().call_group("GameState", "force_update_ui")
 	
 	$Transition.transition()
 

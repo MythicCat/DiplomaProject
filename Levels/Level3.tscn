@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Water/Bottom/1.png" type="Texture" id=1]
 [ext_resource path="res://Tilesets/ShipBackgroundTiles.tres" type="TileSet" id=2]
@@ -48,6 +48,7 @@
 [ext_resource path="res://Sound/Music/Origami Repetika - Shanty of Mermaidia.mp3" type="AudioStream" id=46]
 [ext_resource path="res://Hazards/Spikes.tscn" type="PackedScene" id=47]
 [ext_resource path="res://Hazards/Cannon.tscn" type="PackedScene" id=48]
+[ext_resource path="res://Sound/SFX/ObjectsAndItems/BarrelExplosion.wav" type="AudioStream" id=49]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -248,8 +249,6 @@ func _on_Area2D_body_entered(body):
 	ready = false
 	spawn_point.get_child(0).sleeping = false
 	spawn_point.get_child(0).get_child(0).play(\"armed\")
-	#$TNTBarrel.sleeping = false
-	#$TNTBarrel/AnimatedSprite.play(\"armed\")
 	print(\"Release barrel\")
 
 func _on_barrel_ready():
@@ -262,8 +261,8 @@ func _on_barrel_exploded():
 	$ExplosionAnimation.visible = true
 	
 	$ExplosionAnimation.play(\"explosion\")
+	$ExplosionSound.play()
 	spawn_point.get_child(0).queue_free()
-	#$TNTBarrel.reset_state($BarrelLocation.position) # reset barrel position
 	
 	yield($ExplosionAnimation,\"animation_finished\")
 	$ExplosionAnimation.visible = false
@@ -443,19 +442,20 @@ __meta__ = {
 position = Vector2( 369.751, 445.836 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 5 )
-frame = 1
 playing = true
 
 [node name="AnimatedWater2" type="AnimatedSprite" parent="Background"]
 position = Vector2( 861.739, 468.682 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 6 )
+frame = 3
 playing = true
 
 [node name="AnimatedWater3" type="AnimatedSprite" parent="Background"]
 position = Vector2( 542.728, 520.075 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 7 )
+frame = 3
 playing = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
@@ -512,6 +512,10 @@ collision_layer = 0
 collision_mask = 32
 script = SubResource( 9 )
 
+[node name="ExplosionSound" type="AudioStreamPlayer" parent="BossRoom/BossRoomLogic"]
+stream = ExtResource( 49 )
+volume_db = -12.0
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossRoom/BossRoomLogic"]
 position = Vector2( 3254.21, -42.3097 )
 shape = SubResource( 10 )
@@ -520,7 +524,7 @@ shape = SubResource( 10 )
 position = Vector2( 3252.71, -34.0684 )
 frames = SubResource( 11 )
 animation = "idle"
-frame = 2
+frame = 5
 playing = true
 
 [node name="ExplosionAnimation" type="AnimatedSprite" parent="BossRoom/BossRoomLogic"]

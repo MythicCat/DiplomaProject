@@ -15,7 +15,7 @@ var motion = Vector2(0,0)
 var in_air = false
 var immune = false
 var playerRef = null
-var pearlHp = 20
+var pearlHp = 3
 var shot_count = 0 # how many times the clam fires
 
 var _closed = true
@@ -27,13 +27,10 @@ var test = true
 export var shell_threshold = 1
 export var shoot_timer_seconds = 5
 
-"""
-	- Ground slam attack
-	- Different bullet patters
-"""
-
 func _ready(): 
 
+	$AnimatedSprite.modulate = Color(1,1,1,1)
+	$AnimatedSprite.playing = false # prevent animation from playing incorrectly
 	$Pearl/PearlHitbox.disabled = true
 	$InsideClam/ClamInterior.disabled = true
 	$OpenShape.disabled = true
@@ -58,7 +55,6 @@ func apply_gravity(delta):
 	elif is_on_floor():
 		motion.y += GRAVITY * delta
 		in_air = false
-		#print("The island rumbles as the Grand Clam lands!")
 	else:
 		motion.y += GRAVITY * delta
 		in_air = true
@@ -95,11 +91,12 @@ func hurt(_enemy_pos : Vector2): # must detect thrown swords
 
 
 	else:
-		print("Pearl damaged!")
+		print("Pearl damaged! Current hp: " + str(pearlHp))
 		pearlHp -= 1
 		_state_machine.travel("hurt_open")
 		if pearlHp <= 0:
-			queue_free()
+			die()
+			_state_machine.travel("die")
 
 
 func eject_player():
@@ -137,11 +134,14 @@ func _on_CloseTimer_timeout():
 	 _state_machine.travel("close")
 
 
+func die():
+	$CloseTimer.stop()
+	$ShootTimer.stop()
+
+
 func _on_ShootTimer_timeout():
 	if shot_count >= 3:
 		shot_count = 0
-		# traverse to slam
-		#
 	else:
 		_state_machine.travel("shoot")
 	$ShootTimer.start(2)

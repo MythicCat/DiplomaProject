@@ -1,0 +1,207 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://Treasure Hunters/Wood and Paper UI/Sprites/Big Text/13.png" type="Texture" id=1]
+[ext_resource path="res://Treasure Hunters/Wood and Paper UI/Sprites/Big Text/1.png" type="Texture" id=2]
+[ext_resource path="res://Treasure Hunters/Wood and Paper UI/Sprites/Big Text/5.png" type="Texture" id=3]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 2.png" type="Texture" id=4]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 1.png" type="Texture" id=5]
+[ext_resource path="res://Treasure Hunters/Wood and Paper UI/Sprites/Big Text/7.png" type="Texture" id=6]
+[ext_resource path="res://Treasure Hunters/Wood and Paper UI/Sprites/Big Text/20.png" type="Texture" id=7]
+[ext_resource path="res://Treasure Hunters/Wood and Paper UI/Sprites/Big Text/8.png" type="Texture" id=8]
+[ext_resource path="res://Levels/WinScreen.gd" type="Script" id=9]
+[ext_resource path="res://Treasure Hunters/Font/Early GameBoy.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 03.png" type="Texture" id=11]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 02.png" type="Texture" id=12]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 01.png" type="Texture" id=13]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Medium 04.png" type="Texture" id=14]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Medium 02.png" type="Texture" id=15]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Big Clouds.png" type="Texture" id=16]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Small 02.png" type="Texture" id=17]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Medium 01.png" type="Texture" id=18]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" type="Texture" id=19]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 04.png" type="Texture" id=20]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Small 01.png" type="Texture" id=21]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Small 03.png" type="Texture" id=22]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Medium 03.png" type="Texture" id=23]
+[ext_resource path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Small 04.png" type="Texture" id=24]
+[ext_resource path="res://Treasure Hunters/Wood and Paper UI/Sprites/Big Text/15.png" type="Texture" id=25]
+[ext_resource path="res://Treasure Hunters/Wood and Paper UI/Sprites/Big Text/25.png" type="Texture" id=26]
+[ext_resource path="res://Treasure Hunters/Wood and Paper UI/Sprites/Big Text/21.png" type="Texture" id=27]
+[ext_resource path="res://Treasure Hunters/Wood and Paper UI/Sprites/Big Text/2.png" type="Texture" id=28]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 18 ), ExtResource( 15 ), ExtResource( 23 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 21 ), ExtResource( 17 ), ExtResource( 22 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = ExtResource( 10 )
+
+[node name="WinScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 19 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 369.751, 445.836 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 1 )
+frame = 2
+playing = true
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+position = Vector2( 861.739, 468.682 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 2 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="."]
+position = Vector2( 542.728, 520.075 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 567.756, 244.745 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 16 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 378.228, 156.801 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 671.7, 56.1516 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="ScoreTitle" type="Label" parent="."]
+margin_left = 315.238
+margin_top = 257.611
+margin_right = 747.238
+margin_bottom = 297.611
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Treasure found"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="."]
+margin_left = 315.238
+margin_top = 302.996
+margin_right = 747.238
+margin_bottom = 342.996
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WinText" type="Node" parent="."]
+
+[node name="Sprite" type="Sprite" parent="WinText"]
+position = Vector2( 415, 154 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 26 )
+
+[node name="Sprite2" type="Sprite" parent="WinText"]
+position = Vector2( 447, 154 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 25 )
+
+[node name="Sprite3" type="Sprite" parent="WinText"]
+position = Vector2( 479, 154 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 27 )
+
+[node name="Sprite4" type="Sprite" parent="WinText"]
+position = Vector2( 519, 154 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 28 )
+
+[node name="Sprite5" type="Sprite" parent="WinText"]
+position = Vector2( 551, 154 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+
+[node name="Sprite6" type="Sprite" parent="WinText"]
+position = Vector2( 583, 154 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+
+[node name="Sprite7" type="Sprite" parent="WinText"]
+position = Vector2( 615, 154 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+
+[node name="Sprite8" type="Sprite" parent="WinText"]
+position = Vector2( 415, 202 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+
+[node name="Sprite9" type="Sprite" parent="WinText"]
+position = Vector2( 447, 202 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 8 )
+
+[node name="Sprite10" type="Sprite" parent="WinText"]
+position = Vector2( 479, 202 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+
+[node name="Sprite11" type="Sprite" parent="WinText"]
+position = Vector2( 519, 202 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="WinText"]
+position = Vector2( 551, 202 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+
+[node name="Sprite13" type="Sprite" parent="WinText"]
+position = Vector2( 583, 202 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+
+[node name="Sprite14" type="Sprite" parent="WinText"]
+position = Vector2( 615, 202 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )

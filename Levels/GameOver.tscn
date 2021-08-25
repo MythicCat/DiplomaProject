@@ -70,19 +70,21 @@ __meta__ = {
 position = Vector2( 369.751, 445.836 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
 position = Vector2( 861.739, 468.682 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="."]
 position = Vector2( 542.728, 520.075 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -103,41 +105,41 @@ texture = ExtResource( 10 )
 [node name="GameOverText" type="Node" parent="."]
 
 [node name="7" type="Sprite" parent="GameOverText"]
-position = Vector2( 373.018, 215 )
+position = Vector2( 391, 218 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 18 )
 
 [node name="1" type="Sprite" parent="GameOverText"]
-position = Vector2( 405.224, 215 )
+position = Vector2( 423, 218 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 19 )
 
 [node name="13" type="Sprite" parent="GameOverText"]
-position = Vector2( 437.43, 215 )
+position = Vector2( 455, 218 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 21 )
 
 [node name="5" type="Sprite" parent="GameOverText"]
-position = Vector2( 469.506, 215 )
+position = Vector2( 487, 218 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 22 )
 
 [node name="15" type="Sprite" parent="GameOverText"]
-position = Vector2( 525.998, 215 )
+position = Vector2( 535, 218 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 23 )
 
 [node name="22" type="Sprite" parent="GameOverText"]
-position = Vector2( 556.945, 215 )
+position = Vector2( 567, 218 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 24 )
 
 [node name="6" type="Sprite" parent="GameOverText"]
-position = Vector2( 589.021, 215 )
+position = Vector2( 599, 218 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 22 )
 
 [node name="18" type="Sprite" parent="GameOverText"]
-position = Vector2( 621.972, 215 )
+position = Vector2( 631, 218 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 20 )

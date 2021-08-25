@@ -248,7 +248,7 @@ position = Vector2( 2699.11, -358.148 )
 next_scene = "res://Levels/Level2.tscn"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -683.393, -1.28233 )
+position = Vector2( -883.18, 237.748 )
 
 [node name="MapPieceOne" parent="." instance=ExtResource( 14 )]
 position = Vector2( -655.781, 80.4236 )
